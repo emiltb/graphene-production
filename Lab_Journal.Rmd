@@ -1,0 +1,52 @@
+---
+title: 'Lab Journal: Production of functionalised graphene'
+author: "Emil Tveden Bjerglund"
+date: "Last updated: `r Sys.Date()`"
+csl: misc/csl/american-chemical-society-with-titles-doi-no-et-al.csl
+output:
+  rmdformats::html_clean:
+    highlight: kate
+    fig_width: 8
+    fig_height: 3
+    code_folding: hide
+  md_document: default
+  html_document:
+    highlight: kate
+    theme: flatly
+    toc: yes
+    toc_depth: 1
+  pdf_document:
+    toc: yes
+    toc_depth: '1'
+    fig_width: 8
+    fig_height: 3
+  word_document: default
+bibliography: library.bib
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=FALSE,
+	             cache=FALSE,
+               prompt=FALSE,
+               tidy=FALSE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+opts_chunk$set(echo = TRUE)
+
+rmd <- list.files(pattern = '*.Rmd',path = 'lab_journal', recursive = TRUE, include.dirs = TRUE)
+chunks <- paste0("```{r child = 'lab_journal/", rmd, "'}\n```\n")
+cat(chunks, sep = '\n')
+
+```
+
+```{r child = 'lab_journal/20170809_graphene_prod_in-situ_diazo.Rmd'}
+```
+
+# References
