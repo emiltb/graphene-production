@@ -21,7 +21,7 @@ output:
     fig_width: 8
     fig_height: 3
   word_document: default
-bibliography: library.bib
+bibliography: misc/library.bib
 ---
 
 ```{r setup, include=FALSE}
