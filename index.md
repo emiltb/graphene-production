@@ -1,9 +1,8 @@
-# Graphene production project
+# Graphene production for polymer composites
+> Project by Emil Tveden Bjerglund
 
-Find the:
-* [Lab Journal](lab_journal.html)
-* OSF page
+Detailed project description will follow.
 
-## Project description
-
-Here comes a description
+## Links
+* Procedures and results are found in the [Lab Journal](lab_journal.html)
+* More information can be found on the [Open Science Framework](https://osf.io/gmprw/)
