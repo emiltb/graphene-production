@@ -1,0 +1,43 @@
+# 20170904 Gr-NH2 production for Radisurf {#j20170904}
+
+Following the [initial tests](#j20170809) in the new graphene production setup a batch of amine-functionalised graphene will be produced. Radisurf will attempt surface-polymerisation on the graphene and embed it in a silicone matrix. 
+
+## Protocol
+```{r stochiometry170904}
+library(units)
+V = set_units(1500, mL) # Volume of 0.1 M H2SO4 to be used
+C_diazo = set_units(2, mmol/L)
+
+M_nitro = set_units(202.64, mg/mmol) # 4-Nitrophenethylamine hydrochloride
+M_nitrite = set_units(69.00, mg/mmol) # NaNO2
+
+n_nitro = V * C_diazo
+n_nitrite = n_nitro * 2
+
+m_nitro = n_nitro * M_nitro
+m_nitrite = n_nitrite * M_nitrite
+```
+
+The `r format(C_diazo)` 4-(2-aminoethyl)benzenediazonium solution is generated in-situ by mixing `r format(V)` 0.1 M H~2~SO~4~ with `r format(m_nitro)` 4-Nitrophenethylamine hydrochloride (`r format(n_nitro)`) and `r format(m_nitrite)` NaNO~2~ (`r format(n_nitrite)`). This is stirred for 15 min. The presence of diazonium-compound is confirmed by dissolving a small amount of ferrocene in DMF and adding some of the solution to check for a green color. 
+
+To test the stability of the diazonium-compound during the electrochemical exfoliation Cyclic Voltammetry will be used periodically under non-grafting conditions (diazonium concentation < 0.1 mM). A blank CV will be recorded in 9.5 mL 0.1 M H~2~SO~4~, 0.5 mL electrolyte solution will be added and a CV recorded for one reductive sweep (range?) using a glassy carbon microelectrode, Pt counter electrode and SCE reference electrode. The temperature should be recorded when extracting samples. 
+
+The electrochemical exfoliation of functionalised graphene will be done by positioning and 8x15 cm^2^ graphite foil between two large stainless steel electrodes and applying 10 V for 1 hour (more if the indication is that the diazonium-salt is still active and the graphite is not fully exfoliated). Weigh the foil before electrolysis
+
+The exfoliated graphene and remaining graphite foil is collected and washed with water and acetonitrile. The graphene is ultrasonicated in DMF and left overnight for graphite to sediment. The upper 95 % of the solution is collected and centrifuged to collect most of the graphene - the remaining part is collected by filtration on 0.45 um nylon membrane filters. All graphene is then ultrasonicated in water and freeze-dried. 
+
+## Journal
+
+Time (min)    | 0.5 mL coll.  | Temperature (dC) | Current (A) | Voltage (V)
+------------- | ------------- | ---------------- | ----------- | ------------
+0             |               |                  |             |
+15            |               |                  |             |
+30            |               |                  |             |
+45            |               |                  |             |
+60            |               |                  |             |
+-             |               |                  |             |
+-             |               |                  |             |
+
+## Results and discussion
+
+## Conclusion and outlook

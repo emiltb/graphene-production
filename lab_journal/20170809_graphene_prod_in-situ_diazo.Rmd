@@ -1,6 +1,6 @@
-# 20170809 Functionalised graphene by oxidative exfoliation
+# 20170809 Functionalised graphene by oxidative exfoliation {#j20170809}
 
-```{r stochiometry}
+```{r stochiometry170809}
 library(units)
 V = set_units(200, mL) # Volume of 0.1 M H2SO4 to be used
 C_diazo = set_units(2, mmol/L)

@@ -9,12 +9,7 @@ output:
     fig_width: 8
     fig_height: 3
     code_folding: hide
-  md_document: default
-  html_document:
-    highlight: kate
-    theme: flatly
-    toc: yes
-    toc_depth: 1
+    md_extensions: +header_attributes
   pdf_document:
     toc: yes
     toc_depth: '1'
@@ -40,13 +35,16 @@ opts_chunk$set(echo=FALSE,
 opts_knit$set(width=75)
 opts_chunk$set(echo = TRUE)
 
-rmd <- list.files(pattern = '*.Rmd',path = 'lab_journal', recursive = TRUE, include.dirs = TRUE)
+rmd <- rev(list.files(pattern = '*.Rmd',path = 'lab_journal', recursive = TRUE, include.dirs = TRUE))
 chunks <- paste0("```{r child = 'lab_journal/", rmd, "'}\n```\n")
-cat(chunks, sep = '\n')
+readr::write_lines(chunks, "includes.Rmd")
 
 ```
 
-```{r child = 'lab_journal/20170809_graphene_prod_in-situ_diazo.Rmd'}
+```{r child = 'includes.Rmd'}
 ```
 
+```{r cleanup, include=FALSE}
+file.remove("includes.Rmd")
+```
 # References
