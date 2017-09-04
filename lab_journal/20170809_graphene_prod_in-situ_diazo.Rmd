@@ -52,4 +52,4 @@ Since the previously mentioned production only allowed for a current of 4 A, we 
 
 Production in this setup was conducted without the diazonium salt, to confirm that everything worked as expected. 1.5 L 0.1 M H~2~SO~4~ was made (8.25 mL H~2~SO~4~ diluted to 1.5 L). A 8x15 cm^2^ graphite foil (7.0604 g) was used as the anode. This was electrolysed at 10 V for 1 hour (~18-20 A currrent). The exfoliated product was filtrated and washed with water and ethanol. It was then dried in an oven.
 
-After electrolysis 2.7092 g graphite remained (4.3512 g exfoliated in 1 hour). Mass of graphene exfoliated = 292.6 g - 259.6 g = 33 g. However, there is no way that all of this mass is graphene! Lets try to dry it more.
+After electrolysis 2.7092 g graphite remained (4.3512 g exfoliated in 1 hour). Mass of graphene exfoliated = 292.6 g - 259.6 g = 33 g. However, there is no way that all of this mass is graphene! Lets try to dry it more. (Update on 20170904: Mass recorded to 261.3 g after 2 h at 50 dC in vacuum oven = `r 261.3 - 259.6` g graphene.)

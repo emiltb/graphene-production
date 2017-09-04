@@ -22,6 +22,8 @@ bibliography: misc/library.bib
 ```{r setup, include=FALSE}
 library(knitr)
 library(rmdformats)
+library(tidyverse)
+library(units)
 
 ## Global options
 options(max.print="75")
