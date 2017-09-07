@@ -1,0 +1,16 @@
+Several groups have shown great interest in our work with production of functionalised graphene for polymer composites.
+
+```{r echo=FALSE, out.width='90%'}
+knitr::include_graphics('../figs/biweekly_header.png')
+```
+
+In this project we will attempt to produce batches for testing in various companies with various goals:
+
+* Radisurf (Intends to do ATRP-polymerisation on the graphene and embed it in silicone).
+* SP Group (Interest in testing it for their PUR products).
+* Newtec (Interest in graphene with different functionalities for better interaction with their quantum dots).
+* Chemical Engineers, AU (Repetition of our work in Andreas' bachelorproject for potential publication).
+
+These projects will hopefully give some more experience in handling large quantities of graphene and give some interesting applications.
+
+Lab journal available at https://emiltb.github.io/graphene-production/lab_journal.html

@@ -1,25 +1,3 @@
-Sept. 4, 2017   10:40:03
-Cyclic Voltammetry
-File: cv3 0
-Data Source:  Experiment
-Instrument Model:  CHI601D
-Header: 
-Note: 
-
-Init E (V) = 0
-High E (V) = 1
-Low E (V) = -1
-Final E (V) = 0
-Init P/N = P
-Scan Rate (V/s) = 0.1
-Segment = 3
-Sample Interval (V) = 0.001
-Quiet Time (sec) = 2
-Sensitivity (A/V) = 1e-6
-
-Potential/V, Current/A
-
-Segment 1:
 0.000, -1.611e-6
 0.001, -1.594e-6
 0.002, -1.579e-6
@@ -1020,8 +998,6 @@ Segment 1:
 0.997, 2.227e-6
 0.998, 2.231e-6
 0.999, 2.236e-6
-
-Segment 2:
 1.000, 2.225e-6
 0.999, 2.178e-6
 0.998, 2.133e-6
@@ -3022,8 +2998,6 @@ Segment 2:
 -0.997, -1.003e-5
 -0.998, -1.003e-5
 -0.999, -1.003e-5
-
-Segment 3:
 -1.000, -1.003e-5
 -0.999, -1.003e-5
 -0.998, -1.003e-5

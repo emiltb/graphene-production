@@ -29,20 +29,44 @@ The exfoliated graphene and remaining graphite foil is collected and washed with
 ## Journal
 The experiment was conducted as described in the protocol. The masse of the graphite electrode was 7.0990 g. The exfoliation was continued for 90 minutes and a ferrocene-test at this point gave a green solution, indicating that diazonium-compound was still present.
 
-The product was dried at 50 dC under vacuum for 2 hours, which was insufficient to completely dry the sample (mass of product at this stage = 279.5 g - 243.9 g = 35.6 g). The mass of the remaining graphite electrode was 1.8904 g, meaning that `r 7.0990 - 1.8904` g graphite was exfoliated in 90 min.
+The product was dried at 50 °C under vacuum for 2 hours, which was insufficient to completely dry the sample (mass of product at this stage = 279.5 g - 243.9 g = 35.6 g). The mass of the remaining graphite electrode was 1.8904 g, meaning that `r 7.0990 - 1.8904` g graphite was exfoliated in 90 min.
 
 ```{r exp170904}
 exp170904 <- tibble(
-  t = set_units(c(0, 15, 30, 45, 60, 90), min),
+  t = c(0, 15, 30, 45, 60, 90),
   sample_collected = c(TRUE, TRUE, TRUE, TRUE, TRUE, FALSE),
-  temp = set_units(c(23, 38, 51, 62, 67, 69), celsius),
-  current = set_units(c(17.2, 19.4, 19.7, 19.9, 19.0, 12.7), A),
-  voltage = set_units(rep(10, 6), V))
+  temp = c(23, 38, 51, 62, 67, 69),
+  current = c(17.2, 19.4, 19.7, 19.9, 19.0, 12.7),
+  voltage = rep(10, 6))
 
-knitr::kable(exp170904)
+knitr::kable(exp170904, col.names = c('Time (min)', 'Sample collected', 'Temp. °C', 'Current (A)', 'Voltage (V)'))
 ```
 
+The exfoliated graphite was then ultrasonicated in 400 mL DMF for 1 hour and left to stand for 2 days (1 was probably enough) to allow residual graphite to sedimentate. The solution was then centrifuged at 4000 rpm for 1 hour and the supernatant filtered on 0.45 um nylon membrane filters, while the pellet was collected in water.
 
 ## Results and discussion
+
+### Following the diazonium-concentration during functionalisation
+An attempt was made to monitor the concentration of diazonium compound during the reaction. This is tricky because it must be done at non-grafting concentrations, meaning the diazonium-concentration should be below 0.1 mM (= very low signal). Blank CVs and CVs in diazonium solution at different times during the experiment is displayed below.
+```{r electrochem170904}
+path <- "../data/raw_data/electrochemistry/20170904_Gr-NH2_prod_for_Radisurf/"
+electrochem170904 <- tibble(filename = list.files(path = path, pattern = "*.txt")) %>%  
+  filter(grepl("^((\\d)|(CV2)|(I))", filename)) %>% 
+  mutate(sample = stringr::str_extract(filename, "^(\\d){2}"), sample = as.numeric(ifelse(is.na(sample), 0, sample))) %>% 
+  mutate(sol = stringr::str_extract(filename, "(blank)"), sol = ifelse(is.na(sol), "0.1 mM diazonium", "Blank")) %>% 
+  mutate(data = map(paste0(path, filename), read_csv, col_names = c('pot', 'cur'))) %>% 
+  unnest()
+
+electrochem170904 %>% 
+  ggplot(aes(pot, cur, color = sol)) +
+  geom_path() +
+  facet_wrap(~sample) +
+  labs(x = "Potential (V vs. SCE)", y = "Current (A)") +
+  theme(legend.position = "top", legend.title = element_blank())
+
+ggsave("../figs/20170904_electrochem_exfoliation.png", width = 16, height = 12, units = "cm", dpi = 300)
+```
+
+No clear signal from the diazonium compound is observed in any of the measurements. A crude ferrocene-test gave a green color both before and after the experiment, indicating that the diazonium compound was present.
 
 ## Conclusion and outlook
