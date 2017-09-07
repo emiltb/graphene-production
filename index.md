@@ -6,3 +6,6 @@ Detailed project description will follow.
 ## Links
 * Procedures and results are found in the [Lab Journal](lab_journal.html)
 * More information can be found on the [Open Science Framework](https://osf.io/gmprw/)
+
+## Biweekly reports
+* 20170908 ([PDF](biweekly_reports/20170908_Biweekly_report_Emil.pdf), [HTML](biweekly_reports/20170908_Biweekly_report_Emil.html))
