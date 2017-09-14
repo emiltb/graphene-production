@@ -125,14 +125,48 @@ img {
 <div id="header">
 <h1 class="title">Lab Journal: Production of functionalised graphene</h1>
 <h4 class="author"><em>Emil Tveden Bjerglund</em></h4>
-<h4 class="date"><em>Last updated: 2017-09-07</em></h4>
+<h4 class="date"><em>Last updated: 2017-09-14</em></h4>
 </div>
 
 <div id="content">
+<div id="j20170915" class="section level1">
+<h1>20170915 Azo-coupling of diazonium compounds</h1>
+<p>In the production of functionalised graphene it would be nice to assess that the diazonium compound is continously present. This was previously attempted using <a href="#j20170904">electrochemistry</a>, but was not succesful due to very low concentrations.</p>
+<p>Another possibility is to use the diazonium compound to make an azo-coupling with 2-Naphtol. This should produce a very colorful dye, which should be easy to measure concentration of using UV-Vis absorption spectroscopy.</p>
+<div id="protocol" class="section level2">
+<h2>Protocol</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(units)
+V =<span class="st"> </span><span class="kw">set_units</span>(<span class="dv">10</span>, mL) <span class="co"># Volume of 0.1 M H2SO4 to be used</span>
+C_diazo =<span class="st"> </span><span class="kw">set_units</span>(<span class="dv">2</span>, mmol<span class="op">/</span>L)
+
+M_nitro =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">202.64</span>, mg<span class="op">/</span>mmol) <span class="co"># 4-Nitrophenethylamine hydrochloride</span>
+M_nitrite =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">69.00</span>, mg<span class="op">/</span>mmol) <span class="co"># NaNO2</span>
+M_naphtol =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">144.17</span>, mg<span class="op">/</span>mmol) <span class="co"># 2-Naphtol</span>
+
+n_nitro =<span class="st"> </span>V <span class="op">*</span><span class="st"> </span>C_diazo
+n_nitrite =<span class="st"> </span>n_nitro <span class="op">*</span><span class="st"> </span><span class="fl">1.5</span>
+n_naphtol =<span class="st"> </span>n_nitro <span class="op">*</span><span class="st"> </span><span class="fl">1.5</span>
+
+m_nitro =<span class="st"> </span>n_nitro <span class="op">*</span><span class="st"> </span>M_nitro
+m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span class="st"> </span>M_nitrite
+m_naphtol =<span class="st"> </span>n_naphtol <span class="op">*</span><span class="st"> </span>M_naphtol</code></pre></div>
+<p>Initially the diazonium compound is formed by mixing 10 mL 0.1 M H<sub>2</sub>SO<sub>4</sub> with 4.0528 mg 4-Nitrophenethylamine hydrochloride (0.02 mmol) and 2.07 mg NaNO<sub>2</sub> (0.03 mmol). This is stirred for 15 min.</p>
+<p>The diazonium-solution is then added to a solution of 4.3251 mg 2-Napthol (0.03 mmol) in 2 mL 10 % sodium hydroxide and 5 mL water. This should form a orange-red dye upon heating.</p>
+</div>
+<div id="journal" class="section level2">
+<h2>Journal</h2>
+</div>
+<div id="results-and-discussion" class="section level2">
+<h2>Results and discussion</h2>
+</div>
+<div id="conclusion-and-outlook" class="section level2">
+<h2>Conclusion and outlook</h2>
+</div>
+</div>
 <div id="j20170904" class="section level1">
 <h1>20170904 Gr-NH2 production for Radisurf</h1>
 <p>Following the <a href="#j20170809">initial tests</a> in the new graphene production setup a batch of amine-functionalised graphene will be produced. Radisurf will attempt surface-polymerisation on the graphene and embed it in a silicone matrix.</p>
-<div id="protocol" class="section level2">
+<div id="protocol-1" class="section level2">
 <h2>Protocol</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(units)
 V =<span class="st"> </span><span class="kw">set_units</span>(<span class="dv">1500</span>, mL) <span class="co"># Volume of 0.1 M H2SO4 to be used</span>
@@ -151,9 +185,9 @@ m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span cla
 <p>The electrochemical exfoliation of functionalised graphene will be done by positioning and 8x15 cm<sup>2</sup> graphite foil between two large stainless steel electrodes and applying 10 V for 1 hour (more if the indication is that the diazonium-salt is still active and the graphite is not fully exfoliated). Weigh the foil before electrolysis</p>
 <p>The exfoliated graphene and remaining graphite foil is collected and washed with water and acetonitrile. The graphene is ultrasonicated in DMF and left overnight for graphite to sediment. The upper 95 % of the solution is collected and centrifuged to collect most of the graphene - the remaining part is collected by filtration on 0.45 um nylon membrane filters. All graphene is then ultrasonicated in water and freeze-dried.</p>
 </div>
-<div id="journal" class="section level2">
+<div id="journal-1" class="section level2">
 <h2>Journal</h2>
-<p>The experiment was conducted as described in the protocol. The masse of the graphite electrode was 7.0990 g. The exfoliation was continued for 90 minutes and a ferrocene-test at this point gave a green solution, indicating that diazonium-compound was still present.</p>
+<p>The experiment was conducted as described in the protocol. The mass of the graphite electrode was 7.0990 g. The exfoliation was continued for 90 minutes and a ferrocene-test at this point gave a green solution, indicating that diazonium-compound was still present.</p>
 <p>The product was dried at 50 °C under vacuum for 2 hours, which was insufficient to completely dry the sample (mass of product at this stage = 279.5 g - 243.9 g = 35.6 g). The mass of the remaining graphite electrode was 1.8904 g, meaning that 5.2086 g graphite was exfoliated in 90 min.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">exp170904 &lt;-<span class="st"> </span><span class="kw">tibble</span>(
   <span class="dt">t =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">45</span>, <span class="dv">60</span>, <span class="dv">90</span>),
@@ -218,9 +252,9 @@ knitr<span class="op">::</span><span class="kw">kable</span>(exp170904, <span cl
 </tr>
 </tbody>
 </table>
-<p>The exfoliated graphite was then ultrasonicated in 400 mL DMF for 1 hour and left to stand for 2 days (1 was probably enough) to allow residual graphite to sedimentate. The solution was then centrifuged at 4000 rpm for 1 hour and the supernatant filtered on 0.45 um nylon membrane filters, while the pellet was collected in water.</p>
+<p>The exfoliated graphite was then ultrasonicated in 400 mL DMF for 1 hour and left to stand for 2 days (1 was probably enough) to allow residual graphite to sedimentate. The solution was then centrifuged at 4000 rpm for 1 hour and the pellet was collected in water. The remaining graphene solution in DMF was filtered on 0.45 um nylon membrane and the solid product collected in water. The entire graphene solution in water was put in a 500 mL roundbottomed flask and ultrasonicated for 30 min. This was then frozen using liquid nitrogen and put on the freeze-drier.</p>
 </div>
-<div id="results-and-discussion" class="section level2">
+<div id="results-and-discussion-1" class="section level2">
 <h2>Results and discussion</h2>
 <div id="following-the-diazonium-concentration-during-functionalisation" class="section level3">
 <h3>Following the diazonium-concentration during functionalisation</h3>
@@ -228,7 +262,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(exp170904, <span cl
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">path &lt;-<span class="st"> &quot;../data/raw_data/electrochemistry/20170904_Gr-NH2_prod_for_Radisurf/&quot;</span>
 electrochem170904 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">filename =</span> <span class="kw">list.files</span>(<span class="dt">path =</span> path, <span class="dt">pattern =</span> <span class="st">&quot;*.txt&quot;</span>)) <span class="op">%&gt;%</span><span class="st">  </span>
 <span class="st">  </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="st">&quot;^((</span><span class="ch">\\</span><span class="st">d)|(CV2)|(I))&quot;</span>, filename)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sample =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(filename, <span class="st">&quot;^(</span><span class="ch">\\</span><span class="st">d){2}&quot;</span>), <span class="dt">sample =</span> <span class="kw">as.numeric</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(sample), <span class="dv">0</span>, sample))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sample =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(filename, <span class="st">&quot;^(</span><span class="ch">\\</span><span class="st">d){2}&quot;</span>), <span class="dt">sample =</span> <span class="kw">as.numeric</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(sample), <span class="dv">0</span>, sample))) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sol =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(filename, <span class="st">&quot;(blank)&quot;</span>), <span class="dt">sol =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(sol), <span class="st">&quot;0.1 mM diazonium&quot;</span>, <span class="st">&quot;Blank&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">data =</span> <span class="kw">map</span>(<span class="kw">paste0</span>(path, filename), read_csv, <span class="dt">col_names =</span> <span class="kw">c</span>(<span class="st">'pot'</span>, <span class="st">'cur'</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">unnest</span>()
@@ -244,7 +278,7 @@ electrochem170904 <span class="op">%&gt;%</span><span class="st"> </span>
 <p>No clear signal from the diazonium compound is observed in any of the measurements. A crude ferrocene-test gave a green color both before and after the experiment, indicating that the diazonium compound was present.</p>
 </div>
 </div>
-<div id="conclusion-and-outlook" class="section level2">
+<div id="conclusion-and-outlook-1" class="section level2">
 <h2>Conclusion and outlook</h2>
 </div>
 </div>
@@ -262,7 +296,7 @@ n_nitrite =<span class="st"> </span>n_nitro <span class="op">*</span><span class
 
 m_nitro =<span class="st"> </span>n_nitro <span class="op">*</span><span class="st"> </span>M_nitro
 m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span class="st"> </span>M_nitrite</code></pre></div>
-<div id="protocol-1" class="section level2">
+<div id="protocol-2" class="section level2">
 <h2>Protocol</h2>
 <p>This production method is inspired by the work by Belanger and co-workers.<span class="citation"><sup>1</sup></span></p>
 <div id="in-situ-generation-of-2-mmoll-4-2-aminoethylbenzenediazonium-solution" class="section level3">
@@ -276,7 +310,7 @@ m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span cla
 <p>A 2-electrode setup is made with 100 cm<sup>2</sup> 0.5 mm graphite foil (cut into four 5x5 cm<sup>2</sup> pieces) as the anode (+) and a sheet of stainless steel as the cathode (-) in a tall 400 mL beaker. <strong>Consider putting a piece of filter paper between the electrodes to prevent exfoliated graphene contacting the cathode</strong>. The freshly made diazonium-solution is poured into the beaker and the graphite exfoliated at 10 V for 1 hour (longer if the foil is not properly exfoliated at this stage). This was done in our grounded cage, and the ground terminal of the power supply was connected to the cage.</p>
 <p>Wash the remaning graphite foil with water and dry it (for yield calculation). The flakes are then collected with vacuum filtration and washed with water and acetonitrile. Ultrasonicate into DMF to disperse the graphene flakes. Leave overnight to sedimentate remaning graphite. Centrifuge the top part of the DMF solution at high speed for 1 hour to sedimentate the remaning graphene. Remove DMF and ultrasonicate in water. Freeze-dry the aqueous solution to obtain graphene powder.</p>
 </div>
-<div id="journal-1" class="section level2">
+<div id="journal-2" class="section level2">
 <h2>Journal</h2>
 <p>The experiment was performed as described in the protocol. Graphite foil (for four 5x5 cm pieces, 5.8150 g total mass) was used as the anode. 0.1 M H2SO4 was made by mixing 1.4 mL conc. H<sub>2</sub>SO<sub>4</sub> and diluting until 250 mL H<sub>2</sub>O.</p>
 <p>The diazonium compound formed as described. Tested against ferrocene in DMF and gave a green solution.</p>
@@ -310,16 +344,22 @@ m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span cla
       <div id="toc">
       	<button type="button" class="close">×</button>
         <ul>
-        <li><a href="#j20170904">20170904 Gr-NH2 production for Radisurf</a><ul>
+        <li><a href="#j20170915">20170915 Azo-coupling of diazonium compounds</a><ul>
         <li><a href="#protocol">Protocol</a></li>
         <li><a href="#journal">Journal</a></li>
         <li><a href="#results-and-discussion">Results and discussion</a></li>
         <li><a href="#conclusion-and-outlook">Conclusion and outlook</a></li>
         </ul></li>
-        <li><a href="#j20170809">20170809 Functionalised graphene by oxidative exfoliation</a><ul>
+        <li><a href="#j20170904">20170904 Gr-NH2 production for Radisurf</a><ul>
         <li><a href="#protocol-1">Protocol</a></li>
-        <li><a href="#exfoliation-of-functionalised-graphene-flakes">Exfoliation of functionalised graphene flakes</a></li>
         <li><a href="#journal-1">Journal</a></li>
+        <li><a href="#results-and-discussion-1">Results and discussion</a></li>
+        <li><a href="#conclusion-and-outlook-1">Conclusion and outlook</a></li>
+        </ul></li>
+        <li><a href="#j20170809">20170809 Functionalised graphene by oxidative exfoliation</a><ul>
+        <li><a href="#protocol-2">Protocol</a></li>
+        <li><a href="#exfoliation-of-functionalised-graphene-flakes">Exfoliation of functionalised graphene flakes</a></li>
+        <li><a href="#journal-2">Journal</a></li>
         </ul></li>
         <li><a href="#references">References</a></li>
         </ul>

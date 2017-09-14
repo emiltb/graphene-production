@@ -1,0 +1,38 @@
+---
+knit: (function(inputFile, encoding) {
+  rmarkdown::render("../lab_journal.Rmd", encoding = encoding) })
+---
+# 20170915 Azo-coupling of diazonium compounds {#j20170915}
+
+In the production of functionalised graphene it would be nice to assess that the diazonium compound is continously present. This was previously attempted using [electrochemistry](#j20170904), but was not succesful due to very low concentrations.
+
+Another possibility is to use the diazonium compound to make an azo-coupling with 2-Naphtol. This should produce a very colorful dye, which should be easy to measure concentration of using UV-Vis absorption spectroscopy. 
+
+## Protocol
+```{r}
+library(units)
+V = set_units(10, mL) # Volume of 0.1 M H2SO4 to be used
+C_diazo = set_units(2, mmol/L)
+
+M_nitro = set_units(202.64, mg/mmol) # 4-Nitrophenethylamine hydrochloride
+M_nitrite = set_units(69.00, mg/mmol) # NaNO2
+M_naphtol = set_units(144.17, mg/mmol) # 2-Naphtol
+
+n_nitro = V * C_diazo
+n_nitrite = n_nitro * 1.5
+n_naphtol = n_nitro * 1.5
+
+m_nitro = n_nitro * M_nitro
+m_nitrite = n_nitrite * M_nitrite
+m_naphtol = n_naphtol * M_naphtol
+```
+
+Initially the diazonium compound is formed by mixing `r format(V)` 0.1 M H~2~SO~4~ with `r format(m_nitro)` 4-Nitrophenethylamine hydrochloride (`r format(n_nitro)`) and `r format(m_nitrite)` NaNO~2~ (`r format(n_nitrite)`). This is stirred for 15 min. 
+
+The diazonium-solution is then added to a solution of `r format(m_naphtol)` 2-Napthol (`r format(n_naphtol)`) in 2 mL 10 % sodium hydroxide and 5 mL water. This should form a orange-red dye upon heating.
+
+## Journal
+
+## Results and discussion
+
+## Conclusion and outlook
