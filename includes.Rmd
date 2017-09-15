@@ -1,0 +1,9 @@
+```{r child = 'lab_journal/20170914_20170915_Azo-coupling_of_diazonium_compounds.Rmd'}
+```
+
+```{r child = 'lab_journal/20170904_Gr-NH2_production_for_Radisurf.Rmd'}
+```
+
+```{r child = 'lab_journal/20170809_graphene_prod_in-situ_diazo.Rmd'}
+```
+

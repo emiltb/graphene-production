@@ -4,7 +4,7 @@ author: "Emil Tveden Bjerglund"
 date: "Last updated: `r Sys.Date()`"
 csl: misc/csl/american-chemical-society-with-titles-doi-no-et-al.csl
 output:
-  rmdformats::html_clean:
+  rmdformats::readthedown:
     highlight: kate
     fig_width: 8
     fig_height: 3
@@ -28,7 +28,7 @@ library(units)
 ## Global options
 options(max.print="75")
 opts_chunk$set(echo=FALSE,
-	             cache=FALSE,
+	             cache=TRUE,
                prompt=FALSE,
                tidy=FALSE,
                comment=NA,
