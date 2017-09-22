@@ -3,9 +3,9 @@ title: 'Biweekly report: Functionalised graphene for polymer composites'
 author: "Emil Tveden Bjerglund"
 date: "8 sep 2017"
 output:
-  pdf_document: default
   html_document:
     code_folding: hide
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
