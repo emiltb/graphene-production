@@ -46,7 +46,8 @@ data170915 <- tibble(file = list.files(path = path, pattern = "*.csv")) %>%
   mutate(data = map(paste0(path,file), read_delim, delim = ";", skip = 1)) %>%
   mutate(name = stringr::str_extract(file, pattern = "^[\\sa-zA-Z0-9_-]*")) %>% 
   unnest() %>% 
-  mutate(region = ifelse(nm > 400, "Visible", "UV")) 
+  mutate(region = ifelse(nm > 400, "Visible", "UV"))
+
 ```
 
 We can plot each absorption spectrum. From this we can see that, as expected, all compounds adsorb light in the ultraviolet region, but it is only the synthesized azo-dye that has any significant adsorption in the visible range. 
@@ -57,6 +58,8 @@ data170915 %>%
   ggplot(aes(nm, A, color = name)) +
   geom_line() +
   facet_wrap(~region, ncol = 2, scales = "free")
+
+ggsave("../figs/20170904_UVVis_compounds.png", width = 16, height = 6, units = "cm", dpi = 300)
 ```
 
 Data has also been obtained for a series of dilutions of the azo-dye to make a calibration curve. The numbers in the legend indicate the dilution factor (i.e 1 to 0, 1 to 2 etc.)
@@ -92,6 +95,8 @@ data170915_cal %>%
   geom_line(data = fitted170915, aes(C, fit)) +
   geom_ribbon(data = fitted170915, aes(x = C, ymin = lwr, ymax = upr), alpha = 0.2) + 
   labs(title = "Absorption of azo-dye at 499 nm", x = "Concentration (mmol/L)", y = "Absorption (a.u.)")
+
+ggsave("../figs/20170904_UVVis_dilution.png", width = 16, height = 4, units = "cm", dpi = 300)
 ```
 
 The absorption coefficient at 499 nm becomes `r round(coef(fit170915)[2], 3)` ± `r round(confint(fit170915, parm = "C", level = 0.95)[2] - coef(fit170915)[2], 3)` mM^-1^ cm^-1^. Note that this is for the azo-dye, and the concentration of the diazonium is halved during the production of the dye. In reality, relative concentrations within a single experiment are probably most interesting. 

@@ -1,0 +1,8 @@
+Curve Name	Centre	Width	Height	% Gaussian	Type	Area	ChiSq
+D	1348.85	92.052	183.696	0	Lorentzian	26561.6	1.28831
+G	1579.65	43.0678	283.096	0	Lorentzian	19151.6	
+D'	1615.46	20.5046	71.1282	0	Lorentzian	2290.94	
+2D	2698.71	89.2174	83.357	0	Lorentzian	11681.8	
+D+D'	2929.34	160.033	31.6501	0	Lorentzian	7956.16	
+2D'	3171.37	102.754	8.75954	0	Lorentzian	1413.84	
+SiO2	965.374	55.9139	21.7253	100	Gaussian	1293.06	

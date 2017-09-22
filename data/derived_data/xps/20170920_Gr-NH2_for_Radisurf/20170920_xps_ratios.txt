@@ -1,0 +1,5 @@
+C:\Users\emilbp\PhD\Projects\graphene-production\data\derived_data\xps\20170920_Gr-NH2_for_Radisurf\GrNH2.vms	
+
+Etch Time	C 1s CPSeV	Cl 2p CPSeV	N 1s CPSeV	O 1s CPSeV	S 2p CPSeV	Si 2p CPSeV	C 1s %	Cl 2p %	N 1s %	O 1s %	S 2p %	Si 2p %	
+0	105750	239.721	1068.99	23445	422.954	976.775	80.1723	0.18174	0.810435	17.7744	0.320654	0.740523	
+0	96898.6	172.449	983.744	24049.2	475.67	1006.13	78.406	0.139538	0.796002	19.4595	0.384891	0.814115	
