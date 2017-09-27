@@ -10,3 +10,6 @@ Detailed project description will follow.
 ## Biweekly reports
 * 20170908 ([PDF](biweekly_reports/20170908_Biweekly_report_Emil.pdf), [HTML](biweekly_reports/20170908_Biweekly_report_Emil.html))
 * 20170922 ([PDF](biweekly_reports/20170922_Biweekly_report_Emil.pdf), [HTML](biweekly_reports/20170922_Biweekly_report_Emil.html))
+
+## Presentations
+* 20170928 Open Science meeting ([HTML](presentations/20170928_Producing_functionalised_graphene.html))

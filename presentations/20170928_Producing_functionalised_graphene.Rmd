@@ -1,0 +1,34 @@
+---
+title: "Producing functionalised graphene"
+author: "Emil Tveden Bjerglund"
+date: "Open Science Meeting<br>28 sep 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Method
+
+### Oxidative exfoliation of graphene
+<img src="../figs/biweekly_header.png" style="width: 80%;">
+
+### *In-situ* synthesis of diazonium-compound
+<img src="../figs/diazonium-formation.png" style="width: 50%;">
+
+## Method
+<img src="../figs/graphene_machine.png" style="width: 40%;">
+<img src="../data/raw_data/20170809_new_cell.jpg" style="width: 40%;">
+
+## Progress
+The new setup can produce $\sim 3$ g/h.
+
+Nitrogen is incorporated in the flakes (XPS).
+
+We would like to monitor the $C_{diazo}$ during exfoliation (UV-Vis)
+<img src="../figs/azo-coupling.png" style="width: 70%;">
+
+Ready to produce several grams for testing (Radisurf, Newtec, SP Group, Chemical Engineers (AU))
+
+Interested in other functional groups
