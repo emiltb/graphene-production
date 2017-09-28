@@ -1,0 +1,50 @@
+# 20170929 Gr-NH2 production with monitoring diazonium concentration {#j20170929}
+
+Following the partially succesful graphene production [for Radisurf](#j20170904) we wish to make a new production in the same way. However, this time the diazonium concentration will be monitored using UV-Vis spectroscopy (see [20170915](#j20170915)) and the graphene will be freeze-dried in smaller batches to ensure that a fine powder is obtained.
+
+## Protocol
+```{r stochiometry170929}
+library(units)
+V = set_units(1500, mL) # Volume of 0.1 M H2SO4 to be used
+C_diazo = set_units(2, mmol/L)
+C_naphtol = set_units(3, mmol/L)
+V_naphtol = set_units(30, mL)
+
+M_nitro = set_units(202.64, mg/mmol) # 4-Nitrophenethylamine hydrochloride
+M_nitrite = set_units(69.00, mg/mmol) # NaNO2
+M_naphtol = set_units(144.17, mg/mmol) # 2-Naphtol
+
+n_nitro = V * C_diazo
+n_nitrite = n_nitro * 2
+n_naphtol = V_naphtol * C_naphtol # enough to make 15 samples of 2 mL
+
+m_nitro = n_nitro * M_nitro
+m_nitrite = n_nitrite * M_nitrite
+m_naphtol = n_naphtol * M_naphtol
+
+C_dye = set_units(C_diazo * set_units(2, mL) / set_units(4, mL), mmol/L)
+```
+
+### Preparing solutions
+First 1 L 1.0 M H~2~SO~4~ is made by mixing 55 mL conc. H~2~SO~4~ with 962 mL H~2~O. From this `r format(V*0.1 / 1.0)` is diluted to `r format(V)` to produce a 0.1 M H~2~SO~4~. 
+
+The `r format(C_diazo)` 4-(2-aminoethyl)benzenediazonium solution is generated *in-situ* by mixing `r format(V)` 0.1 M H~2~SO~4~ with `r format(m_nitro)` 4-Nitrophenethylamine hydrochloride (`r format(n_nitro)`) and `r format(m_nitrite)` NaNO~2~ (`r format(n_nitrite)`). This is stirred for 15 min.
+
+A `r format(C_naphtol)` solution of 2-Naphtol is made by dissolving `r format(m_naphtol)` mg 2-Naphtol in `r format((1/5)*V_naphtol)` 10 % NaOH and `r format((4/5)*V_naphtol)` H~2~O.
+
+Samples for UV-Vis can then be made easily by mixing 2 mL `r format(C_naphtol)` 2-Naphtol solution with 2 mL `r format(C_diazo)` diazonium-solution to obtain a solution of the azo-dye (max conc. obtained is 1 mmol/L).
+
+### Gr-NH~2~ exfoliation
+The electrochemical exfoliation of functionalised graphene will be done by positioning and 8x15 cm^2^ graphite foil between two large stainless steel electrodes and applying 10 V for 1 hour or more. Weigh the foil before electrolysis.
+
+2 mL samples will be extracted with a syringe and put into the 2-Naphtol solution through a filter (to remove any graphite) every 10 minutes. At these points the temperature should also be noted.
+
+The exfoliated graphene and remaining graphite foil is collected and washed with water and acetonitrile. The graphene is ultrasonicated in DMF and left overnight for graphite to sediment. 
+
+The upper 95 % of the solution is collected and centrifuged to collect most of the graphene. It is then ultrasonicated in water and freeze-dried.
+
+## Journal
+
+## Results and discussion
+
+## Conclusion and outlook

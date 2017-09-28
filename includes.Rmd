@@ -1,3 +1,6 @@
+```{r child = 'lab_journal/20170929_Gr-NH2_production_with_monitoring_diazonium_concentration.Rmd'}
+```
+
 ```{r child = 'lab_journal/20170914_20170915_Azo-coupling_of_diazonium_compounds.Rmd'}
 ```
 
