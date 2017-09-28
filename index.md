@@ -1,7 +1,9 @@
 # Graphene production for polymer composites
 > Project by Emil Tveden Bjerglund
 
-Detailed project description will follow.
+![](figs/biweekly_header.png)
+
+Electrochemistry provides the tools needed to produce and functionalise graphene, which is suitable for polymer composites. Different functional groups on graphene makes it possible to tailor the interface between graphene and polymer to create strong, and possibly conducting, polymer composites.
 
 ## Links
 * Procedures and results are found in the [Lab Journal](lab_journal.html)
