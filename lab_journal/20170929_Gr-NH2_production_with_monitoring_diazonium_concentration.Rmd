@@ -44,7 +44,66 @@ The exfoliated graphene and remaining graphite foil is collected and washed with
 The upper 95 % of the solution is collected and centrifuged to collect most of the graphene. It is then ultrasonicated in water and freeze-dried.
 
 ## Journal
+```{r data170929}
+data170929 <- read_csv('../data/raw_data/electrochemistry/20170929_Gr-NH2_exfoliation.csv')
+path <- "../data/raw_data/uvvis/170929 Gr-NH2 production/"
+specs170929 <- tibble(files = list.files(path = path, pattern = "*.csv")) %>% 
+  mutate(time = stringr::str_extract(files, "^[:digit:]*") %>% as.numeric()) %>% 
+  mutate(data = map(paste0(path, files), read_delim, delim = ";", skip = 1)) %>% 
+  left_join(data170929, by = "time") %>% 
+  unnest() %>% 
+  mutate(region = ifelse(nm > 400, "Vis", "UV")) 
 
-## Results and discussion
+refspec <- read_delim('../data/raw_data/uvvis/20170915 Azodye/Azo-dye 1-0.csv', delim = ";", skip = 1) %>% 
+  mutate(region = ifelse(nm > 400, "Vis", "UV")) 
+
+specs170929 %>% 
+  mutate(time = as.factor(time)) %>% 
+  ggplot() + 
+  geom_line(data = refspec, aes(nm, A), size = 1.5, alpha = 0.66) +
+  geom_line(aes(nm, A, color = time)) +
+  scale_color_brewer(palette = "Paired") +
+  facet_wrap(~region, scales = "free") +
+  labs(x = "Wavelength (nm)", y = "Absorption (a.u.)", title = "Absorption spectra for azo-dyes obtained throughout the exfoliation", subtitle = "The shaded grey line is the spectrum obtained on 20170914 as reference")
+
+```
+
+```{r, fig.height=3.5}
+g1 <- specs170929 %>%
+  filter(nm == 499) %>% 
+  ggplot(aes(time, A)) +
+  geom_point() +
+  theme(axis.text.x = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank()) +
+  labs(y = "Absorption at 499 nm (a.u.)")
+
+g2 <- specs170929 %>% 
+  filter(nm == 499) %>% 
+  ggplot(aes(time, temp)) + 
+  geom_line() +
+  labs(x = "Time (min)", y = "Temperature (°C)")
+
+cowplot::plot_grid(g1, g2, ncol = 1, align = "v", rel_heights = c(1,1.1))
+```
+
+The unexfoliated graphite weighed 1.34 g, meaning that a total of `r 7.08 - 1.34` g was exfoliated. The exfoliated product was washed with water, acetonitrile and water, before being ultrasonicated in 575 mL DMF (ca. 1 g/100 mL) for 45 minutes and left to settle overnight.
+
+100 mL batches of this solution was attempted freeze-dried in several ways:
+
+* With and without aluminum foil used as cover after freezing in LiN
+* Spinning the bottle while freezing to create a larger surface area
+* Keeping the flask in a -20 °C bath while freezedrying.
+
+All attempts were failures, as the liquid water either quickly melted, or did not properly sublimate in a decent time.
+
+A small amount of graphene solution was filtered on 0.45 μm nylon membrane, and the pH of the water measured to approx. 3.90. An acidic aqueous solution might have a lower freezing-point, which could cause problems with the freeze-drying process. Since the samples have been ultrasonicated, a furhter washing procedure is difficult at this step. For this reason a new batch will be produced instead. 
 
 ## Conclusion and outlook
+The production of graphene appeared succesful. It was difficult to monitor the diazonium-concentration using the absorption method, since a spectrum with different peaks was obtained. It might be possible to resolve this by keeping the samples in dark after injecting the diazonium solution, and remembering to gently heat the samples to facilitate reaction, after mixing the 2-Naphtol and the diazonium salt. 
+
+The freeze-drying procedure is causing problems on this scale, but it might be due to an insufficient washing-procedure. Next time the entire product will be suspended in clean water several times and the pH of the washing water tested to ensure a neutral solution. It will probably also be necessary to measure the pH after ultrasonication in water, to ensure that acid is not released from between the graphene layers.
+
+To summarise the steps that need to be different in the next production run:
+
+* Careful treatment of the extracted samples for absorption. Heat them gently (which temperature?) for a few minutes and keep in dark until measuring absorbance.
+* Extensive washing of the graphene. Previously more water was just run through the filtration setup, but this time the exfoliate should probably be suspended in clean water and refiltered several times. Measure the pH of the filtrate.
+* Freeze-drying (how large batches can be made?) - use a rotation-evaporator for the freezing procedure to freeze as a 'shell' and experiment with insulating the flask using paper and aluminum foil. 

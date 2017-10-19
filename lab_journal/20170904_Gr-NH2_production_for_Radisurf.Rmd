@@ -77,7 +77,7 @@ Raman microscopy was performed on 20170920. The samples was deposited on SiO2 fr
 
 Representative Raman spectra and the corresponding curve fit is shown below.
 ```{r ramanspecs-170920, message=FALSE, warning=FALSE}
-library(osc)
+library(osctools)
 ramanspecs170920 <- tibble(data = c('../data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/20170920 Gr-NH for Radisurf map 1_1691__X_19.5__Y_-16__Time_181.txt', '../data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/20170920 Gr-NH for Radisurf map 2_697__X_7.65858__Y_-11.065__Time_703.txt'),
   fits = c('../data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/20170920_curvedata_map 1_1691__X_19.5__Y_-16__Time_181.txt','../data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/20170920_curvecata_map 2_697__X_7.65858__Y_-11.065__Time_703.txt')) %>% 
   mutate(names = stringr::str_extract(data, "map\\s\\d")) %>% 
