@@ -52,7 +52,7 @@ The graphite foil weighed 7.07 g prior to exfoliation.
 
 Samples for UV-Vis were extracted every 20 min. At 80 min a new solution of diazonium-salt was made (although not with super accurate amounts, and probably let to react for too short time) to test the whether the 2-Naphtol solution was still active. Similarly, at 100 min a fresh 2-Naphtol solution was made to test properly for the final diazonium concentration. 
 
-The exfoliated graphite was repeatedly washed with water (500 mL, completely mixing graphite and water) and filtrated until the pH was ca. 6.
+The exfoliated graphite was repeatedly washed with water (500 mL, completely mixing graphite and water) and filtrated until the pH was ca. 6. The collected graphene was then exfoliated by ultrasonication in 300 mL DMF for 60 min. 
 
 ## Results and discussion
 ```{r}
