@@ -112,7 +112,8 @@ $(document).ready(function () {
     <div id="text-table-of-contents">
       <ul>
       <li><a href="#j20171023">20171023 Synthesis of 4-(2-aminoethyl)benzenediazonium salt</a><ul>
-      <li><a href="#protocols">Protocols</a></li>
+      <li><a href="#suggested-protocols">Suggested protocols</a></li>
+      <li><a href="#protocol-synthesis-of-4-aminoethylbenzenediazonium-salt-aebd">Protocol: Synthesis of 4-aminoethylbenzenediazonium salt (AEBD)</a></li>
       <li><a href="#journal">Journal</a></li>
       <li><a href="#results-and-discussion">Results and discussion</a></li>
       <li><a href="#conclusion-and-outlook">Conclusion and outlook</a></li>
@@ -159,8 +160,8 @@ $(document).ready(function () {
 
 </div>
 <p>The group (and the literature in general) have many reported strategies for synthesising this compound, however the succes in the group has been varied. This journal will initially serve as an outline for the suggested methods.</p>
-<div id="protocols" class="section level2">
-<h2>Protocols</h2>
+<div id="suggested-protocols" class="section level2">
+<h2>Suggested protocols</h2>
 <div id="line-koefoed-labbook-translated-from-danish" class="section level3">
 <h3>Line Koefoed labbook (translated from Danish)</h3>
 <p>Uses same procedure as for 4-(2-hydroxyethyl)benzenediazonium<br> V = 1.5 ML (0.48 mL <em>tert</em>-butylnitrite + 0.52 mL HBF<sub>4</sub>) + 0.47 mL diamine<br> m(4-(2-Aminoethyl)aniline) = <span class="math inline">\(136.19\, g/mol \cdot 3.6\cdot 10^{-3}\, mol = 0.4903\, g\)</span><br> V(4-(2-Aminoethyl)aniline) = <span class="math inline">\(0.4903\, g / 1.034\, g/mL = 0.474 mL\)</span><br></p>
@@ -175,12 +176,39 @@ $(document).ready(function () {
 
 </div>
 </div>
-<div id="paper-electrochemistry-communications-2007-9-12-2768-2773.-link" class="section level3">
-<h3>Paper: Electrochemistry Communications 2007, 9 (12), 2768-2773. <a href="http://www.sciencedirect.com/science/article/pii/S1388248107003670">Link</a></h3>
-<p>Synthesis of 4-aminoethylbenzenediazonium salt (AEBD) 4 ml of HBF4 were added to 6 ml of water and the mixture was allowed to cool to a temperature in the range 0 to 5 <span class="math inline">\(^{\circ}\)</span>C. Then 4 milimoles of 4-(2-aminoethyl)aniline were dissolved in the HBF4 solution and allowed to cool (0 to 5 <span class="math inline">\(^{\circ}\)</span>C) during 15 minutes. Then, sodium nitrite (0.4 g dissolved in 3 ml of water) was added drop by drop to the acidic amine solution under agitation. The mixture was allowed to react for 40 minutes; during that time the temperature was hold at circa 2 <span class="math inline">\(^{\circ}\)</span>C. A precipitate that appeared in the solution was filtered under reduced pressure and rinsed with glacial ether. The salt was then dried under vacuum and kept at -20 <span class="math inline">\(^{\circ}\)</span>C. The product was characterized using 1H NMR in deuterated water.</p>
+<div id="paper-biosensors-and-bioelectronics-2011-26-5-2506-2512.-link" class="section level3">
+<h3>Paper: Biosensors and Bioelectronics 2011, 26 (5), 2506-2512. <a href="http://www.sciencedirect.com/science/article/pii/S0956566310007578">Link</a></h3>
+<p>Synthesis of 4-aminoethylbenzenediazonium salt (AEBD)</p>
+<p>4 ml of HBF4 were added to 6 ml of water and the mixture was allowed to cool to a temperature in the range 0 to 5 <span class="math inline">\(^{\circ}\)</span>C. Then 4 milimoles of 4-(2-aminoethyl)aniline were dissolved in the HBF4 solution and allowed to cool (0 to 5 <span class="math inline">\(^{\circ}\)</span>C) during 15 minutes. Then, sodium nitrite (0.4 g dissolved in 3 ml of water) was added drop by drop to the acidic amine solution under agitation. The mixture was allowed to react for 40 minutes; during that time the temperature was hold at circa 2 <span class="math inline">\(^{\circ}\)</span>C. A precipitate that appeared in the solution was filtered under reduced pressure and rinsed with glacial ether. The salt was then dried under vacuum and kept at -20 <span class="math inline">\(^{\circ}\)</span>C. The product was characterized using 1H NMR in deuterated water.</p>
 <p>The diazonium salt was characterized by NMR. Spectra were recorded by Brucker AM 300 MHz instrument. The experiments were recorded using D2O as solvent for 1H analysis and D2O with 50 lL aceton (internal reference) for 13C inversegate analysis. The structure of the salt is presented on scheme 1 as well as indexation of protons and carbons.</p>
 <p>1H NMR (300 MHz, D2O): d (ppm) 3.20-3.25 (t, 3J = 7.4 Hz, 2H, H-a); 3.30-3.35 (t, 3J = 7.4 Hz, 2H, H-b); 7.80-7.83 (d, 3J = 8.8 Hz, 2H, H-d); 8.44-8.48 (d, 3J = 9.1 Hz, 2H, H-e).<br> 13C NMR (75 MHz, D2O with aceton): d (ppm): 33.76 (C-a); 39.40 (C-b); 112.69 (C-c); 132.49 (C-d); 132.89 (C-e); 153.24 (C-f).</p>
 </div>
+</div>
+<div id="protocol-synthesis-of-4-aminoethylbenzenediazonium-salt-aebd" class="section level2">
+<h2>Protocol: Synthesis of 4-aminoethylbenzenediazonium salt (AEBD)</h2>
+<p>The synthesis will be conducted according to the procedure from reference.<span class="citation"><sup>1</sup></span> To test the reaction, it will initially be conducted on 100 mg scale.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(units)
+M_aniline =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">136.19</span>, mg<span class="op">/</span>mmol)
+M_nitrite =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">69.00</span>, mg<span class="op">/</span>mmol)
+M_diazo =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">234.99</span>, mg<span class="op">/</span>mmol) <span class="co"># With BF4-ion</span>
+rho_aniline =<span class="st"> </span><span class="kw">set_units</span>(<span class="dv">1034</span>, mg<span class="op">/</span>mL)
+
+m_aniline =<span class="st"> </span><span class="kw">set_units</span>(<span class="dv">100</span>, mg)
+n_aniline =<span class="st"> </span>m_aniline <span class="op">/</span><span class="st"> </span>M_aniline
+n_nitrite =<span class="st"> </span>n_aniline <span class="op">*</span><span class="st"> </span><span class="fl">1.5</span>
+m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span class="st"> </span>M_nitrite
+
+m_diazo =<span class="st"> </span>M_diazo <span class="op">*</span><span class="st"> </span>n_aniline</code></pre></div>
+<p>Chemicals: 4-(2-Aminoethyl)aniline (<a href="http://www.sigmaaldrich.com/catalog/product/aldrich/123056?lang=en&amp;region=DK">Sigma</a>, 97 %, 136.19 mg/mmol), Sodium nitrite (Manufacturer? 69 mg/mmol), HBF<sub>4</sub> (Manufacturer?, 48 % in water), diethyl ether (Manufacturer?, Grade?)</p>
+<ol style="list-style-type: decimal">
+<li>0.75 mL HBF<sub>4</sub> is added to 1.25 mL water and the mixture allowed to cool to 0 <span class="math inline">\(^{\circ}\)</span>C.</li>
+<li>Then 4-(2-aminoethyl)aniline (100 mg, 0.097 mL, 0.73 mmol) is dissolved in the HBF4 solution and allowed to cool to 0 <span class="math inline">\(^{\circ}\)</span>C.</li>
+<li>Sodium nitrite (76 mg, 1.1 mmol) is dissolved in 0.6 mL water and added drop by drop to the acidic amine while stirring.</li>
+<li>The compounds are reacted for 40 min while keeping the mixture at 0 <span class="math inline">\(^{\circ}\)</span>C.</li>
+<li>A precipitate will appear in the solution and is suction filtrated and rinsed with cold diethyl ether. The salt is then dried under vacuum (without heating) and stored at -20 <span class="math inline">\(^{\circ}\)</span>C.</li>
+</ol>
+<p>The product can be characterised by <sup>1</sup>H NMR in deuterated water.</p>
+<p>The expected amount of 4-aminoethylbenzenediazonium tetrafluoroborate is 173 mg</p>
 </div>
 <div id="journal" class="section level2">
 <h2>Journal</h2>
@@ -802,7 +830,7 @@ m_nitro =<span class="st"> </span>n_nitro <span class="op">*</span><span class="
 m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span class="st"> </span>M_nitrite</code></pre></div>
 <div id="protocol-4" class="section level2">
 <h2>Protocol</h2>
-<p>This production method is inspired by the work by Belanger and co-workers.<span class="citation"><sup>1</sup></span></p>
+<p>This production method is inspired by the work by Belanger and co-workers.<span class="citation"><sup>2</sup></span></p>
 <div id="in-situ-generation-of-2-mmoll-4-2-aminoethylbenzenediazonium-solution" class="section level3">
 <h3>In-situ generation of 2 mmol/L 4-(2-aminoethyl)benzenediazonium solution</h3>
 <p>200 mL 0.1 M H<sub>2</sub>SO<sub>4</sub> is mixed with 81.056 mg 4-Nitrophenethylamine hydrochloride (0.4 mmol) and 55.2 mg NaNO<sub>2</sub> (0.8 mmol) and stirred for 15 min.</p>
@@ -835,8 +863,11 @@ m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span cla
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 <div id="refs" class="references">
+<div id="ref-Kowalczyk2011">
+<p>(1) Kowalczyk, A.; Nowicka, A.; Jurczakowski, R.; Fau, M.; Krolikowska, A.; Stojek, Z. Construction of Dna Biosensor at Glassy Carbon Surface Modified with 4-Aminoethylbenzenediazonium Salt. <em>Biosensors and Bioelectronics</em> <strong>2011</strong>, <em>26</em> (5), 2506–2512 DOI: <a href="https://doi.org/https://doi.org/10.1016/j.bios.2010.10.046">https://doi.org/10.1016/j.bios.2010.10.046</a>.</p>
+</div>
 <div id="ref-Ossonon2017">
-<p>(1) Ossonon, B. D.; Bélanger, D. Functionalization of Graphene Sheets by the Diazonium Chemistry During Electrochemical Exfoliation of Graphite. <em>Carbon</em> <strong>2017</strong>, <em>111</em>, 83–93 DOI: <a href="https://doi.org/10.1016/j.carbon.2016.09.063">10.1016/j.carbon.2016.09.063</a>.</p>
+<p>(2) Ossonon, B. D.; Bélanger, D. Functionalization of Graphene Sheets by the Diazonium Chemistry During Electrochemical Exfoliation of Graphite. <em>Carbon</em> <strong>2017</strong>, <em>111</em>, 83–93 DOI: <a href="https://doi.org/10.1016/j.carbon.2016.09.063">10.1016/j.carbon.2016.09.063</a>.</p>
 </div>
 </div>
 </div>
@@ -847,7 +878,7 @@ m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span cla
 
 <div id="postamble" data-toggle="wy-nav-shift" class="status">
 <p class="author"><span class="glyphicon glyphicon-user"></span> Emil Tveden Bjerglund</p>
-<p class="date"><span class="glyphicon glyphicon-calendar"></span> Last updated: 2017-10-23</p>
+<p class="date"><span class="glyphicon glyphicon-calendar"></span> Last updated: 2017-10-24</p>
 </div>
 
 

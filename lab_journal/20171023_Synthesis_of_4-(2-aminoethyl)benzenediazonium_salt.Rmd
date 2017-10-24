@@ -6,7 +6,7 @@ I have realised, that it is necessary to perfom the synthesis of 4-(2-aminoethyl
 
 The group (and the literature in general) have many reported strategies for synthesising this compound, however the succes in the group has been varied. This journal will initially serve as an outline for the suggested methods. 
 
-## Protocols
+## Suggested protocols
 
 ### Line Koefoed labbook (translated from Danish)
 
@@ -32,15 +32,48 @@ The synthesis is described in a patent, however the amounts used are a little of
 
 ![](misc/AEBD_procedure/AEBD_procedure_5.png)
 
-### Paper: Electrochemistry Communications 2007, 9 (12), 2768-2773. [Link](http://www.sciencedirect.com/science/article/pii/S1388248107003670)
+
+### Paper: Biosensors and Bioelectronics 2011, 26 (5), 2506-2512. [Link](http://www.sciencedirect.com/science/article/pii/S0956566310007578)
 
 Synthesis of 4-aminoethylbenzenediazonium salt (AEBD)
+
 4 ml of HBF4 were added to 6 ml of water and the mixture was allowed to cool to a temperature in the range 0 to 5 $^{\circ}$C. Then 4 milimoles of 4-(2-aminoethyl)aniline were dissolved in the HBF4 solution and allowed to cool (0 to 5 $^{\circ}$C) during 15 minutes. Then, sodium nitrite (0.4 g dissolved in 3 ml of water) was added drop by drop to the acidic amine solution under agitation. The mixture was allowed to react for 40 minutes; during that time the temperature was hold at circa 2 $^{\circ}$C. A precipitate that appeared in the solution was filtered under reduced pressure and rinsed with glacial ether. The salt was then dried under vacuum and kept at -20 $^{\circ}$C. The product was characterized using 1H NMR in deuterated water.
 
 The diazonium salt was characterized by NMR. Spectra were recorded by Brucker AM 300 MHz instrument. The experiments were recorded using D2O as solvent for 1H analysis and D2O with 50 lL aceton (internal reference) for 13C inversegate analysis. The structure of the salt is presented on scheme 1 as well as indexation of protons and carbons.
 
 1H NMR (300 MHz, D2O): d (ppm) 3.20-3.25 (t, 3J = 7.4 Hz, 2H, H-a); 3.30-3.35 (t, 3J = 7.4 Hz, 2H, H-b); 7.80-7.83 (d, 3J = 8.8 Hz, 2H, H-d); 8.44-8.48 (d, 3J = 9.1 Hz, 2H, H-e).<br>
 13C NMR (75 MHz, D2O with aceton): d (ppm): 33.76 (C-a); 39.40 (C-b); 112.69 (C-c); 132.49 (C-d); 132.89 (C-e); 153.24 (C-f).
+
+## Protocol: Synthesis of 4-aminoethylbenzenediazonium salt (AEBD)
+
+The synthesis will be conducted according to the procedure from reference.[@Kowalczyk2011] To test the reaction, it will initially be conducted on 100 mg scale. 
+
+```{r}
+library(units)
+M_aniline = set_units(136.19, mg/mmol)
+M_nitrite = set_units(69.00, mg/mmol)
+M_diazo = set_units(234.99, mg/mmol) # With BF4-ion
+rho_aniline = set_units(1034, mg/mL)
+
+m_aniline = set_units(100, mg)
+n_aniline = m_aniline / M_aniline
+n_nitrite = n_aniline * 1.5
+m_nitrite = n_nitrite * M_nitrite
+
+m_diazo = M_diazo * n_aniline
+```
+
+Chemicals: 4-(2-Aminoethyl)aniline ([Sigma](http://www.sigmaaldrich.com/catalog/product/aldrich/123056?lang=en&region=DK), 97 %, `r format(M_aniline)`), Sodium nitrite (Manufacturer? `r format(M_nitrite)`), HBF~4~ (Manufacturer?, 48 % in water), diethyl ether (Manufacturer?, Grade?)
+
+1. 0.75 mL HBF~4~ is added to 1.25 mL water and the mixture allowed to cool to 0 $^{\circ}$C.
+2. Then 4-(2-aminoethyl)aniline (`r format(m_aniline, digits = 2)`, `r format(m_aniline / rho_aniline, digits = 2)`, `r format(n_aniline, digits = 2)`) is dissolved in the HBF4 solution and allowed to cool to 0 $^{\circ}$C.
+3. Sodium nitrite (`r format(m_nitrite, digits = 2)`, `r format(n_nitrite, digits = 2)`) is dissolved in 0.6 mL water and added drop by drop to the acidic amine while stirring.
+4. The compounds are reacted for 40 min while keeping the mixture at 0 $^{\circ}$C.
+5. A precipitate will appear in the solution and is suction filtrated and rinsed with cold diethyl ether. The salt is then dried under vacuum (without heating) and stored at -20 $^{\circ}$C.
+
+The product can be characterised by ^1^H NMR in deuterated water.
+
+The expected amount of 4-aminoethylbenzenediazonium tetrafluoroborate is `r format(m_diazo, digits = 2)`
 
 ## Journal
 
