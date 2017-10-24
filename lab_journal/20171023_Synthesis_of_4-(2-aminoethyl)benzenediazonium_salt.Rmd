@@ -28,14 +28,14 @@ m_diazo = M_diazo * n_aniline
 Chemicals: 4-(2-Aminoethyl)aniline ([Sigma](http://www.sigmaaldrich.com/catalog/product/aldrich/123056?lang=en&region=DK), 97 %, `r format(M_aniline)`), Sodium nitrite (Manufacturer? `r format(M_nitrite)`), HBF~4~ (Manufacturer?, 48 % in water), diethyl ether (Manufacturer?, Grade?)
 
 1. 0.75 mL HBF~4~ is added to 1.25 mL water and the mixture allowed to cool to 0 $^{\circ}$C.
-2. Then 4-(2-aminoethyl)aniline (`r format(m_aniline, digits = 2)`, `r format(m_aniline / rho_aniline, digits = 2)`, `r format(n_aniline, digits = 2)`) is dissolved in the HBF4 solution and allowed to cool to 0 $^{\circ}$C for 15 min.
+2. Then 4-(2-aminoethyl)aniline (`r format(m_aniline, digits = 2)`, `r format(m_aniline / rho_aniline, digits = 2)`, `r format(n_aniline, digits = 2)`) is dissolved in the HBF4 solution and allowed to cool to 0 $^{\circ}$C.
 3. Sodium nitrite (`r format(m_nitrite, digits = 2)`, `r format(n_nitrite, digits = 2)`) is dissolved in 0.6 mL water and added drop by drop to the acidic amine while stirring.
 4. The compounds are reacted for 40 min while keeping the mixture at 0 $^{\circ}$C.
 5. A precipitate will appear in the solution and is suction filtrated and rinsed with cold diethyl ether. The salt is then dried under vacuum (without heating) and stored at -20 $^{\circ}$C.
 
 The product can be characterised by ^1^H NMR in deuterated water.
 
-The expected amount of 4-aminoethylbenzenediazonium tetrafluoroborate is `r format(m_diazo, digits = 2)` (if yield is 100 %)
+The expected amount of 4-aminoethylbenzenediazonium tetrafluoroborate is `r format(m_diazo, digits = 2)`
 
 ## Journal
 
