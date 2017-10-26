@@ -1,6 +1,6 @@
 # 20171026 Azodye formation and calibration {#j20171026}
 
-Following the [succesful synthesis of 4-aminoethylbenzenediazonium salt](#j20171023), it was necessary to repeat azo-dye formation, in order to make a calibration curve for UV-Vis. In this way, the diazonium concentration during graphene exfoliation can easy be monitored by extracting small samples of the electrolyte. 
+Following the [succesful synthesis of 4-aminoethylbenzenediazonium salt](#j20171023), it was necessary to repeat azo-dye formation, in order to make a calibration curve for UV-Vis. In this way, the diazonium concentration during graphene exfoliation can easy be monitored by extracting small samples of the electrolyte.  
 
 ```{r out.width='50%', echo = FALSE}
 knitr::include_graphics("figs/azo-coupling.png")
