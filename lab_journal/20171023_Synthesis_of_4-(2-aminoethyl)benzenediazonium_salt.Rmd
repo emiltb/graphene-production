@@ -2,7 +2,10 @@
 
 I have realised, that it is necessary to perfom the synthesis of 4-(2-aminoethyl)benzenediazonium salt to be able to properly control the concentration during exfoliation.
 
-![](figs/AEBD.png)
+```{r out.width='15%', echo = FALSE}
+knitr::include_graphics('figs/AEBD.png')
+```
+
 
 The group (and the literature in general) have many reported strategies for synthesising this compound, however the succes in the group has been varied. Several methods were found in old labbooks and in literature, and a summarised briefly [here](misc/AEBD_procedure/AEBD_procedure.html).
 
