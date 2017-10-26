@@ -1,0 +1,16 @@
+##TITLE= Parameter file, TOPSPIN		Version 3.2
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 1	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= nmr
+$$ 2017-10-25 13:27:29.353 +0200  nmr@CZC2138PC8
+$$ /opt/topspin/users/Grp105/20171025_DNH2_synthesis/10/pdata/1/outd
+$$ process /opt/topspin/prog/mod/xwish3
+##$CURPLOT= <C280>
+##$CURPRIN= <$C280>
+##$DFORMAT= <normdp>
+##$LAYOUT= <+/1D_H.xwp>
+##$LFORMAT= <normlp>
+##$PFORMAT= <normpl>
+##END=

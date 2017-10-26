@@ -1,0 +1,23 @@
+##TITLE= Audit trail, TOPSPIN		Version 3.2
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= nmr
+$$ /opt/topspin/users/Grp105/20171025_DNH2_synthesis_NMR2/10/audita.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2017-10-25 15:17:35.944 +0200>,<nmr>,<CZC2138PC8>,<go>,<TOPSPIN 3.2>,
+      <created by zg
+	started at 2017-10-25 15:16:02.453 +0200,
+	POWCHK enabled, PULCHK disabled,
+       configuration hash MD5:
+       BA 7B F5 8A 86 95 C3 BD 40 75 E4 5E 70 2C F0 3D
+       data hash MD5: 64K
+       AD 2F 6B 9F 2E 72 20 50 EC 28 B5 62 48 70 76 6C>)
+(   2,<2017-10-25 15:17:36.680 +0200>,<nmr>,<CZC2138PC8>,<audit>,<TOPSPIN 3.2>,
+      <user comment:
+       ICON-NMR User ID: Grp105
+       data hash MD5: 64K
+       AD 2F 6B 9F 2E 72 20 50 EC 28 B5 62 48 70 76 6C>)
+##END=
+
+$$ hash MD5
+$$ 58 9B 2F 0E 9F 2B B3 59 D7 9E 34 C4 18 5D 82 A8
