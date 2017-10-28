@@ -1,0 +1,17 @@
+name: "SPOMAN"
+output_dir: "." 
+output:
+  html_document:
+    theme: flatly
+    highlight: kate
+    self_contained: false
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+    includes:
+      after_body: include_footer.html
+    code_folding: hide
+    fig_width: 8
+    fig_height: 3
+    md_extensions: +header_attributes

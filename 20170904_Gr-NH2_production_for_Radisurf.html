@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>20170904 Gr-NH2 production for Radisurf</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
+div.sourceCode {
+  overflow-x: visible;
+}
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Graphene production</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-desktop"></span>
+     
+    Project Description
+  </a>
+</li>
+<li>
+  <a href="lab_journal.html">
+    <span class="fa fa-flask"></span>
+     
+    Lab journal
+  </a>
+</li>
+<li>
+  <a href="data.html">
+    <span class="fa fa-table"></span>
+     
+    Data
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="mailto:emilbp@inano.au.dk">
+    <span class="fa fa-envelope-o"></span>
+     
+    Contact me
+  </a>
+</li>
+<li>
+  <a href="https://github.com/emiltb/graphene-production">
+    <span class="fa fa-github"></span>
+     
+    GitHub
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">20170904 Gr-NH2 production for Radisurf</h1>
+
+</div>
+
+
+<p>Following the <a href="#j20170809">initial tests</a> in the new graphene production setup a batch of amine-functionalised graphene will be produced. Radisurf will attempt surface-polymerisation on the graphene and embed it in a silicone matrix.</p>
+<div id="protocol" class="section level1">
+<h1>Protocol</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(units)
+V =<span class="st"> </span><span class="kw">set_units</span>(<span class="dv">1500</span>, mL) <span class="co"># Volume of 0.1 M H2SO4 to be used</span>
+C_diazo =<span class="st"> </span><span class="kw">set_units</span>(<span class="dv">2</span>, mmol<span class="op">/</span>L)
+
+M_nitro =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">202.64</span>, mg<span class="op">/</span>mmol) <span class="co"># 4-Nitrophenethylamine hydrochloride</span>
+M_nitrite =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">69.00</span>, mg<span class="op">/</span>mmol) <span class="co"># NaNO2</span>
+
+n_nitro =<span class="st"> </span>V <span class="op">*</span><span class="st"> </span>C_diazo
+n_nitrite =<span class="st"> </span>n_nitro <span class="op">*</span><span class="st"> </span><span class="dv">2</span>
+
+m_nitro =<span class="st"> </span>n_nitro <span class="op">*</span><span class="st"> </span>M_nitro
+m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span class="st"> </span>M_nitrite</code></pre></div>
+<p>The 2 mmol/L 4-(2-aminoethyl)benzenediazonium solution is generated in-situ by mixing 1500 mL 0.1 M H<sub>2</sub>SO<sub>4</sub> with 607.92 mg 4-Nitrophenethylamine hydrochloride (3 mmol) and 414 mg NaNO<sub>2</sub> (6 mmol). This is stirred for 15 min. The presence of diazonium-compound is confirmed by dissolving a small amount of ferrocene in DMF and adding some of the solution to check for a green color.</p>
+<p>To test the stability of the diazonium-compound during the electrochemical exfoliation Cyclic Voltammetry will be used periodically under non-grafting conditions (diazonium concentation &lt; 0.1 mM). A blank CV will be recorded in 9.5 mL 0.1 M H<sub>2</sub>SO<sub>4</sub>, 0.5 mL electrolyte solution will be added and a CV recorded for one reductive sweep (range?) using a glassy carbon microelectrode, Pt counter electrode and SCE reference electrode. The temperature should be recorded when extracting samples.</p>
+<p>The electrochemical exfoliation of functionalised graphene will be done by positioning and 8x15 cm<sup>2</sup> graphite foil between two large stainless steel electrodes and applying 10 V for 1 hour (more if the indication is that the diazonium-salt is still active and the graphite is not fully exfoliated). Weigh the foil before electrolysis</p>
+<p>The exfoliated graphene and remaining graphite foil is collected and washed with water and acetonitrile. The graphene is ultrasonicated in DMF and left overnight for graphite to sediment. The upper 95 % of the solution is collected and centrifuged to collect most of the graphene - the remaining part is collected by filtration on 0.45 um nylon membrane filters. All graphene is then ultrasonicated in water and freeze-dried.</p>
+</div>
+<div id="journal" class="section level1">
+<h1>Journal</h1>
+<p>The experiment was conducted as described in the protocol. The mass of the graphite electrode was 7.0990 g. The exfoliation was continued for 90 minutes and a ferrocene-test at this point gave a green solution, indicating that diazonium-compound was still present.</p>
+<p>The product was dried at 50 °C under vacuum for 2 hours, which was insufficient to completely dry the sample (mass of product at this stage = 279.5 g - 243.9 g = 35.6 g). The mass of the remaining graphite electrode was 1.8904 g, meaning that 5.2086 g graphite was exfoliated in 90 min.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">exp170904 &lt;-<span class="st"> </span><span class="kw">tibble</span>(
+  <span class="dt">t =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">45</span>, <span class="dv">60</span>, <span class="dv">90</span>),
+  <span class="dt">sample_collected =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>),
+  <span class="dt">temp =</span> <span class="kw">c</span>(<span class="dv">23</span>, <span class="dv">38</span>, <span class="dv">51</span>, <span class="dv">62</span>, <span class="dv">67</span>, <span class="dv">69</span>),
+  <span class="dt">current =</span> <span class="kw">c</span>(<span class="fl">17.2</span>, <span class="fl">19.4</span>, <span class="fl">19.7</span>, <span class="fl">19.9</span>, <span class="fl">19.0</span>, <span class="fl">12.7</span>),
+  <span class="dt">voltage =</span> <span class="kw">rep</span>(<span class="dv">10</span>, <span class="dv">6</span>))
+
+knitr<span class="op">::</span><span class="kw">kable</span>(exp170904, <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;Time (min)&#39;</span>, <span class="st">&#39;Sample collected&#39;</span>, <span class="st">&#39;Temp. °C&#39;</span>, <span class="st">&#39;Current (A)&#39;</span>, <span class="st">&#39;Voltage (V)&#39;</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Time (min)</th>
+<th align="left">Sample collected</th>
+<th align="right">Temp. °C</th>
+<th align="right">Current (A)</th>
+<th align="right">Voltage (V)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="left">TRUE</td>
+<td align="right">23</td>
+<td align="right">17.2</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="right">15</td>
+<td align="left">TRUE</td>
+<td align="right">38</td>
+<td align="right">19.4</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">30</td>
+<td align="left">TRUE</td>
+<td align="right">51</td>
+<td align="right">19.7</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="right">45</td>
+<td align="left">TRUE</td>
+<td align="right">62</td>
+<td align="right">19.9</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">60</td>
+<td align="left">TRUE</td>
+<td align="right">67</td>
+<td align="right">19.0</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="right">90</td>
+<td align="left">FALSE</td>
+<td align="right">69</td>
+<td align="right">12.7</td>
+<td align="right">10</td>
+</tr>
+</tbody>
+</table>
+<p>The exfoliated graphite was then ultrasonicated in 400 mL DMF for 1 hour and left to stand for 2 days (1 was probably enough) to allow residual graphite to sedimentate. The solution was then centrifuged at 4000 rpm for 1 hour and the pellet was collected in water. The remaining graphene solution in DMF was filtered on 0.45 um nylon membrane and the solid product collected in water. The entire graphene solution in water was put in a 500 mL roundbottomed flask and ultrasonicated for 30 min. This was then frozen using liquid nitrogen (LiN) and put on the freeze-drier. Later the same day it was realized that the LiN had not frozen the suspension completely, so instead it was frozen overnight in an ordinary freezer and put on the freeze-drier over a weekend, after which it was completely dry.</p>
+</div>
+<div id="results-and-discussion" class="section level1">
+<h1>Results and discussion</h1>
+<div id="following-the-diazonium-concentration-during-functionalisation" class="section level2">
+<h2>Following the diazonium-concentration during functionalisation</h2>
+<p>An attempt was made to monitor the concentration of diazonium compound during the reaction. This is tricky because it must be done at non-grafting concentrations, meaning the diazonium-concentration should be below 0.1 mM (= very low signal). Blank CVs and CVs in diazonium solution at different times during the experiment is displayed below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">path &lt;-<span class="st"> &quot;data/raw_data/electrochemistry/20170904_Gr-NH2_prod_for_Radisurf/&quot;</span>
+electrochem170904 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">filename =</span> <span class="kw">list.files</span>(<span class="dt">path =</span> path, <span class="dt">pattern =</span> <span class="st">&quot;*.txt&quot;</span>)) <span class="op">%&gt;%</span><span class="st">  </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="st">&quot;^((</span><span class="ch">\\</span><span class="st">d)|(CV2)|(I))&quot;</span>, filename)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sample =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(filename, <span class="st">&quot;^(</span><span class="ch">\\</span><span class="st">d){2}&quot;</span>), <span class="dt">sample =</span> <span class="kw">as.numeric</span>(<span class="kw">ifelse</span>(<span class="kw">is.na</span>(sample), <span class="dv">0</span>, sample))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sol =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(filename, <span class="st">&quot;(blank)&quot;</span>), <span class="dt">sol =</span> <span class="kw">ifelse</span>(<span class="kw">is.na</span>(sol), <span class="st">&quot;0.1 mM diazonium&quot;</span>, <span class="st">&quot;Blank&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">data =</span> <span class="kw">map</span>(<span class="kw">paste0</span>(path, filename), read_csv, <span class="dt">col_names =</span> <span class="kw">c</span>(<span class="st">&#39;pot&#39;</span>, <span class="st">&#39;cur&#39;</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">unnest</span>()
+
+electrochem170904 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(pot, cur, <span class="dt">color =</span> sol)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_path</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>sample) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Potential (V vs. SCE)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Current (A)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">legend.title =</span> <span class="kw">element_blank</span>())</code></pre></div>
+<p><img src="20170904_Gr-NH2_production_for_Radisurf_files/figure-html/electrochem170904-1.png" width="768" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;figs/20170904_electrochem_exfoliation.png&quot;</span>, <span class="dt">width =</span> <span class="dv">16</span>, <span class="dt">height =</span> <span class="dv">12</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre></div>
+<p>No clear signal from the diazonium compound is observed in any of the measurements. A crude ferrocene-test gave a green color both before and after the experiment, indicating that the diazonium compound was present.</p>
+</div>
+<div id="yield-and-quality" class="section level2">
+<h2>Yield and quality</h2>
+<p>After freeze-drying the dry graphene product was collected. A total of 3.4196 g was obtained in the process, giving a yield of 65.7 %. The graphene has collected in a mix of denser chunks and thin sheets, and not in as fine a powder as expected. This is probably due to the slower cooling in the freezer, rather than a rapid freeze in LiN just after ultrasonication. However, the product still appears to disperse rather easily upon ultrasonication in solvents.</p>
+<div id="raman-spectroscopy" class="section level3">
+<h3>Raman spectroscopy</h3>
+<p>Raman microscopy was performed on 20170920. The samples was deposited on SiO2 from graphene dispersed in DMF and deposited using the self-assembly method. Two maps were obtained. The first at 33 % intensite (100 % in Wire) with a short acquisition time, and the second at a lower intensity (10 % in Wire) with a longer acquisition time.</p>
+<p>Representative Raman spectra and the corresponding curve fit is shown below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(osctools)
+ramanspecs170920 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">data =</span> <span class="kw">c</span>(<span class="st">&#39;data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/20170920 Gr-NH for Radisurf map 1_1691__X_19.5__Y_-16__Time_181.txt&#39;</span>, <span class="st">&#39;data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/20170920 Gr-NH for Radisurf map 2_697__X_7.65858__Y_-11.065__Time_703.txt&#39;</span>),
+  <span class="dt">fits =</span> <span class="kw">c</span>(<span class="st">&#39;data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/20170920_curvedata_map 1_1691__X_19.5__Y_-16__Time_181.txt&#39;</span>,<span class="st">&#39;data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/20170920_curvecata_map 2_697__X_7.65858__Y_-11.065__Time_703.txt&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">names =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(data, <span class="st">&quot;map</span><span class="ch">\\</span><span class="st">s</span><span class="ch">\\</span><span class="st">d&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">plots =</span> <span class="kw">map2</span>(data, fits, gr_cf_fit_plot)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">plots =</span> <span class="kw">map2</span>(plots, names, <span class="cf">function</span>(x, y) {x <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> y)}))
+
+g_specs &lt;-<span class="st"> </span>gridExtra<span class="op">::</span><span class="kw">arrangeGrob</span>(<span class="dt">grobs =</span> ramanspecs170920<span class="op">$</span>plots, <span class="dt">ncol =</span> <span class="dv">2</span>)
+<span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&#39;figs/20170904_GrNH2_raman.png&#39;</span>, <span class="dt">plot =</span> g_specs, <span class="dt">width =</span> <span class="dv">16</span>, <span class="dt">height =</span> <span class="dv">6</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)
+<span class="kw">plot</span>(g_specs)</code></pre></div>
+<p><img src="20170904_Gr-NH2_production_for_Radisurf_files/figure-html/ramanspecs-170920-1.png" width="768" /></p>
+<p>By mapping over a surface it is reavealed that even though the G intensity varies a lot across the surface, mainly due to differences in thickness, the defect density across the surface is pretty uniform. The defect density varies most on <code>map 2</code>, which was recorded at a lower laser intensity. This means that <code>map 1</code> might be damaged by the laser during acquisition.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">raman170920 &lt;-<span class="st"> </span><span class="kw">tibble</span>(
+  <span class="dt">folders =</span> <span class="kw">c</span>(<span class="st">&#39;data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/20170920 Gr-NH for Radisurf map 1/&#39;</span>,<span class="st">&#39;data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/20170920 Gr-NH for Radisurf map 2/&#39;</span>),
+  <span class="dt">names =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(folders, <span class="st">&quot;map</span><span class="ch">\\</span><span class="st">s</span><span class="ch">\\</span><span class="st">d&quot;</span>)
+  ) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">data =</span> <span class="kw">map</span>(folders, raman_curvefit_read)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">unnest</span>()
+
+plot_map &lt;-<span class="st"> </span><span class="cf">function</span>(df, feature) {
+  feature &lt;-<span class="st"> </span><span class="kw">enquo</span>(feature)
+  name &lt;-<span class="st"> </span><span class="kw">unique</span>(df<span class="op">$</span>names)[<span class="dv">1</span>]
+  df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">select</span>(x, y, <span class="dt">value =</span> <span class="op">!!</span><span class="st"> </span>feature) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(x, y, <span class="dt">fill =</span> value)) <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_raster</span>() <span class="op">+</span>
+<span class="st">      </span><span class="kw">coord_equal</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;x (µm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;y (µm)&quot;</span>, <span class="dt">fill =</span> <span class="kw">quo_name</span>(feature), <span class="dt">title =</span> name) <span class="op">+</span>
+<span class="st">    </span>viridis<span class="op">::</span><span class="kw">scale_fill_viridis</span>()
+}
+
+g1 &lt;-<span class="st"> </span>raman170920 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(names <span class="op">==</span><span class="st"> &quot;map 1&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">plot_map</span>(<span class="st">`</span><span class="dt">G int</span><span class="st">`</span>)
+
+g2 &lt;-<span class="st"> </span>raman170920 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(names <span class="op">==</span><span class="st"> &quot;map 2&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">plot_map</span>(<span class="st">`</span><span class="dt">G int</span><span class="st">`</span>)
+
+g3 &lt;-<span class="st"> </span>raman170920 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(names <span class="op">==</span><span class="st"> &quot;map 1&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">G int</span><span class="st">`</span> <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.05</span> <span class="op">*</span><span class="st"> </span><span class="kw">max</span>(<span class="st">`</span><span class="dt">G int</span><span class="st">`</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">plot_map</span>(<span class="st">`</span><span class="dt">D/G-ratio</span><span class="st">`</span>)
+
+g4 &lt;-<span class="st"> </span>raman170920 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(names <span class="op">==</span><span class="st"> &quot;map 2&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">G int</span><span class="st">`</span> <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.05</span> <span class="op">*</span><span class="st"> </span><span class="kw">max</span>(<span class="st">`</span><span class="dt">G int</span><span class="st">`</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">plot_map</span>(<span class="st">`</span><span class="dt">D/G-ratio</span><span class="st">`</span>)
+
+gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(g1, g2, g3, g4, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
+<p><img src="20170904_Gr-NH2_production_for_Radisurf_files/figure-html/ramanmaps-170920-1.png" width="768" /></p>
+</div>
+<div id="xps" class="section level3">
+<h3>XPS</h3>
+<p>XPS data was acquired on the freeze-dried powder in two different spots. The summary of the data is presented below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xpsres170920 &lt;-<span class="st"> </span><span class="kw">read_tsv</span>(<span class="st">&#39;data/derived_data/xps/20170920_Gr-NH2_for_Radisurf/20170920_xps_ratios.txt&#39;</span>, <span class="dt">skip =</span> <span class="dv">2</span>)
+
+xpsres170920 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="kw">ends_with</span>(<span class="st">&quot;%&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rename_all</span>(
+      <span class="kw">funs</span>(
+        stringr<span class="op">::</span><span class="kw">str_extract</span>(., <span class="st">&quot;^[a-zA-Z0-9</span><span class="ch">\\</span><span class="st">s]*&quot;</span>)
+      )
+  ) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&#39;element&#39;</span>, <span class="dt">value =</span> <span class="st">&#39;value&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(element) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m =</span> <span class="kw">mean</span>(value), <span class="dt">sd =</span> <span class="kw">sd</span>(value)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">c</span>(<span class="st">&#39;m&#39;</span>, <span class="st">&#39;sd&#39;</span>), round, <span class="dt">digits =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;Element&#39;</span>, <span class="st">&#39;Mean&#39;</span>, <span class="st">&#39;Std. dev.&#39;</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Element</th>
+<th align="right">Mean</th>
+<th align="right">Std. dev.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">C 1s</td>
+<td align="right">79.29</td>
+<td align="right">1.25</td>
+</tr>
+<tr class="even">
+<td align="left">Cl 2p</td>
+<td align="right">0.16</td>
+<td align="right">0.03</td>
+</tr>
+<tr class="odd">
+<td align="left">N 1s</td>
+<td align="right">0.80</td>
+<td align="right">0.01</td>
+</tr>
+<tr class="even">
+<td align="left">O 1s</td>
+<td align="right">18.62</td>
+<td align="right">1.19</td>
+</tr>
+<tr class="odd">
+<td align="left">S 2p</td>
+<td align="right">0.35</td>
+<td align="right">0.05</td>
+</tr>
+<tr class="even">
+<td align="left">Si 2p</td>
+<td align="right">0.78</td>
+<td align="right">0.05</td>
+</tr>
+</tbody>
+</table>
+<p>Nitrogen was clearly introduced in the graphene, as would be expected for amine-functionalised graphene. Some of the N might also be from azo-coupled diazonium salt. HR-XPS of the N 1s peak might be able to give more information.</p>
+<p>In this data a sulphur-peak was also clearly observed at approx. 168.5 eV. A thiol whould normally be observed at 164 eV, so this suggests that we have -SO<sub>4</sub> bound to the surface, as would probably be expected from the oxidative exfoliation in sulphuric acid. Andreas did not observed this in his experiments. It might be possible to anneal the graphene and get rid of this.</p>
+</div>
+<div id="atr-ir" class="section level3">
+<h3>ATR-IR</h3>
+<p>Seeing that XPS revealed nitrogen I was tempted to do ATR-IR on some of the powder.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ir170920 &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&#39;data/raw_data/ir/20170922_ATR-IR_Gr-NH2/Administrator 1001_148.csv&#39;</span>, <span class="dt">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">skip =</span> <span class="dv">2</span>, <span class="dt">col_names =</span> <span class="kw">c</span>(<span class="st">&quot;wavenumber&quot;</span>, <span class="st">&quot;t&quot;</span>), <span class="dt">locale =</span> <span class="kw">locale</span>(<span class="dt">decimal_mark =</span> <span class="st">&quot;,&quot;</span>))
+
+ir170920 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(wavenumber, t)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">70</span>, <span class="dv">90</span>))</code></pre></div>
+<p><img src="20170904_Gr-NH2_production_for_Radisurf_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&#39;figs/20170904_ATRIR_Gr_NH2.png&#39;</span>, <span class="dt">width =</span> <span class="dv">16</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre></div>
+<p>However, it seems that concentration is too low to observed any amine-groups. Maybe it could be possible to deposit the graphene on a reflective surface such as gold and do PM-IRRAS.</p>
+</div>
+</div>
+</div>
+<div id="conclusion-and-outlook" class="section level1">
+<h1>Conclusion and outlook</h1>
+<p>Based on XPS-measurements it seems that the amine-functionalisation was succesful. The electrochemical approach was not useful for following the diazonium-concentration.</p>
+<p>The freeze-drying procedure was only partly succesfull, since a product that was too compact was obtained. Freeze-drying small amounts (perhaps 100 mL) is probably the way to go.</p>
+</div>
+
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://spoman-graphene-production.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<script id="dsq-count-scr" src="//spoman-graphene-production.disqus.com/count.js" async></script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

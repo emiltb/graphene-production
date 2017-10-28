@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>20171026 Azodye formation and calibration</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
+div.sourceCode {
+  overflow-x: visible;
+}
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Graphene production</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-desktop"></span>
+     
+    Project Description
+  </a>
+</li>
+<li>
+  <a href="lab_journal.html">
+    <span class="fa fa-flask"></span>
+     
+    Lab journal
+  </a>
+</li>
+<li>
+  <a href="data.html">
+    <span class="fa fa-table"></span>
+     
+    Data
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="mailto:emilbp@inano.au.dk">
+    <span class="fa fa-envelope-o"></span>
+     
+    Contact me
+  </a>
+</li>
+<li>
+  <a href="https://github.com/emiltb/graphene-production">
+    <span class="fa fa-github"></span>
+     
+    GitHub
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">20171026 Azodye formation and calibration</h1>
+
+</div>
+
+
+<p>Following the <a href="#j20171023">succesful synthesis of 4-aminoethylbenzenediazonium salt</a>, it was necessary to repeat azo-dye formation, in order to make a calibration curve for UV-Vis. In this way, the diazonium concentration during graphene exfoliation can easy be monitored by extracting small samples of the electrolyte.</p>
+<p><img src="figs/azo-coupling.png" width="50%" /></p>
+<div id="journal" class="section level1">
+<h1>Journal</h1>
+<p>Solutions were prepared:</p>
+<ul>
+<li>2 mM diazonium solution by mixing 14.1 mg in 30 mL 0.1 M H<sub>2</sub>SO<sub>4</sub></li>
+<li>3 mM 2-Naphtol solution by mixing 13.0 mg in 6 mL 10 % NaOH and 24 mL H<sub>2</sub>O.</li>
+</ul>
+<p>A series of azo samples with different concentrations were prepared, based on the following table:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">tribble</span>(
+  <span class="op">~</span>V_diazo, <span class="op">~</span>V_acid, <span class="op">~</span>V_naphtol,
+  <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span>,
+  <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>,
+  <span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="dv">2</span>,
+  <span class="fl">0.1</span>, <span class="fl">1.9</span>, <span class="dv">2</span>
+) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(
+    <span class="dt">V_final =</span> V_diazo <span class="op">+</span><span class="st"> </span>V_acid <span class="op">+</span><span class="st"> </span>V_naphtol,
+    <span class="dt">C_dye =</span> <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>V_diazo <span class="op">/</span><span class="st"> </span>V_final,
+    <span class="dt">C_diazo =</span> <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>C_dye
+  ) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;V~diazo~ (mL)&#39;</span>, <span class="st">&#39;V~H2SO4~ (mL)&#39;</span>, <span class="st">&#39;V~naphtol~ (mL)&#39;</span>, <span class="st">&#39;V~final~ (mL)&#39;</span>, <span class="st">&#39;C~dye~ (mM)&#39;</span>, <span class="st">&#39;C~diazo~ (mM)&#39;</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">V<sub>diazo</sub> (mL)</th>
+<th align="right">V<sub>H2SO4</sub> (mL)</th>
+<th align="right">V<sub>naphtol</sub> (mL)</th>
+<th align="right">V<sub>final</sub> (mL)</th>
+<th align="right">C<sub>dye</sub> (mM)</th>
+<th align="right">C<sub>diazo</sub> (mM)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2.0</td>
+<td align="right">0.0</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">1.00</td>
+<td align="right">2.0</td>
+</tr>
+<tr class="even">
+<td align="right">1.0</td>
+<td align="right">1.0</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">0.50</td>
+<td align="right">1.0</td>
+</tr>
+<tr class="odd">
+<td align="right">0.5</td>
+<td align="right">1.5</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">0.25</td>
+<td align="right">0.5</td>
+</tr>
+<tr class="even">
+<td align="right">0.1</td>
+<td align="right">1.9</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">0.05</td>
+<td align="right">0.1</td>
+</tr>
+</tbody>
+</table>
+<p>This produces bright red dyes immediately upon mixing. Here at 1 mM concentration.</p>
+<p><img src="data/derived_data/20171026_Azodye.jpg" /><!-- --></p>
+</div>
+<div id="results-and-discussion" class="section level1">
+<h1>Results and discussion</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">path &lt;-<span class="st"> &quot;data/raw_data/uvvis/20171026_Azodye/&quot;</span>
+data171026 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">file =</span> <span class="kw">list.files</span>(<span class="dt">path =</span> path, <span class="dt">pattern =</span> <span class="st">&quot;*.csv&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">data =</span> <span class="kw">map</span>(<span class="kw">paste0</span>(path,file), read_delim, <span class="dt">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">name =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(file, <span class="dt">pattern =</span> <span class="st">&quot;^[</span><span class="ch">\\</span><span class="st">sa-zA-Z0-9_-]*&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conc =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(file, <span class="dt">pattern =</span> <span class="st">&quot;[</span><span class="ch">\\</span><span class="st">d]+</span><span class="ch">\\</span><span class="st">.[</span><span class="ch">\\</span><span class="st">d]+(?=mM)&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.numeric</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">unnest</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">region =</span> <span class="kw">ifelse</span>(nm <span class="op">&gt;</span><span class="st"> </span><span class="dv">400</span>, <span class="st">&quot;Visible&quot;</span>, <span class="st">&quot;UV&quot;</span>))</code></pre></div>
+<p>The red dyes have a large absorption, with peaks at 430 nm and 499 nm.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data171026 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conc =</span> <span class="kw">as.factor</span>(conc)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(nm, A, <span class="dt">color =</span> conc)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">data =</span> <span class="kw">tibble</span>(<span class="dt">region =</span> <span class="st">&quot;Visible&quot;</span>, <span class="dt">maxima =</span> <span class="kw">c</span>(<span class="dv">430</span>, <span class="dv">499</span>)), <span class="kw">aes</span>(<span class="dt">xintercept =</span> maxima)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>region, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>) </code></pre></div>
+<p><img src="20171026_Azodye_formation_and_calibration_files/figure-html/unnamed-chunk-6-1.png" width="768" /></p>
+<p>These (here for 499 nm) can be used to calibrate the concentration against the absorption.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data171026_cal &lt;-<span class="st"> </span>data171026 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(nm <span class="op">==</span><span class="st"> </span><span class="dv">499</span>)
+
+<span class="co"># Fit a linear model to the data</span>
+fit171026 &lt;-<span class="st"> </span><span class="kw">lm</span>(A <span class="op">~</span><span class="st"> </span>conc, <span class="dt">data =</span> data171026_cal <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(conc <span class="op">!=</span><span class="st"> </span><span class="fl">1.00</span>))
+
+new_C &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">conc =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>))
+fitted171026 &lt;-<span class="st"> </span><span class="kw">cbind</span>(new_C, <span class="kw">predict</span>(fit171026, <span class="dt">interval =</span> <span class="st">&quot;confidence&quot;</span>, <span class="dt">newdata =</span> new_C))
+
+eps499 &lt;-<span class="st"> </span><span class="kw">round</span>(broom<span class="op">::</span><span class="kw">tidy</span>(fit171026)<span class="op">$</span>estimate[[<span class="dv">2</span>]] <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>) <span class="co"># Extract eps and convert from L/mmol*cm to L/mol*cm</span>
+
+data171026_cal <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(conc, A, <span class="dt">color =</span> conc <span class="op">&lt;</span><span class="st"> </span><span class="fl">1.00</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> fitted171026, <span class="kw">aes</span>(conc, fit), <span class="dt">linetype =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="co">#geom_ribbon(data = fitted171026, aes(x = conc, ymin = lwr, ymax = upr), alpha = 0.2) + </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Absorption of azo-dye at 499 nm&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Concentration (mmol/L)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Absorption (a.u.)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">0.05</span>, <span class="fl">4.5</span>))</code></pre></div>
+<p><img src="20171026_Azodye_formation_and_calibration_files/figure-html/unnamed-chunk-7-1.png" width="768" /></p>
+<p>The 1 mM sample is excluded from this fit, since the sample was too concentrated and the UV-Vis spectrometer could not reliably measure this spectrum. For this reason, the best approach in the exfoliation experiment would be to produce more dilute samples, ensuring that the absorption at 499 nm can be measured reliably.</p>
+<p>Using Lambert-Beers law <span class="math inline">\((A = \epsilon_\lambda\cdot C\cdot l)\)</span>, the extinction coefficient of the azo-dye is found to be <span class="math inline">\(\epsilon_{499} = 5022 \frac{L}{cm\, mol}\)</span>.</p>
+</div>
+<div id="conclusion-and-outlook" class="section level1">
+<h1>Conclusion and outlook</h1>
+<p>This shows the succesful generation of azo-dye molecules, that can be used to monitor the diazonium concentration during exfoliation.</p>
+<p>In order to reliably measure the concentration of the extracted samples the concentration needs to be lower (preferably with a dye concentration &lt; 0.5 mM). If exfoliation experiments are still conducted with diazonium-concentration of 2 mM and 2 mL samples are extracted, this means that the volume of the sample for UV-Vis should be <span class="math inline">\(\frac{2\, mM\cdot 2\, mL}{0.5\, mM} = 8 mL\)</span>. I wish to use 1.5 eq. of 2-Naphtol, to ensure enough for reaction. This means that the 6 mL 2-Naphtol solution must have a concentration of <span class="math inline">\(\frac{2\, mM\cdot 2\, mL\cdot 1.5}{6\, mL} = 1 mM\)</span>. The 2-Naphtol solution used for analysis thus must be a 1 mM solution in <span class="math inline">\(\frac{1}{6}\)</span> 10 % NaOH and <span class="math inline">\(\frac{5}{6}\)</span> H<sub>2</sub>O, which is 0.144 mg/mL.</p>
+<p>E.g. for 50 mL solution use 7.2 mg 2-Naphtol in 8 mL 10 % NaOH and 42 mL H<sub>2</sub>O.</p>
+</div>
+
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://spoman-graphene-production.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<script id="dsq-count-scr" src="//spoman-graphene-production.disqus.com/count.js" async></script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

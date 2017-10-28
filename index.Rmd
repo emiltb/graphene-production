@@ -1,0 +1,25 @@
+---
+title: "Graphene production for polymer composites"
+output: 
+  html_document:
+    toc: false
+---
+
+```{r, child="_setup.Rmd"}
+```
+
+> Project by Emil Tveden Bjerglund
+
+Electrochemistry provides the tools needed to produce and functionalise graphene, which is suitable for polymer composites. Different functional groups on graphene makes it possible to tailor the interface between graphene and polymer to create strong, and possibly conducting, polymer composites.
+
+## Links
+* Procedures and results are found in the [Lab Journal](lab_journal.html)
+* More information can be found on the [Open Science Framework](https://osf.io/gmprw/)
+
+## Biweekly reports
+* 20170908 ([PDF](biweekly_reports/20170908_Biweekly_report_Emil.pdf), [HTML](biweekly_reports/20170908_Biweekly_report_Emil.html))
+* 20170922 ([PDF](biweekly_reports/20170922_Biweekly_report_Emil.pdf), [HTML](biweekly_reports/20170922_Biweekly_report_Emil.html))
+* 20171020 ([PDF](biweekly_reports/20171020_Biweekly_report_Emil.pdf), [HTML](biweekly_reports/20171020_Biweekly_report_Emil.html))
+
+## Presentations
+* 20170928 Open Science meeting ([HTML](presentations/20170928_Producing_functionalised_graphene.html))
