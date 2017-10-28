@@ -3,7 +3,7 @@ output_dir: "."
 output:
   html_document:
     theme: flatly
-    highlight: kate
+    highlight: pygments
     self_contained: false
     toc: true
     toc_depth: 3
@@ -11,7 +11,9 @@ output:
       collapsed: false
     includes:
       after_body: include_footer.html
+      in_header: include_header.html
     code_folding: hide
     fig_width: 8
     fig_height: 3
     md_extensions: +header_attributes
+    css: styles.css
