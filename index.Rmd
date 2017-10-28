@@ -10,6 +10,8 @@ output:
 
 > Project by Emil Tveden Bjerglund
 
+![](figs/biweekly_header.png)
+
 Electrochemistry provides the tools needed to produce and functionalise graphene, which is suitable for polymer composites. Different functional groups on graphene makes it possible to tailor the interface between graphene and polymer to create strong, and possibly conducting, polymer composites.
 
 ## Links
