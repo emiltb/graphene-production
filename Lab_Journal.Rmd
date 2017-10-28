@@ -1,52 +1,24 @@
 ---
-title: 'Lab Journal: Production of functionalised graphene'
-author: "Emil Tveden Bjerglund"
-date: "Last updated: `r Sys.Date()`"
-csl: misc/csl/american-chemical-society-with-titles-doi-no-et-al.csl
-output:
-  rmdformats::readthedown:
-    highlight: kate
-    fig_width: 8
-    fig_height: 3
-    code_folding: hide
-    md_extensions: +header_attributes
-  pdf_document:
-    toc: yes
-    toc_depth: '1'
-    fig_width: 8
-    fig_height: 3
-  word_document: default
-bibliography: misc/library.bib
+title: "Lab journals"
+output: 
+  html_document:
+    toc: false
+    includes:
+      after_body: NULL
 ---
 
-```{r setup, include=FALSE}
-library(knitr)
-library(rmdformats)
-library(tidyverse)
-library(units)
+All lab journals in this project are available below, sorted by date. 
 
-## Global options
-options(max.print="75")
-opts_chunk$set(echo=FALSE,
-	             cache=TRUE,
-               prompt=FALSE,
-               tidy=FALSE,
-               comment=NA,
-               message=FALSE,
-               warning=FALSE)
-opts_knit$set(width=75)
-opts_chunk$set(echo = TRUE)
+```{r results='asis', echo=FALSE}
+journals <- rev(list.files(pattern = '^\\d{8}.+[\\.Rmd]$'))
+journals <- stringr::str_replace(journals, "Rmd", "html")
 
-rmd <- rev(list.files(pattern = '*.Rmd',path = 'lab_journal', recursive = TRUE, include.dirs = TRUE))
-chunks <- paste0("```{r child = 'lab_journal/", rmd, "'}\n```\n")
-readr::write_lines(chunks, "includes.Rmd")
+dates <- stringr::str_extract(journals, "\\d{8}")
+titles <- stringr::str_replace_all(stringr::str_extract(journals, "(?<=\\d{8}_).*(?=\\.html)"), "_", " ")
 
+for (i in seq_along(journals)) {
+  cat(paste0("* <a href='", journals[i], "'>", dates[i], " ", titles[i], "</a><br>\n"))
+}
 ```
 
-```{r child = 'includes.Rmd'}
-```
 
-```{r cleanup, include=FALSE}
-file.remove("includes.Rmd")
-```
-# References
