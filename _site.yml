@@ -1,5 +1,24 @@
 name: "SPOMAN"
 output_dir: "." 
+navbar:
+  title: "Graphene Production"
+  left:
+    - text: "Project description"
+      icon: fa-desktop
+      href: index.html
+    - text: "Lab journal"
+      icon: fa-flask
+      href: Lab_journal.html
+    - text: "Data"
+      icon: fa-table
+      href: data.html
+  right:
+    - text: "Contact"
+      icon: fa-envelope-o
+      href: mailto:emilbp@inano.au.dk
+    - text: "GitHub"
+      icon: fa-github
+      href: https://github.com/emiltb/graphene-production
 output:
   html_document:
     theme: flatly
