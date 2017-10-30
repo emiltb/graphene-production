@@ -13,7 +13,7 @@ navbar:
       icon: fa-table
       href: data.html
   right:
-    - text: "Contact"
+    - text: "OSF"
       icon: fa-external-link
       href: https://osf.io/gmprw/
     - text: "Contact"
