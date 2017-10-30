@@ -330,7 +330,7 @@ div.tocify {
   </a>
 </li>
 <li>
-  <a href="Lab_journal.html">
+  <a href="lab_journal.html">
     <span class="fa fa-flask"></span>
      
     Lab journal
@@ -386,8 +386,8 @@ div.tocify {
 <h1>Journal</h1>
 <p>A 2 mM solution of 4-aminoethylbenzenediazonium was made by mixing 47 mg with 100 mL 0.1 M H<sub>2</sub>SO<sub>4</sub>. A 1 mM solution of 2-Naphtol was made by mixing 4.3 mg with 6 mL 10 % NaOH and 24 mL H<sub>2</sub>O. This makes it possible to make 4 mL samples for UV-Vis by mixing 3 mL of the 2-Naphtol and 1 mL diazonium-solution.</p>
 <p>A 2x6 cm<sup>2</sup> (0.7611 g) piece of graphite foil was used as the anode and a piece of stainless steel as the cathode. 10 V was applied between the electrodes for 85 min. Samples were extracted and temperature and current recorded at regular intervals.</p>
-<p>The exfoliated graphene was then washed with copious amounts of water and acetonitrile to remove acid and residual diazonium-salt. In the end the pH of the washing water was approx. 6. The graphene was ultrasonicated in 100 mL DMF for 1 hour and left overnight. The topmost 90 mL were centrifuged at 4000 rpm for 2 hours, the grey supernatant removed and kept. The pellet, consisting of most of the graphene was mixed with 40 mL water and centrifuged for 30 min at 4000 rpm in order to remove most remaining DMF. The supernatant removed and the pellet ultrasonicated in 50 mL water for 30 min. It was then transferred to a 500 mL flask (empty flask weighed 157.7835 g), frozen in liquid nitrogen while rotating to create a shell, wrapped in paper and aluminium-foil and put on the freeze dryer.</p>
-<p>The unexfoliated graphite foil weighed 0.3587 g after drying at 100 <span class="math inline">\(^\circ\)</span>C overnight.</p>
+<p>The exfoliated graphene was then washed with copious amounts of water and acetonitrile to remove acid and residual diazonium-salt. In the end the pH of the washing water was approx. 6. The graphene was ultrasonicated in 100 mL DMF for 1 hour and left overnight. The topmost 90 mL were centrifuged at 4000 rpm for 2 hours, the grey supernatant removed and kept. The pellet, consisting of most of the graphene was mixed with 40 mL water and centrifuged for 30 min at 4000 rpm in order to remove most remaining DMF. The supernatant removed and the pellet ultrasonicated in 50 mL water for 30 min. It was then transferred to a 500 mL flask (empty flask weighed 157.7835 g), frozen in liquid nitrogen while rotating to create a shell, wrapped in paper and aluminium-foil and put on the freeze dryer. After freeze-drying 86 mg graphene was obtained.</p>
+<p>The unexfoliated graphite foil weighed 0.3587 g after drying at 100 <span class="math inline">\(^\circ\)</span>C overnight. This means that 0.4024 g was exfoliated in 85 min, and the yield of graphene obtained was 21 %. Some graphene is lost on the side of containers, or trapped in solvents. With more work, this can probably be increased significantly.</p>
 <p>Samples for Raman were made from the remaining DMF-solution by the self-assembly method (10 mL H<sub>2</sub>O, 2 mL ethyl acetate on top and 1 mL graphene solution injected in a petri dish). After a few minutes, the graphene film could be picked up on SiO<sub>2</sub> and dried in an oven.</p>
 </div>
 <div id="results-and-discussion" class="section level1">
@@ -410,32 +410,29 @@ specs171027 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span c
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(file, <span class="dt">pattern =</span> <span class="st">&quot;</span><span class="ch">\\</span><span class="st">d{2}(?=min)&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.numeric</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">unnest</span>()
 
-eps499 =<span class="st"> </span><span class="fl">5.022</span> <span class="co"># L/cm*mmol</span></code></pre></div>
+eps499 =<span class="st"> </span><span class="fl">5.022</span> <span class="co"># L/cm*mmol</span>
+
+data171027 &lt;-<span class="st"> </span>data171027 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">left_join</span>(specs171027) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conc =</span> A<span class="op">/</span>eps499 <span class="op">*</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># Multiplied by 4 to get the diazonium-concentration</span></code></pre></div>
 <div id="uv-vis" class="section level2">
 <h2>UV-Vis</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data171027 &lt;-<span class="st"> </span>data171027 <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">left_join</span>(specs171027) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conc =</span> A<span class="op">/</span>eps499 <span class="op">*</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># Multiplied by 4 to get the diazonium-concentration</span>
-
-g1 &lt;-<span class="st"> </span>data171027 <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g1 &lt;-<span class="st"> </span>data171027 <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(nm <span class="op">==</span><span class="st"> </span><span class="dv">499</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, A)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, conc)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>())
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>()) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Concentration (mM)&quot;</span>)
   
 g2 &lt;-<span class="st"> </span>data171027 <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, temp)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>()
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Temperature (°C)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Time (min)&quot;</span>)
 
 cowplot<span class="op">::</span><span class="kw">plot_grid</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">align =</span> <span class="st">&quot;v&quot;</span>)</code></pre></div>
-<p><img src="20171027_GrNH2_production_with_new_diazonium_salt_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data171027 <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(nm <span class="op">==</span><span class="st"> </span><span class="dv">499</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, conc)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="20171027_GrNH2_production_with_new_diazonium_salt_files/figure-html/unnamed-chunk-4-1.png" width="768" /></p>
+<p><img src="20171027_GrNH2_production_with_new_diazonium_salt_files/figure-html/20171027_azodye_time-1.png" width="768" /></p>
 </div>
 </div>
 <div id="conclusions-and-outlook" class="section level1">

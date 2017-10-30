@@ -8,7 +8,7 @@ navbar:
       href: index.html
     - text: "Lab journal"
       icon: fa-flask
-      href: Lab_journal.html
+      href: lab_journal.html
     - text: "Data"
       icon: fa-table
       href: data.html
