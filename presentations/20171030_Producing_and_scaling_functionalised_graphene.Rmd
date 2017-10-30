@@ -48,7 +48,7 @@ knitr::include_graphics("../figs/AndreasGrNH2results.png")
 <div class="columns-2">
 Same chemistry, larger setup: Exfoliation of graphite anode in 0.1 M H~2~SO~4~ at 10 V.
 
-```{r out.width = '70%'}
+```{r out.width = '60%'}
 knitr::include_graphics("../figs/new_cell-01.png")
 ```
 
@@ -60,9 +60,9 @@ knitr::include_graphics("../figs/gr-nh2.png")
 ```
 
 The new setup can exfoliate $\sim 3$ g/h (10 V at 20 A)
-
 </div>
 
+Light powder, can (with some succes) be redispersed
 
 ## Current method
 
