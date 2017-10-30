@@ -1,7 +1,7 @@
 ---
 title: "Producing functionalised graphene"
 author: "Emil Tveden Bjerglund"
-date: "Open Science Meeting<br>30 oct 2017"
+date: "Open Science Meeting<br>31 oct 2017"
 output:
   ioslides_presentation: default
   beamer_presentation: default
