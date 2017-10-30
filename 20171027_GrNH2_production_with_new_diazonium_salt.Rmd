@@ -13,9 +13,9 @@ A 2 mM solution of 4-aminoethylbenzenediazonium was made by mixing 47 mg with 10
 
 A 2x6 cm^2^ (0.7611 g) piece of graphite foil was used as the anode and a piece of stainless steel as the cathode. 10 V was applied between the electrodes for 85 min. Samples were extracted and temperature and current recorded at regular intervals. 
 
-The exfoliated graphene was then washed with copious amounts of water and acetonitrile to remove acid and residual diazonium-salt. In the end the pH of the washing water was approx. 6. The graphene was ultrasonicated in 100 mL DMF for 1 hour and left overnight. The topmost 90 mL were centrifuged at 4000 rpm for 2 hours, the grey supernatant removed and kept. The pellet, consisting of most of the graphene was mixed with 40 mL water and centrifuged for 30 min at 4000 rpm in order to remove most remaining DMF. The supernatant removed and the pellet ultrasonicated in 50 mL water for 30 min. It was then transferred to a 500 mL flask (empty flask weighed 157.7835 g), frozen in liquid nitrogen while rotating to create a shell, wrapped in paper and aluminium-foil and put on the freeze dryer.
+The exfoliated graphene was then washed with copious amounts of water and acetonitrile to remove acid and residual diazonium-salt. In the end the pH of the washing water was approx. 6. The graphene was ultrasonicated in 100 mL DMF for 1 hour and left overnight. The topmost 90 mL were centrifuged at 4000 rpm for 2 hours, the grey supernatant removed and kept. The pellet, consisting of most of the graphene was mixed with 40 mL water and centrifuged for 30 min at 4000 rpm in order to remove most remaining DMF. The supernatant removed and the pellet ultrasonicated in 50 mL water for 30 min. It was then transferred to a 500 mL flask (empty flask weighed 157.7835 g), frozen in liquid nitrogen while rotating to create a shell, wrapped in paper and aluminium-foil and put on the freeze dryer. After freeze-drying `r (m_gr <- 157869.5 - 157783.5)` mg graphene was obtained. 
 
-The unexfoliated graphite foil weighed 0.3587 g after drying at 100 $^\circ$C overnight.
+The unexfoliated graphite foil weighed 0.3587 g after drying at 100 $^\circ$C overnight. This means that `r (m_exf <- 0.7611 - 0.3587)` g was exfoliated in 85 min, and the yield of graphene obtained was `r round((m_gr/1000) / m_exf * 100)` %. Some graphene is lost on the side of containers, or trapped in solvents. With more work, this can probably be increased significantly. 
 
 Samples for Raman were made from the remaining DMF-solution by the self-assembly method (10 mL H~2~O, 2 mL ethyl acetate on top and 1 mL graphene solution injected in a petri dish). After a few minutes, the graphene film could be picked up on SiO~2~ and dried in an oven. 
 
@@ -42,37 +42,33 @@ specs171027 <- tibble(file = list.files(path = path, pattern = "*.csv")) %>%
 
 eps499 = 5.022 # L/cm*mmol
 
+data171027 <- data171027 %>% 
+  left_join(specs171027) %>% 
+  mutate(conc = A/eps499 * 4) # Multiplied by 4 to get the diazonium-concentration
+
 ```
 
 ## UV-Vis
 
 ```{r}
-data171027 <- data171027 %>% 
-  left_join(specs171027) %>% 
-  mutate(conc = A/eps499 * 4) # Multiplied by 4 to get the diazonium-concentration
-
 g1 <- data171027 %>% 
   filter(nm == 499) %>% 
-  ggplot(aes(time, A)) +
+  ggplot(aes(time, conc)) +
   geom_point() + 
   geom_line() +
-  theme(axis.text.x = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank())
+  theme(axis.text.x = element_blank(), axis.title.x = element_blank(), axis.ticks.x = element_blank()) +
+  labs(y = "Concentration (mM)")
   
 g2 <- data171027 %>% 
   ggplot(aes(time, temp)) +
   geom_point() +
-  geom_line()
+  geom_line() +
+  labs(y = "Temperature (°C)", x = "Time (min)")
 
-cowplot::plot_grid(g1, g2, ncol = 1, align = "v")
+(g3 <- cowplot::plot_grid(g1, g2, ncol = 1, align = "v"))
+ggsave("data/derived_data/uvvis/20171027_GrNH2_azodye/20171027_azodye_time.png", width = 12, height = 8, units = "cm", dpi = 300)
 ```
 
-
-```{r}
-data171027 %>% 
-  filter(nm == 499) %>% 
-  ggplot(aes(time, conc)) +
-  geom_point()
-```
 
 # Conclusions and outlook
 
