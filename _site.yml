@@ -14,6 +14,9 @@ navbar:
       href: data.html
   right:
     - text: "Contact"
+      icon: fa-external-link
+      href: https://osf.io/gmprw/
+    - text: "Contact"
       icon: fa-envelope-o
       href: mailto:emilbp@inano.au.dk
     - text: "GitHub"
