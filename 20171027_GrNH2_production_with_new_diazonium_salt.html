@@ -346,6 +346,13 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
+  <a href="https://osf.io/gmprw/">
+    <span class="fa fa-external-link"></span>
+     
+    Contact
+  </a>
+</li>
+<li>
   <a href="mailto:emilbp@inano.au.dk">
     <span class="fa fa-envelope-o"></span>
      
@@ -431,8 +438,9 @@ g2 &lt;-<span class="st"> </span>data171027 <span class="op">%&gt;%</span><span 
 <span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Temperature (°C)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Time (min)&quot;</span>)
 
-cowplot<span class="op">::</span><span class="kw">plot_grid</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">align =</span> <span class="st">&quot;v&quot;</span>)</code></pre></div>
-<p><img src="20171027_GrNH2_production_with_new_diazonium_salt_files/figure-html/20171027_azodye_time-1.png" width="768" /></p>
+(g3 &lt;-<span class="st"> </span>cowplot<span class="op">::</span><span class="kw">plot_grid</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">align =</span> <span class="st">&quot;v&quot;</span>))</code></pre></div>
+<p><img src="20171027_GrNH2_production_with_new_diazonium_salt_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;data/derived_data/uvvis/20171027_GrNH2_azodye/20171027_azodye_time.png&quot;</span>, <span class="dt">width =</span> <span class="dv">12</span>, <span class="dt">height =</span> <span class="dv">8</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre></div>
 </div>
 </div>
 <div id="conclusions-and-outlook" class="section level1">

@@ -104,3 +104,10 @@ Is the open science community able to help with this?
 The current interest seems to be 5-15 g for different projects.
 
 ## New lab journal
+
+```{r out.width='50%'}
+knitr::include_graphics("../figs/mikkel_comment.png")
+```
+
+[Surprisingly easy to implement](https://emiltb.github.io/graphene-production/index.html) and more accessible than OSF comments.
+

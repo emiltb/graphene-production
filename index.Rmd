@@ -25,3 +25,4 @@ Electrochemistry provides the tools needed to produce and functionalise graphene
 
 ## Presentations
 * 20170928 Open Science meeting ([HTML](presentations/20170928_Producing_functionalised_graphene.html))
+* 20171031 Open Science meeting ([HTML](presentations/20171030_Producing_and_scaling_functionalised_graphene.html))
