@@ -424,6 +424,8 @@ data171027 &lt;-<span class="st"> </span>data171027 <span class="op">%&gt;%</spa
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conc =</span> A<span class="op">/</span>eps499 <span class="op">*</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># Multiplied by 4 to get the diazonium-concentration</span></code></pre></div>
 <div id="uv-vis" class="section level2">
 <h2>UV-Vis</h2>
+<p>Using the absorption of the extracted samples, it is possible to plot the diazonium-concentration as a function of time for the experiment.</p>
+<p>When making the last samples (after 1 hour or more), the 2-Naphtol solution started to turn yellow, so I am at this point not completely sure whether the low concentrations recorded are only due to degradation of diazonium salt, or whether something happened to the 2-Naphtol.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g1 &lt;-<span class="st"> </span>data171027 <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(nm <span class="op">==</span><span class="st"> </span><span class="dv">499</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, conc)) <span class="op">+</span>
@@ -442,9 +444,78 @@ g2 &lt;-<span class="st"> </span>data171027 <span class="op">%&gt;%</span><span 
 <p><img src="20171027_GrNH2_production_with_new_diazonium_salt_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;data/derived_data/uvvis/20171027_GrNH2_azodye/20171027_azodye_time.png&quot;</span>, <span class="dt">width =</span> <span class="dv">12</span>, <span class="dt">height =</span> <span class="dv">8</span>, <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre></div>
 </div>
+<div id="raman-microscopy" class="section level2">
+<h2>Raman microscopy</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># # The following script was run on the raw Wire files after cosmic ray removal, and saving them as txt</span>
+<span class="co"># path &lt;- &quot;data/raw_data/raman/20171102_GrNH2_from_20171027/&quot;</span>
+<span class="co"># raman171027 &lt;- tibble(files = list.files(path, pattern = &quot;*.txt&quot;)) %&gt;% </span>
+<span class="co">#   mutate(map = stringr::str_extract(files, &quot;(?&lt;=map\\s)\\d{1}&quot;)) %&gt;% </span>
+<span class="co">#   mutate(data = map(paste0(path, files), read_tsv, col_names = c(&quot;x&quot;, &quot;y&quot;, &quot;wavenumber&quot;, &quot;intensity&quot;), skip = 1)) %&gt;% </span>
+<span class="co">#   unnest()</span>
+<span class="co"># </span>
+<span class="co"># saveRDS(raman171027, file = &quot;data/derived_data/raman/20171102_GrNH2_from_20171027/raman171027.RData&quot;)</span>
+
+raman171027 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="st">&quot;data/derived_data/raman/20171102_GrNH2_from_20171027/raman171027.RData&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(files <span class="op">!=</span><span class="st"> &quot;GrNH2 map 1.txt&quot;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># Map 1 was done at too high intensity</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span>(files <span class="op">==</span><span class="st"> &quot;GrNH2 map 2.txt&quot;</span> <span class="op">&amp;</span><span class="st"> </span>y <span class="op">&gt;=</span><span class="st"> </span><span class="op">-</span><span class="fl">3.5</span>)) <span class="co"># Focus was lost during acquisition, so keep the in-focus spectra</span>
+
+add_peaks &lt;-<span class="st"> </span><span class="cf">function</span>(df, values, ...) {
+  values &lt;-<span class="st"> </span><span class="kw">enquo</span>(values)
+  peaks &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">pull</span>(<span class="op">!!</span>values) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>peakPick<span class="op">::</span><span class="kw">peakpick</span>(...)
+  
+  <span class="kw">mutate</span>(df, <span class="dt">peaks =</span> peaks)
+}
+
+plot_peaks &lt;-<span class="st"> </span><span class="cf">function</span>(df) {
+  <span class="kw">ggplot</span>(df) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_ribbon</span>(<span class="kw">aes</span>(<span class="dt">x =</span> wavenumber, <span class="dt">ymin =</span> int_mean <span class="op">-</span><span class="st"> </span>int_sd, <span class="dt">ymax =</span> int_mean <span class="op">+</span><span class="st"> </span>int_sd), <span class="dt">alpha =</span> <span class="fl">0.25</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(wavenumber, int_mean)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_segment</span>(<span class="dt">data =</span> . <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(peaks) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">nudge =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">80</span>,<span class="dv">20</span>,<span class="dv">100</span>,<span class="dv">60</span>)<span class="op">*</span><span class="fl">1.5</span>, <span class="kw">nrow</span>(.)<span class="op">%/%</span><span class="dv">6</span>, <span class="dt">len =</span> <span class="kw">nrow</span>(.))), <span class="kw">aes</span>(<span class="dt">x =</span> wavenumber, <span class="dt">xend =</span> wavenumber, <span class="dt">y =</span> int_mean <span class="op">+</span><span class="st"> </span><span class="dv">10</span>, <span class="dt">yend =</span> int_mean <span class="op">+</span><span class="st"> </span><span class="dv">35</span> <span class="op">+</span><span class="st"> </span>nudge), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_text</span>(<span class="dt">data =</span> . <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(peaks) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">nudge =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">40</span>,<span class="dv">80</span>,<span class="dv">20</span>,<span class="dv">100</span>,<span class="dv">60</span>)<span class="op">*</span><span class="fl">1.5</span>, <span class="kw">nrow</span>(.)<span class="op">%/%</span><span class="dv">6</span>, <span class="dt">len =</span> <span class="kw">nrow</span>(.))), <span class="kw">aes</span>(<span class="dt">x =</span> wavenumber, <span class="dt">y =</span> int_mean <span class="op">+</span><span class="st"> </span>nudge, <span class="dt">label =</span> <span class="kw">round</span>(wavenumber)), <span class="dt">size =</span> <span class="fl">2.5</span>, <span class="dt">nudge_y =</span> <span class="dv">70</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Intensity (a.u)&quot;</span>, <span class="dt">x =</span> <span class="kw">expression</span>(<span class="kw">paste</span>(<span class="st">&quot;Wavenumber (&quot;</span>, cm<span class="op">^-</span><span class="dv">1</span>, <span class="st">&quot;)&quot;</span>)))
+}</code></pre></div>
+<p>Raman maps were obtained from a sample deposited on SiO<sub>2</sub>. The spectra were acquired in HR Streamline mode with 1 s acquisition time at 10 % x 33 % intensity of the 514 nm laser. The actual maps are not plotted here. Instead the spectra in each mapped has been summarised by their mean (black line) ± 1 standard deviation (grey ribbon), which are plotted below. An automated peak finding algorithm was used to mark the peaks in the spectra (clearly it didn’t do a perfect job).</p>
+<p>The first spectrum is obtained using the 1200 l/mm grating to get an overview. The spectra is as expected for oxidized and functionalised graphene. There is however a weak unusual feature at 3246 cm<sup>-1</sup>, which might be ascribed to N-H stretching in the amine. This would have to be tested against a control sample without the amine to be sure.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">raman171027 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(files <span class="op">==</span><span class="st"> &quot;GrNH2 map 2.txt&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(wavenumber) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">int_mean =</span> <span class="kw">mean</span>(intensity), <span class="dt">int_sd =</span> <span class="kw">sd</span>(intensity)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">add_peaks</span>(int_mean, <span class="dt">neighlim =</span> <span class="dv">20</span>, <span class="dt">deriv.lim =</span> <span class="dv">2</span>, <span class="dt">peak.min.sd =</span> <span class="dv">4</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">plot_peaks</span>()</code></pre></div>
+<p><img src="20171027_GrNH2_production_with_new_diazonium_salt_files/figure-html/unnamed-chunk-4-1.png" width="768" /></p>
+<p>A spectrum with the 2400 l/mm grating gives a closer look on the 2500-3500 cm<sup>-1</sup> region. Once again the extra peak at 3245 cm<sup>-1</sup> appears, but otherwise no unusual features are observed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">raman171027 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(files <span class="op">==</span><span class="st"> &quot;GrNH2 map 3 high region.txt&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(wavenumber) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">int_mean =</span> <span class="kw">mean</span>(intensity), <span class="dt">int_sd =</span> <span class="kw">sd</span>(intensity)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">add_peaks</span>(int_mean, <span class="dt">neighlim =</span> <span class="dv">20</span>, <span class="dt">deriv.lim =</span> <span class="dv">4</span>, <span class="dt">peak.min.sd =</span> <span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">plot_peaks</span>()</code></pre></div>
+<p><img src="20171027_GrNH2_production_with_new_diazonium_salt_files/figure-html/unnamed-chunk-5-1.png" width="768" /></p>
+<p>When looking at the lower range of the spectrum, 200-1500 cm<sup>-1</sup>, a range of peaks are observed, which is not usually seen for ordinary graphene. First of all, the large peak at 1350 cm<sup>-1</sup> is the D-peak of graphene, while the peaks at 520 and 1000 cm<sup>-1</sup> are related to the Si/SiO<sub>2</sub> substrate.</p>
+<p>If we have attached groups of Graphene-phenyl-CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub> (or perhaps -NH<sub>3</sub><sup>+</sup>) we could expect to see C-N stretch between 1240-1020 cm<sup>-1</sup>, and it appears that there is a small should on the D-peak at approx. 1140 cm<sup>-1</sup>. It could also be from (CH<sub>2</sub>)<sub>n</sub> twisting vibrations, which should be strong in raman.</p>
+<p>Furthermore there is a peak at 828 cm<sup>-1</sup>, which would correspond well with N-H wagging in a primary amine. However, together with the peak at 668 it could also be C-H out-of-plane vibrations from a parasubstituted benzene. It is also observed, that the peaks at 436 and 620 could be associated with aromatic ring deformations for a parasubstituted benzene (there is a peak missing at approx. 500, which might dissapear in the Si-peak).</p>
+<p>The peaks at 303 and 436 cm<sup>-1</sup> are listed as present in IR-spectra for primary amines, but not in a Raman table, so I am unsure what these say about the sample.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">raman171027 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(files <span class="op">==</span><span class="st"> &quot;GrNH2 map 3 low region.txt&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(wavenumber) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">int_mean =</span> <span class="kw">mean</span>(intensity), <span class="dt">int_sd =</span> <span class="kw">sd</span>(intensity)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">add_peaks</span>(int_mean, <span class="dt">neighlim =</span> <span class="dv">10</span>, <span class="dt">deriv.lim =</span> <span class="dv">4</span>, <span class="dt">peak.min.sd =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">plot_peaks</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">150</span>, <span class="dv">1200</span>))</code></pre></div>
+<p><img src="20171027_GrNH2_production_with_new_diazonium_salt_files/figure-html/unnamed-chunk-6-1.png" width="768" /></p>
+</div>
+<div id="xps" class="section level2">
+<h2>XPS</h2>
+<p>XPS has not been done yet, because the equipment has been broken.</p>
+</div>
 </div>
 <div id="conclusions-and-outlook" class="section level1">
 <h1>Conclusions and outlook</h1>
+<p>This experiment, with the correct synthesis of the diazonium salt, proved it quite easy to follow the diazonium concentration during exfoliation. It seems that with increasing temperatures, the diazonium salt deteriorates quite rapidly, and we should probably look into adding more during the course of the experiment, and perhaps adding some active cooling to the exfoliation setup to keep the temperature down.</p>
+<p>A thorough Raman characterisation was performed on this sample, and it brings out a lot of interesting features. The spectra will have to be compared with control samples, to be certain that it can be used as proof for the diazonium-functionalisation. This could for example be of samples produced in 0 mM and 10 mM diazonium solutions. It would be interesting to see the amount of information that could be inferred from this, e.g. could it be possible to determine whether the amine is protonated or not.</p>
+<p>We still need to do XPS on this sample.</p>
 </div>
 
 <!-- disqus -->
