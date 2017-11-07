@@ -1,0 +1,56 @@
+---
+title: "20171106 Synthesis of AEBD (scale-up)"
+bibliography: misc/library.bib
+csl: misc/csl/american-chemical-society-with-titles-doi-no-et-al.csl
+---
+
+```{r, child="_setup.Rmd"}
+```
+
+Previously, [a small batch of AEBD was synthesised](20171023_Synthesis_of_4-2-aminoethylbenzenediazonium_salt.html), but for future experiments a larger quantity is needed. For this reason, this experiment will try to scale the synthesis from 0.1 g scale to 2.0 g.
+
+
+# Protocol: Synthesis of 4-aminoethylbenzenediazonium salt (AEBD)
+
+The synthesis will be conducted according to the procedure from reference.[@Kowalczyk2011] To test the reaction, it will initially be conducted on 100 mg scale. 
+
+```{r}
+library(tidyverse)
+library(units)
+
+sc <- 20 # Scaling factor for this experiment
+dig <- 3
+
+M_aniline = set_units(136.19, mg/mmol)
+M_nitrite = set_units(69.00, mg/mmol)
+M_diazo = set_units(234.99, mg/mmol) # With BF4-ion
+rho_aniline = set_units(1034, mg/mL)
+
+m_aniline = set_units(100 * sc, mg)
+n_aniline = m_aniline / M_aniline
+n_nitrite = n_aniline * 1.5
+m_nitrite = n_nitrite * M_nitrite
+
+m_diazo = M_diazo * n_aniline
+
+V_HBF4 = set_units(0.75 * sc, mL)  # 48 % HBF4 solution
+V_H2O_first = set_units(1.25 * sc, mL) 
+V_H2O_second = set_units(0.6 * sc, mL) 
+```
+
+Chemicals: 4-(2-Aminoethyl)aniline ([Sigma](http://www.sigmaaldrich.com/catalog/product/aldrich/123056?lang=en&region=DK), 97 %, `r format(M_aniline)`), Sodium nitrite (Manufacturer? `r format(M_nitrite)`), HBF~4~ (Sigma, 48 % in water), diethyl ether (Sigma, >99.8%)
+
+1. `r format(V_HBF4, digits = dig)` HBF~4~ is added to `r format(V_H2O_first, digits = dig)` water and the mixture allowed to cool to 0 $^{\circ}$C.
+2. Then 4-(2-aminoethyl)aniline (`r format(m_aniline, digits = dig)`, `r format(m_aniline / rho_aniline, digits = 3)`, `r format(n_aniline, digits = dig)`) is dissolved in the HBF4 solution and allowed to cool to 0 $^{\circ}$C.
+3. Sodium nitrite (`r format(m_nitrite, digits = dig)`, `r format(n_nitrite, digits = dig)`) is dissolved in `r format(V_H2O_second, digits = dig)` water and added drop by drop to the acidic amine while stirring.
+4. The compounds are reacted for 40 min while keeping the mixture at 0 $^{\circ}$C.
+5. A precipitate will appear in the solution and is suction filtrated and rinsed with freezer-cold diethyl ether. The salt is then dried under vacuum (without heating) and stored at -20 $^{\circ}$C.
+
+The expected amount of 4-aminoethylbenzenediazonium tetrafluoroborate is `r format(m_diazo, digits = dig)`
+
+# Journal
+
+# Results and discussion
+
+# Conclusion and outlook
+
