@@ -55,7 +55,7 @@ The synthesis was conducted on 20171025. After addition of 4-(2-aminoethyl)anili
 
 After washing with 75 mL cold Et~2~O a white-orange powder was collected and dried on the vacuum line. 
 
-The empty flask used for drying weighed `r (m_1 = set_units(13.1772, g))` g. The weight was `r (m_2 = set_units(13.3899, g))` g after drying. A total of `r format(m_2 - m_1)` was formed, corresponding to a yield of `r round((m_2 - m_1)/m_diazo * 100, digits = 1)` % (a small amount of product was lost while taking the sample of the vacuum line). This could indicate that the product is not completely pure or dry.
+The empty flask used for drying weighed `r (m_1 = units::set_units(13.1772, g))` g. The weight was `r (m_2 = units::set_units(13.3899, g))` g after drying. A total of `r format(m_2 - m_1)` was formed, corresponding to a yield of `r round((m_2 - m_1)/m_diazo * 100, digits = 1)` % (a small amount of product was lost while taking the sample of the vacuum line). This could indicate that the product is not completely pure or dry.
 
 # Results and discussion
 ^1^H-NMR was obtained of the product. It exhibits peaks which are in agreement with literature values, as well as a small quantity of the starting material (roughly `r round((0.08)/(0.08+2.08)*100, digits = 1)` %) and a rather large amount of water. The water probably comes from both redisual water in the product and water present in the D~2~O used for NMR.

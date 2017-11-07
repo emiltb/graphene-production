@@ -1,0 +1,109 @@
+---
+title: "20171106 Raman spectroscopy of AEBD"
+---
+
+```{r, child="_setup.Rmd"}
+```
+
+```{r}
+plot_spec <- function(df) {
+  ggplot(df) + 
+    geom_ribbon(aes(x = wavenumber, ymin = int_mean - int_sd, ymax = int_mean + int_sd, fill = files), alpha = 0.25) +
+    geom_line(aes(wavenumber, int_mean, color = files)) +
+    theme(legend.position = c(0.9, 0.8)) +
+    scale_x_continuous(breaks = seq(0, 3500, 100), minor_breaks = seq(0, 3500, 25)) +
+    labs(y = "Intensity (a.u)", x = expression(paste("Wavenumber (", cm^-1, ")")))
+}
+plotly_spec <- function(df) {
+  df %>% 
+    ggplot(aes(wavenumber, int_mean, color = files)) + 
+    geom_ribbon(aes(x = wavenumber, ymin = int_mean - int_sd, ymax = int_mean + int_sd, fill = files), alpha = 0.25) +
+    geom_line() +
+    theme(legend.title = element_blank()) +
+    labs(y = "Intensity (a.u)", x = "Wavenumber (cm<sup>-1</sup>)") 
+}
+  
+```
+
+
+AEBD was synthesised on [20171023](20171023_Synthesis_of_4-2-aminoethylbenzenediazonium_salt.html) and [20171106](20171106_Synthesis_of_AEBD_scale-up.html). To correlate peaks found on graphene on [20171027](20171027_GrNH2_production_with_new_diazonium_salt.Rmd), Raman spectroscopy was performed on the diazonium compound synthesised on 20171023.
+
+# Journal
+
+A small quantity of diazonium salt was spread on a glass slide and analysed using the 514 nm laser. Maps were obtained at 3.3 % intensity (full laser intensity x 33 % x 10 %), which did not appear to burn the crystals. 
+
+Before loading the data into R, Wire 4.3 was used to for Cosmic Ray Removal and Baseline subtraction (default settings: intelligent fitting, 11 degree polynomial)
+
+# Results and discussion
+```{r load-spectra_171106}
+library(tidyverse)
+
+# Raman data for diazonium salt
+path  <-"data/derived_data/raman/20171106_Diazonium_maps/"
+raman171106 <- tibble(files = list.files(path, pattern = "*.txt")) %>% 
+  mutate(data = map(paste0(path,files), read_tsv, col_names = c('x', 'y', 'wavenumber', 'intensity'), skip = 1)) %>% 
+  unnest() %>% 
+  group_by(files, wavenumber) %>% 
+  summarise(int_mean = mean(intensity), int_sd = sd(intensity))
+
+# Raman data for modified graphene
+raman171027 <- readRDS(file = "data/derived_data/raman/20171102_GrNH2_from_20171027/raman171027.RData") %>% 
+  filter(files %in% c("GrNH2 map 3 low region.txt","GrNH2 map 3 high region.txt")) %>% 
+  group_by(files, wavenumber) %>% 
+  summarise(int_mean = mean(intensity), int_sd = sd(intensity))
+
+raman_data_combined <- raman171106 %>% 
+  bind_rows(raman171027) %>% 
+  mutate(region = stringr::str_extract(files, "(high)|(low)")) %>% 
+  filter(!(files %in% c("Diazonium map 3 high region.txt", "Diazonium map 1.txt"))) %>% 
+  ungroup() %>% 
+  mutate(files = ifelse(stringr::str_detect(files, "^Diazonium"), "AEBD", "GrNH2"))
+
+```
+
+The raman map of the large range is shown below. The full line is the mean spectrum, and the shaded area is ± 1 standard deviation. 
+
+From the full range spectrum a N-N triple bond in the diazonium compound is clearly visible at 2286 cm^-1^. The small peak at 3081 cm^-1^ is probably from aromatic C-H stretching. 1588 is from C=C stretching and 1019, 1081 and 1210 cm^-1^ could be from aromatic C-H deformations.
+
+```{r plot-spectra_171106_full, fig.height=3}
+library(plotly)
+
+g0 <- raman171106 %>% 
+  filter(files == "Diazonium map 1.txt") %>% 
+  plotly_spec() +
+  theme(legend.position = "none")
+
+ggplotly(g0) %>% 
+  style(hoverinfo = 'none', traces = 1) %>% 
+  style(hoverinfo = 'x', traces = 2)
+```
+
+A closer look on the high region of the spectrum, in comparison with the spectrum from GrNH~2~ shows that the peak at 3245 cm^-1^ [that I previously assigned to N-H stretching](20171027_GrNH2_production_with_new_diazonium_salt.html) is unlikely (unless an effect releated to the protonation state has affected this).
+
+```{r plot-spectra_171106_high, fig.height=4}
+g1 <- raman_data_combined %>%  
+  filter(region == "high") %>%
+  plotly_spec() 
+
+ggplotly(g1) %>% 
+  style(hoverinfo = 'none', traces = c(1,2)) %>% 
+  style(hoverinfo = 'x', traces = c(3,4)) %>% 
+  layout(legend = list(orientation = "h", y = 1.15, x = 0))
+```
+
+The low region shows a large number of peaks for the diazonium salt, but unfortunately there is no large degree of spectral overlap with the GrNH~2~ spectrum. 
+
+```{r plot-spectra_171106_low, fig.height=4}
+g2 <- raman_data_combined %>%  
+  filter(region == "low") %>%
+  plotly_spec() +
+  coord_cartesian(ylim = c(0, 1800))
+
+ggplotly(g2) %>% 
+  style(hoverinfo = 'none', traces = c(1,2)) %>% 
+  style(hoverinfo = 'x', traces = c(3,4)) %>% 
+  layout(legend = list(orientation = "h", y = 1.15, x = 0))
+```
+
+# Conclusion and outlook
+A comparison with graphene control samples with no diazonium attached or with larger amounts of diazonium is necessary to evaluate how much information can be gain from Raman spectroscopy on these samples. 
