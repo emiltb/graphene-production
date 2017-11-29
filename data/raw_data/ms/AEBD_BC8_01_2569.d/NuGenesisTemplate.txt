@@ -1,0 +1,11 @@
+[CONTEXT SENSITIVE]
+Project=
+Customer=
+Sample ID=AEBD
+Operator=BDAL@DE
+Instrument Type=Dionex System;Dionex System;Dionex System;micrOTOF series;
+Instrument ID=TOF-PC
+Lab=
+
+[GENERIC]
+USER=

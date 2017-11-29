@@ -1,0 +1,18 @@
+! HyStarNT V 4.0.10.0
+!
+! IndexFile
+
+! Pathes:
+HOST.1	 =	"\\TOF-PC\"
+PATH.1	 =	"F:\Data\ms2017\ms864\AEBD_BC8_01_2569.d\"
+PATH.2	 =	"F:\Data\ms2017\ms864"
+
+! file definitions:
+CHROMATOGRAM	 =	"HOST.1 PATH.1 AEBD_BC8_01_2569.unt"
+CHROMATOGRAM.STAMP	 =	"11/09/17 12:41:03"
+UV.START	 =	"0.0 min"
+MS.START	 =	"0.0 min"
+MS.SERIES	 =	"HOST.1 PATH.2 AEBD_BC8_01_2569.d\Analysis.ascii"
+MS.SERIES.STAMP	 =	"11/09/17 12:41:03"
+
+! events:
