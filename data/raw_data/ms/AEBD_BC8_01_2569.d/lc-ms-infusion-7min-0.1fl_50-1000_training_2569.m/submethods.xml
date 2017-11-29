@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<method>
+<submethods>
+<submethod program="HyStar_LC" revision="1">
+<name>LC-infusion-7-0.1fl</name>
+<files>
+<file name="hystar.method"/>
+</files>
+</submethod>
+<submethod program="HyStar_Autosampler" revision="1">
+<name>Standard</name>
+<files/>
+</submethod>
+<submethod program="microTOFQImpactControl" revision="523">
+<name>LC-MS-infusion-7min-0.1fl_50-1000_Training.m</name>
+<files>
+<file name="microTOFQImpactAcquisition.method"/>
+</files>
+</submethod>
+</submethods>
+<locked>false</locked>
+<readonly>true</readonly>
+<comment></comment>
+</method>

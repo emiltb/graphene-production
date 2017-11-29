@@ -425,12 +425,47 @@ V_H2O_second =<span class="st"> </span><span class="kw">set_units</span>(<span c
 </div>
 <div id="journal" class="section level1">
 <h1>Journal</h1>
+<p>The synthesis was conducted in a scaled up version of the previous 100 mg synthesis. Upon addition of the 4-(2-aminoethyl)aniline to the HBF<sub>4</sub> solution a precipitate was starting to form. 5 mL H<sub>2</sub>O and 9 mL HBF<sub>4</sub> was added, which helped a little, but did not completely dissolve everything.</p>
+<p>The solution turned red/orange upon addition of sodium nitrite.</p>
+<p>After drying 5.3209 g product was obtained. This corresponds to a yield of 112.133 %, which is clearly too high.</p>
 </div>
 <div id="results-and-discussion" class="section level1">
 <h1>Results and discussion</h1>
+<div id="nmr-spectroscopy" class="section level2">
+<h2>NMR spectroscopy</h2>
+<p><sup>1</sup>H-NMR was obtained in CD<sub>3</sub>CN.</p>
+<p><img src="data/raw_data/nmr/20171128_AEBD_2/20171128_AEBD_2.png" width="90%" /></p>
+<p>The major peaks can be assigned as follows, which is in good agreement with the expected product. Not that the amine peak at 6.4 ppm corresponds roughly to 3H, indicating that the amine is protonated. It was <a href="20171023_Synthesis_of_4-2-aminoethylbenzenediazonium_salt.html">previously determined</a> that this peak disappears in D<sub>2</sub>O, confirming that it is the amine.</p>
+<p><img src="data/raw_data/IMG_20171129_123119-01.jpeg" width="33%" /></p>
 </div>
-<div id="conclusion-and-outlook" class="section level1 unnumbered">
+<div id="atr-ir" class="section level2">
+<h2>ATR-IR</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+ir171128 &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;data/raw_data/ir/2017118_ATR-IR_AEBD/20171128_AEBD.csv&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">locale =</span> <span class="kw">locale</span>(<span class="dt">decimal_mark =</span> <span class="st">&quot;,&quot;</span>), <span class="dt">skip =</span> <span class="dv">2</span>, <span class="dt">col_names =</span> <span class="kw">c</span>(<span class="st">&quot;wavenumber&quot;</span>, <span class="st">&quot;transmission&quot;</span>))
+
+ir171128peaks &lt;-<span class="st"> </span>ir171128 <span class="op">%&gt;%</span>
+<span class="st">  </span>peakr<span class="op">::</span><span class="kw">add_pick</span>(<span class="kw">c</span>(<span class="dv">3501</span>,<span class="dv">3479</span>,<span class="dv">3460</span>,<span class="dv">3314</span>,<span class="dv">3269</span>,<span class="dv">3233</span>,<span class="dv">3218</span>,<span class="dv">3180</span>,<span class="dv">3152</span>,<span class="dv">3074</span>,<span class="dv">3065</span>,<span class="dv">2993</span>,<span class="dv">2804</span>,<span class="dv">2733</span>,<span class="dv">2709</span>,<span class="dv">2682</span>,<span class="dv">2600</span>,<span class="dv">2572</span>,<span class="dv">2528</span>,<span class="dv">2503</span>,<span class="dv">2411</span>,<span class="dv">2381</span>,<span class="dv">1716</span>,<span class="dv">891</span>,<span class="dv">795</span>,<span class="dv">731</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(peak) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="co">#mutate(n = sample(x = c(4, 8, 12, 16), size = n(), replace = TRUE))</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">n =</span> <span class="kw">rep</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">5</span>)<span class="op">*</span><span class="fl">2.5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">length =</span> <span class="kw">n</span>()))
+
+ir171128 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(wavenumber, transmission)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_reverse</span>() <span class="op">+</span>
+<span class="st">  </span><span class="co">#geom_point(data = . %&gt;% filter(peak), color = &quot;red&quot;) +</span>
+<span class="st">  </span><span class="co">#ggrepel::geom_text_repel(data = . %&gt;% filter(peak), aes(wavenumber, transmission, label = wavenumber), size = 2, color = &quot;red&quot;, min.segment.length = 0.1, direction = &quot;y&quot;)</span>
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data =</span> ir171128peaks, <span class="kw">aes</span>(wavenumber, transmission <span class="op">-</span><span class="st"> </span>n, <span class="dt">label =</span> wavenumber), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="fl">2.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">data =</span> ir171128peaks, <span class="kw">aes</span>(<span class="dt">x =</span> wavenumber, <span class="dt">xend =</span> wavenumber, <span class="dt">y =</span> transmission <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">yend =</span> transmission <span class="op">-</span><span class="st"> </span>n <span class="op">+</span><span class="st"> </span><span class="fl">1.5</span>), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>)</code></pre></div>
+<p><img src="20171106_Synthesis_of_AEBD_scale-up_files/figure-html/unnamed-chunk-5-1.png" width="768" /></p>
+<p>The IR spectrum obtained from the sample is also in good agreement with the expected product. The amine is evident from the peaks at 3270 and 3206 cm<sup>-1</sup> and the N≡N stretch in the diazonium compound is seen at 2285 cm<sup>-1</sup>. A very strong band is seen at 1008 cm<sup>-1</sup> from <span class="math inline">\(BF_4^-\)</span>-ions acting as counterions to both the diazonium group and the protonated amine.</p>
+</div>
+</div>
+<div id="conclusion-and-outlook" class="section level1">
 <h1>Conclusion and outlook</h1>
+<p>The synthesis of 4-aminoethylbenzenediazonium salt was succesful, however an unidentified impurity is present in the <sup>1</sup>H-NMR spectrum, which probably accounts for the large mass obtained. Based on NMR it also seems that the conversion of the starting materials is near quantitative.</p>
+<p>The product is protonated. The structure is really 4-(2-ammonioethyl)benzenediazonium. The total molar mass is 322.8 gm/mol, while the diazonium compound itself weighs 149.2 gm/mol (expected exact mass in ESI-MS is 149.0942 gm/mol, which equals an m/z of 74.5471)</p>
+<p><img src="figs/AEBD_2.png" width="308" /></p>
 <div id="refs" class="references">
 <div id="ref-Kowalczyk2011">
 <p>(1) Kowalczyk, A.; Nowicka, A.; Jurczakowski, R.; Fau, M.; Krolikowska, A.; Stojek, Z. Construction of Dna Biosensor at Glassy Carbon Surface Modified with 4-Aminoethylbenzenediazonium Salt. <em>Biosensors and Bioelectronics</em> <strong>2011</strong>, <em>26</em> (5), 2506–2512 DOI: <a href="https://doi.org/https://doi.org/10.1016/j.bios.2010.10.046">https://doi.org/10.1016/j.bios.2010.10.046</a>.</p>

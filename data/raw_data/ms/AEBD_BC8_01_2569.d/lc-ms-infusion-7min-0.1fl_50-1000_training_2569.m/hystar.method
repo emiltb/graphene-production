@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<FractionTreatmentDataSet xmlns="BDAL/HyStar/FractionTreatmentDataSet.xsd">
+  <Method Author="Steen Uttrup Pedersen" Comment="" DataAcqRunTime="7" StartDelay="0" HyStarVersion="3.2.44.0" ComputerName="TOF-PC" xmlns="" />
+  <TimeTable Function="FlowRate" Time="0" DeviceType="Pump" DeviceNumber="1" xmlns="">
+    <TableValues Value="0.1" />
+  </TimeTable>
+  <TimeTable Function="SolventMix" Time="0" DeviceType="Pump" DeviceNumber="1" xmlns="">
+    <TableValues Value="100" />
+    <TableValues Value="0" />
+    <TableValues Value="0" />
+    <TableValues Value="0" />
+  </TimeTable>
+  <Signal SlopeThreshold="0" ID="0" FullName="BPC,All" SmoothingWidth="2" Slope="20" Sensitivity="5" DeviceType="MassSpec" DeviceNumber="1" xmlns="" />
+  <Signal SlopeThreshold="0" ID="1" FullName="250.000000" SmoothingWidth="2" Slope="20" Sensitivity="5" DeviceType="None" DeviceNumber="0" xmlns="" />
+  <Signal SlopeThreshold="0" ID="2" FullName="274.000000" SmoothingWidth="2" Slope="20" Sensitivity="5" DeviceType="None" DeviceNumber="0" xmlns="" />
+  <Signal SlopeThreshold="0" ID="3" FullName="300.000000" SmoothingWidth="2" Slope="20" Sensitivity="5" DeviceType="None" DeviceNumber="0" xmlns="" />
+  <Detector SliceWidth="400" AutoZero="0" InvertSignal="0" Offset="0" DataChannel="1" DoReference="false" ReferenceStart="254" ReferenceWidth="10" SpecStart="0" SpecEnd="0" DoSaveSpectra="true" SaveInterval="1" SaveType="1" DeviceNumber="1" xmlns="" />
+  <Pump MinPressure="0" MaxPressure="500" Start="false" Runtime="7" DeviceNumber="1" xmlns="" />
+  <Solvent ID="0" DeviceType="Pump" DeviceNumber="1" xmlns="" />
+  <Solvent ID="1" DeviceType="Pump" DeviceNumber="1" xmlns="" />
+  <Solvent ID="2" DeviceType="Pump" DeviceNumber="1" xmlns="" />
+  <Solvent ID="3" DeviceType="Pump" DeviceNumber="1" xmlns="" />
+  <ExtendedParameters DeviceFullName="Dionex System	SYSTEM1	SYSTEM	" Parameter="&lt;?xml version=&quot;1.0&quot; encoding=&quot;windows-1252&quot;?&gt; &#xD;&#xA;&#xD;&#xA;&lt;root&gt;&#xD;&#xA;    &lt;HyStarInfo ModuleName=&quot;Dionex System&quot; StyleSheet=&quot;NoStyleSheet.xls&quot; MethodName = &quot;PGM::\BT00016_local\Maxis_U3000\TempPgm&quot;&gt;&#xD;&#xA;&#xD;&#xA;	&lt;MethodData TotalRunTime=&quot;7.000000&quot; AcqDelay=&quot;0.0&quot; AcqTime=&quot;0.000000&quot; Flow=&quot;0.100000&quot;&gt;&#xD;&#xA;	     &#xD;&#xA;        &lt;DetectorInfo DetectorType=&quot;UVD&quot; Slicewidth=&quot;400.000000&quot; WaveStart=&quot;0.0&quot; WaveEnd=&quot;0.0&quot;/&gt;&#xD;&#xA;	&lt;/MethodData&gt;&#xD;&#xA;&#xD;&#xA;    &lt;/HyStarInfo&gt;&#xD;&#xA;&#xD;&#xA;    &lt;ModuleInfo Value=&quot;&quot;&gt; &#xD;&#xA;		;Initialize all Hystar synchronisation properties to 0.&#xD;&#xA;	ReadyToRun = 	0&#xD;&#xA;	DoInject = 	0&#xD;&#xA;	InjectResponse = 	0&#xD;&#xA;	Sampler.TempCtrl = 	Off&#xD;&#xA;	ColumnOven.TempCtrl = 	Off&#xD;&#xA;	Cooler_TempCtrl = 	Off&#xD;&#xA;	Pressure.LowerLimit = 	0 [bar]&#xD;&#xA;	Pressure.UpperLimit = 	700 [bar]&#xD;&#xA;	MaximumFlowRampDown = 	6.000 [ml/min²]&#xD;&#xA;	MaximumFlowRampUp = 	6.000 [ml/min²]&#xD;&#xA;	%A.Equate = 	&quot;%A&quot;&#xD;&#xA;	%B.Equate = 	&quot;%B&quot;&#xD;&#xA;	%C.Equate = 	&quot;%C&quot;&#xD;&#xA;	%D.Equate = 	&quot;%D&quot;&#xD;&#xA;	DrawSpeed = 	10.000 [µl/s]&#xD;&#xA;	DrawDelay = 	3000 [ms]&#xD;&#xA;	DispSpeed = 	20.000 [µl/s]&#xD;&#xA;	DispenseDelay = 	0 [ms]&#xD;&#xA;	WasteSpeed = 	32.000 [µl/s]&#xD;&#xA;	SampleHeight = 	3.000 [mm]&#xD;&#xA;	InjectWash = 	BeforeInj&#xD;&#xA;	WashVolume = 	10.000 [µl]&#xD;&#xA;	WashSpeed = 	10.000 [µl/s]&#xD;&#xA;	LoopWashFactor = 	2.000&#xD;&#xA;	PunctureOffset = 	0.0 [mm]&#xD;&#xA;	PumpDevice = 	&quot;Pump&quot;&#xD;&#xA;	InjectMode = 	Normal&#xD;&#xA;	Pump_Pressure.Step = 	0.5&#xD;&#xA;	Pump_Pressure.Average = 	Off&#xD;&#xA;	Flow = 	0.100 [ml/min]&#xD;&#xA;	%B = 	50.0 [%]&#xD;&#xA;	%C = 	0.0 [%]&#xD;&#xA;	%D = 	0.0 [%]&#xD;&#xA;	Curve = 	5&#xD;&#xA;&#xD;&#xA; 0.000	Wait	Pump.Ready and ColumnOven.Ready and Sampler.Ready and PumpModule.Ready&#xD;&#xA;	;Chromeleon sets this property to signal to Hystar that it is ready to start a run.&#xD;&#xA;	ReadyToRun = 	1&#xD;&#xA;	Wait	Pump.Ready and ColumnOven.Ready and Sampler.Ready and PumpModule.Ready&#xD;&#xA;	;Hystar sets this property to start the injection.&#xD;&#xA;	Wait	DoInject&#xD;&#xA;	Inject&#xD;&#xA;	;Chromeleon sets this property to signal the injection to Hystar.&#xD;&#xA;	InjectResponse = 	1&#xD;&#xA;	Pump_Pressure.AcqOn&#xD;&#xA;&#xD;&#xA; 7.000	Pump_Pressure.AcqOff&#xD;&#xA;&#xD;&#xA;	End&#xD;&#xA;    &lt;/ModuleInfo&gt; &#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&lt;/root&gt;" xmlns="" />
+  <Device Type="None" Number="0" xmlns="" />
+  <Device Type="Pump" Number="1" FullName="Dionex System	SYSTEM1	PUMP	PLUGIN" xmlns="" />
+  <Device Type="AutoSampler" Number="1" FullName="Dionex System	SYSTEM1	ALS	PLUGIN" xmlns="" />
+  <Device Type="Detector" Number="1" FullName="Dionex System	SYSTEM1	DET	PLUGIN" xmlns="" />
+  <Device Type="System" Number="1" FullName="Dionex System	SYSTEM1	SYS	PLUGIN" xmlns="" />
+  <Device Type="MassSpec" Number="1" FullName="micrOTOF series	MS1	MS	LAN" xmlns="" />
+</FractionTreatmentDataSet>
