@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<SampleTable>
+  <SampleTableHeader Version="2" CreationDate="04/27/17" CreationTime="06:52:41" Creator="BDAL@DE" CreationComputer="TOF-PC" UpdateDate="11/29/17" UpdateTime="15:29:51" UpdateUser="BDAL@DE" UpdateComputer="TOF-PC" Author="BDAL@DE" Company="Bruker Customer" Laboratory="unknown" Phone="" Fax="" EMail="" Description="" NumOfSamples="1" HyStarVersion="3.2.44.0" SampleTablePath="F:\Data\ms2017\MS852.xml" />
+  <AnalysisHeader CreationDateTime="2017-11-29T03:29:51+01:00" FileName="F:\Data\ms2017\ETB_AEBD_RA3_01_2861.d" SampleID="ETB_AEBD" Method="F:\Methods\small molecules\autosampler-ms\lc-ms method\lc-ms-infusion-7min-0.1fl_50-1000_training.m" />
+  <Sample Line="411" CheckToRun="0" Status="2" Injections="1" Volume="5" Amount="0" Dilution="1" Weight="0" Position="RA3" InternalStandard="0" PreRunTime="0" SampleID="ETB_AEBD" DataPath="ms2017" Operator="BDAL@DE" SampleType="0" ReferenceSampleNum="0" NumOnGel="0" ResultDatafile="F:\Data\ms2017\ETB_AEBD_RA3_01_2861.d" NumberInSequence="3" CalibAction="-" CalibLevel="" AcquisitionID="0" SaltConc="0" LastLineInGroup="0" InstrumentCalibration="0" RunDAScript="0" SuperMethod="F:\Methods\small molecules\autosampler-ms\lc-ms method\lc-ms-infusion-7min-0.1fl_50-1000_training.m" />
+</SampleTable>

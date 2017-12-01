@@ -421,7 +421,9 @@ eps499 =<span class="st"> </span><span class="fl">5.022</span> <span class="co">
 
 data171027 &lt;-<span class="st"> </span>data171027 <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">left_join</span>(specs171027) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conc =</span> A<span class="op">/</span>eps499 <span class="op">*</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># Multiplied by 4 to get the diazonium-concentration</span></code></pre></div>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conc =</span> A<span class="op">/</span>eps499 <span class="op">*</span><span class="st"> </span><span class="dv">4</span>) <span class="co"># Multiplied by 4 to get the diazonium-concentration</span>
+
+<span class="kw">saveRDS</span>(data171027, <span class="dt">file =</span> <span class="st">&quot;data/derived_data/20171027.RData&quot;</span>)</code></pre></div>
 <div id="uv-vis" class="section level2">
 <h2>UV-Vis</h2>
 <p>Using the absorption of the extracted samples, it is possible to plot the diazonium-concentration as a function of time for the experiment.</p>
