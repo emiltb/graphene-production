@@ -1,0 +1,125 @@
+
+
+
+
+[Method Information]
+LC Method
+
+General Information:
+Author: Steen Uttrup Pedersen
+LC Parameters (acquisition starting conditions)
+
+Acquisition Parameters:
+
+Runtime:        7.02 min
+Slice Width:  400.0  points/s
+
+[Pump]
+Additional Pump and Oven Parameters:
+
+pump settings
+ Nr. RunTime  Flow Rate     Min/Max           Solvents
+      (min)   (ml/min)      Press(bar)
+   1    7.00   0.10000         0/500
+
+LC Column:     
+
+
+
+[Pump]
+LC Timetable
+
+  Time  Function                 Value         A(%)  B(%)  C(%)  D(%)
+  0.00  Flow Rate                0.10000                  
+  0.00  Solvent Mix                            100.0 0.0   0.0   0.0  
+
+
+[Detector]
+Detector Settings
+Detector1 : Dionex System
+Offset: 0.00, InvertSignal: 0, Slicewidth: 0.00(points/sec)
+Autozero: no, Spec Start: 0.00, Spec End: 0.00, Start Delay: 0
+Data Channel: 1, DoReference: no, ReferenceStart: 254.00, ReferenceWidth: 10.00
+DoSaveSpectra: no, SaveInterval: 1, SaveType: 1
+
+
+Data Acquisition - Signals
+
+SIGNAL          Source          Parameters                          Autodetection Parameters
+   No.                                             
+    1   micrOTOF series     Intervals: BPC,All        
+                                                            Smoothing Width: 20 Min Points: 20
+                                                                   Threshold: 0 Smoothing: 2 
+
+
+Methods
+
+Method: F:\Methods\small molecules\autosampler-ms\lc-ms method\lc-ms-infusion-7min-0.1fl_50-1000_training.m
+
+HyStar_LC: LC-infusion-7-0.1fl
+
+HyStar_Autosampler: Standard
+
+microTOFQImpactControl: LC-MS-infusion-7min-0.1fl_50-1000_Training.m
+
+
+
+
+Hardware Setup
+
+Hardware Setup used: "maxis_u3000_sup"
+
+General Information:
+Author: BDAL@DE
+
+[System Information]
+System included components:
+
+Pumps
+Pump 1 : Dionex System
+conneced via System
+
+AutoSamplers
+AutoSampler 1 : Dionex System
+conneced via System
+
+Detectors
+Detector 1 : Dionex System
+conneced via System
+
+Systems
+System 1 : Dionex System
+connected via LAN
+
+MSs
+MS 1 : micrOTOF series
+
+
+System times with 1 ml/min flow (in sec):
+
+Do Acquisition times:
+From Zero Point = LC 1 Detector to:
+Bruker Peak Sampling Unit    :  12.00
+NMR Spectrometer             :  15.00
+Fraction Collector (via NMR) :  100.00
+Fraction Collector (direct)  :  40.00
+
+Time offset to System Zero Point for:
+LC 2  Detector    :  0.00
+LC 3  Detector    :  10.00
+Mass Spectrometer :  0.00
+SPE Cartridge :  0.00
+
+Elution volume  between SPE Cartridge and NMR :  290.00
+
+Flow Injection times:
+Times from Bruker Peak Sampling Unit to:
+NMR Spectrometer             :  23.00
+Mass Spectrometer            :  23.00
+Fraction Collector (via NMR) :  110.00
+Divert Valve(via NMR) :  3.00
+
+Times from Autosampler to:
+NMR Spectrometer  :  30.00
+Mass Spectrometer :  30.00
+

@@ -1,0 +1,18 @@
+! HyStarNT V 4.0.10.0
+!
+! IndexFile
+
+! Pathes:
+HOST.1	 =	"\\TOF-PC\"
+PATH.1	 =	"F:\Data\ms2017\ETB_AEBD_RA3_01_2861.d\"
+PATH.2	 =	"F:\Data\ms2017"
+
+! file definitions:
+CHROMATOGRAM	 =	"HOST.1 PATH.1 ETB_AEBD_RA3_01_2861.unt"
+CHROMATOGRAM.STAMP	 =	"11/29/17 15:22:47"
+UV.START	 =	"0.0 min"
+MS.START	 =	"0.0 min"
+MS.SERIES	 =	"HOST.1 PATH.2 ETB_AEBD_RA3_01_2861.d\Analysis.ascii"
+MS.SERIES.STAMP	 =	"11/29/17 15:22:47"
+
+! events:

@@ -46,6 +46,7 @@ data171027 <- data171027 %>%
   left_join(specs171027) %>% 
   mutate(conc = A/eps499 * 4) # Multiplied by 4 to get the diazonium-concentration
 
+saveRDS(data171027, file = "data/derived_data/20171027.RData")
 ```
 
 ## UV-Vis

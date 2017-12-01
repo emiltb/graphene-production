@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--Version:500-->
+<root><Category><Module Index="0" Value="TRUE"/><Module Index="1" Value="TRUE"/><Module Index="2" Value="FALSE"/><Module Index="3" Value="TRUE"/><Module Index="4" Value="TRUE"/><Module Index="5" Value="FALSE"/><Module Index="6" Value="FALSE"/><Module Index="7" Value="TRUE"/><Module Index="8" Value="FALSE"/><Module Index="9" Value="FALSE"/><Module Index="10" Value="FALSE"/><Module Index="11" Value="TRUE"/><Module Index="12" Value="FALSE"/><Module Index="13" Value="FALSE"/><Module Index="14" Value="FALSE"/><Module Index="15" Value="FALSE"/></Category><ModulInfo><Module Name="0"><ModuleSettings><root><ModulInfo Name="Dionex System" Type="SYSTEM1" Port="System" Connection="conneced via System" Plugin="FALSE" Description="" ExtData="" ModuleCategory="PUMP" ExtCheck="FALSE" LockedBySystem="TRUE"><Info><root>
+								<Description Value="Settings for Dionex LC-System"/>
+								<Interface Short="LAN" Long="connected via LAN"/>
+								<UsedCategory>
+									<Category Value="PUMP" ID="1" Type="PUMP" Name="Pump"/>
+									<Category Value="ALS" ID="2" Type="ALS" Name="Sampler"/>
+									<Category Value="DET" ID="3" Type="UVD" Name="UV"/>
+									<Category Value="OVN" ID="4" Type="OVN" Name="ColumnOven"/>
+								</UsedCategory>
+								<Limits>
+									<ModuleName Value="Dionex System"/>
+									<NoStandardMethod Value="TRUE"/>
+									<NoManualStart Value="TRUE"/>
+								</Limits>
+							</root></Info></ModulInfo></root>
+			</ModuleSettings></Module><Module Name="8"><ModuleSettings><root><ModulInfo Name="Dionex System" Type="SYSTEM1" Port="System" Connection="conneced via System" Plugin="FALSE" Description="" ExtData="" ModuleCategory="ALS" ExtCheck="FALSE" LockedBySystem="TRUE"><Info><root>
+								<Description Value="Settings for Dionex LC-System"/>
+								<Interface Short="LAN" Long="connected via LAN"/>
+								<UsedCategory>
+									<Category Value="PUMP" ID="1" Type="PUMP" Name="Pump"/>
+									<Category Value="ALS" ID="2" Type="ALS" Name="Sampler"/>
+									<Category Value="DET" ID="3" Type="UVD" Name="UV"/>
+									<Category Value="OVN" ID="4" Type="OVN" Name="ColumnOven"/>
+								</UsedCategory>
+								<Limits>
+									<ModuleName Value="Dionex System"/>
+									<NoStandardMethod Value="TRUE"/>
+									<NoManualStart Value="TRUE"/>
+								</Limits>
+							</root></Info></ModulInfo></root>
+			</ModuleSettings></Module><Module Name="24"><ModuleSettings><root><ModulInfo Name="Dionex System" Type="SYSTEM1" Port="System" Connection="conneced via System" Plugin="FALSE" Description="" ExtData="" ModuleCategory="DET" ExtCheck="FALSE" LockedBySystem="TRUE"><Info><root>
+								<Description Value="Settings for Dionex LC-System"/>
+								<Interface Short="LAN" Long="connected via LAN"/>
+								<UsedCategory>
+									<Category Value="PUMP" ID="1" Type="PUMP" Name="Pump"/>
+									<Category Value="ALS" ID="2" Type="ALS" Name="Sampler"/>
+									<Category Value="DET" ID="3" Type="UVD" Name="UV"/>
+									<Category Value="OVN" ID="4" Type="OVN" Name="ColumnOven"/>
+								</UsedCategory>
+								<Limits>
+									<ModuleName Value="Dionex System"/>
+									<NoStandardMethod Value="TRUE"/>
+									<NoManualStart Value="TRUE"/>
+								</Limits>
+							</root></Info></ModulInfo></root>
+			</ModuleSettings></Module><Module Name="32"><ModuleSettings><root><ModulInfo Name="Dionex System" Type="SYSTEM1" Port="LAN" Connection="connected via LAN" Plugin="TRUE" Description="" ExtData="" ModuleCategory="SYS" ExtCheck="FALSE" LockedBySystem="FALSE"><Info><root>
+								<Description Value="Settings for Dionex LC-System"/>
+								<Interface Short="LAN" Long="connected via LAN"/>
+								<UsedCategory>
+									<Category Value="PUMP" ID="1" Type="PUMP" Name="Pump"/>
+									<Category Value="ALS" ID="2" Type="ALS" Name="Sampler"/>
+									<Category Value="DET" ID="3" Type="UVD" Name="UV"/>
+									<Category Value="OVN" ID="4" Type="OVN" Name="ColumnOven"/>
+								</UsedCategory>
+								<Limits>
+									<ModuleName Value="Dionex System"/>
+									<NoStandardMethod Value="TRUE"/>
+									<NoManualStart Value="TRUE"/>
+								</Limits>
+							</root></Info></ModulInfo></root>
+			</ModuleSettings></Module><Module Name="56"><ModuleSettings><root><ModulInfo Name="micrOTOF series" Type="MS1" Port="LAN" Connection="" Plugin="FALSE" Description="" ExtData="" ModuleCategory="MS" ExtCheck="FALSE" LockedBySystem="FALSE"><Info/></ModulInfo></root>
+			</ModuleSettings></Module><Module Name="64"><ModuleSettings><root><ModulInfo Name="Foxy Jr." Type="FRACCOL1" Port="" Connection="" Plugin="FALSE" Description="" ExtData="" ModuleCategory="FRACCOL" ExtCheck="FALSE" LockedBySystem="FALSE"><Info/></ModulInfo></root>
+			</ModuleSettings></Module><Module Name="88"><ModuleSettings><root><ModulInfo Name="Dionex System" Type="SYSTEM1" Port="System" Connection="conneced via System" Plugin="FALSE" Description="" ExtData="" ModuleCategory="OVN" ExtCheck="FALSE" LockedBySystem="TRUE"><Info><root>
+								<Description Value="Settings for Dionex LC-System"/>
+								<Interface Short="LAN" Long="connected via LAN"/>
+								<UsedCategory>
+									<Category Value="PUMP" ID="1" Type="PUMP" Name="Pump"/>
+									<Category Value="ALS" ID="2" Type="ALS" Name="Sampler"/>
+									<Category Value="DET" ID="3" Type="UVD" Name="UV"/>
+									<Category Value="OVN" ID="4" Type="OVN" Name="ColumnOven"/>
+								</UsedCategory>
+								<Limits>
+									<ModuleName Value="Dionex System"/>
+									<NoStandardMethod Value="TRUE"/>
+									<NoManualStart Value="TRUE"/>
+								</Limits>
+							</root></Info></ModulInfo></root>
+			</ModuleSettings></Module></ModulInfo><General><Author Value="BDAL@DE"/><Description Value=""/><BigSystem Value="1"/></General><FileInfo><Date Value="December 15, 2011"/><Time Value="10:23:56"/><User Value="BDAL@DE"/><Computer Value="BT00016"/></FileInfo><SystemTimeInfo><NullLoop Value=" 12.0"/><NullNMR Value=" 15.0"/><NullColViaNMR Value="100.0"/><NullColDirect Value=" 40.0"/><NullSPECartridge Value="  0.0"/><Offset_LC2 Value="  0.0"/><Offset_LC3 Value=" 10.0"/><Offset_MS Value="  0.0"/><Loop_NMR Value=" 23.0"/><Loop_MS Value=" 23.0"/><Loop_ColViaNMR Value="110.0"/><Loop_NMR_DivertToWaste Value="  3.0"/><SystemTime_Cartridge_NMR Value="290.0"/><AS_NMR Value=" 30.0"/><AS_MS Value=" 30.0"/></SystemTimeInfo><SolventInfo><SolventInfo_A Value=""/><SolventInfo_B Value=""/><SolventInfo_C Value=""/><SolventInfo_D Value=""/></SolventInfo></root>
