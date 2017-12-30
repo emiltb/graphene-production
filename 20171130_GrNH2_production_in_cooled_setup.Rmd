@@ -58,7 +58,29 @@ knitr::kable(x, format = "html") %>%
 
 
 # Journal
-The experiment was set up as described and near complete exfoliation achieved in 80 minutes. The graphite foil weighed `r m_graphite = set_units(6.8515, g); format(m_graphite)` prior to exfoliation.
+The experiment was set up as described and near complete exfoliation achieved in 80 minutes. The graphite foil weighed `r m_graphite = set_units(6.8515, g); format(m_graphite)` prior to exfoliation and the remaining graphite weighed `r m_after = set_units(1.2979, g); format(m_after)`, meaning at total of `r m_graphite - m_after` was exfoliated in 80 minutes.
+
+The effect of keeping the 2-Naphtol under argon was very positive, and no color change was observed during the experiment. 
+
+The exfoliated graphite was filtered and washed with 2x500 mL water, 1x500 mL acetonitrile and 1x500 mL water to remove residues of acid and diazonium salt. In each washing the exfoliated graphite was stirred with the solvent to ensure a good mixing, before filtering again.
+
+The washed product was dried in an oven at 100 °C overnight, resulting in a product mass of `r m_product <- set_units(209.4735 - 204.0793, g); format(m_product)` (`r signif(m_product / (m_graphite - m_after) * 100, digits = 3)` % yield, not accounting for mass increase do to attached diazonium salt and intercalated ions).
+
+
+## Initial ultrasonication test
+
+Ultrasonication of the exfoliated graphite was tested in an ultrasonic bath at three different concentrations: 0.1, 1.0 and 10.0 mg/mL exfoliated graphite in NMP. All solutions were ultrasonicated for 1 hour and left overnight. Here is an image of the solutions after standing.
+
+```{r echo = FALSE, out.width = '40%'}
+knitr::include_graphics("data/raw_data/MVIMG_20171206_101015.jpg")
+
+```
+
+Quite surprisingly, the 10.0 mg/mL solution completely sedimentated (right tube), while the other solutions were more stable. All solutions, however, produced some sediment and did not exfoliate completely. New tests in water and NMP will conducted using a probe-type ultrasonicator. 
+
+The 0.1 mg/mL solution was used to make self-assembly deposition on SiO2 by putting 10 mL water in a petridish, depositing 2 mL ethyl acetate on top and injecting 1 mL graphene solution. After a few minutes floating graphene flakes could be collected on the SiO2. The sample will be used for Raman spectroscopy.
+
+1 mL of the 1.0 mg/mL sample was also deposited on a nylon filter and washed extensively with water. This sample will be used for XPS and ATR-IR.
 
 # Results and discussion
 
@@ -124,5 +146,110 @@ g2 <- data_combined %>%
 cowplot::plot_grid(g1, g2, align = "v", ncol = 1, rel_heights = c(1.4,1))
 ```
 
+
+## Raman spectroscopy
+
+Raman spectroscopy was conducted on 20171207. 
+
+```{r raman171207}
+path = "data/derived_data/raman/20171207_GrNH2_from_20171130/20171207_GrNH2_map_1/"
+map1 <- osctools::raman_curvefit_read("data/derived_data/raman/20171207_GrNH2_from_20171130/20171207_GrNH2_map_1/") %>% 
+  filter(between(`G int`, 25, 1000)) # Remove bad fits (i.e. based on low-intensity spectra)
+
+map2 <- read_tsv("data/derived_data/raman/20171207_GrNH2_from_20171130/20171207_GrNH2_map_2_low_region.txt", skip = 1, col_names = c('x','y','wavenumber','intensity'))
+map3 <- read_tsv("data/derived_data/raman/20171207_GrNH2_from_20171130/20171207_GrNH2_map_2_low_region_long_acq.txt", skip = 1, col_names = c('x','y','wavenumber','intensity'))
+```
+
+```{r}
+# Load data from previous experiment for comparison
+raman170920 <- readRDS(file = "data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/raman170920.RData") %>% mutate(date = "20170920") %>% 
+  filter(`G int` > 50, `Dp int` > 0, `Dp int` < 500) # Problem with last value 500 not appropriate
+
+map1_selected <- map1 %>% 
+  select(`2D FWHM`, ends_with("pos"), ends_with("ratio")) %>% 
+  mutate(date = "20171207") 
+
+bind_rows(raman170920 %>% select(colnames(map1_selected)), map1_selected) %>% 
+  gather(key = "param", value = "value", -date) %>% 
+  group_by(param, date) %>% 
+  summarise(m = mean(value), sd = sd(value)) %>% 
+  mutate(value = paste0(round(m, digits = 2), "±", round(sd, digits = 2))) %>% 
+  select(param, value, date) %>% 
+  spread(key = date, value = value) %>% 
+  knitr::kable(format = "html") %>% 
+  kableExtra::kable_styling(bootstrap_options = "striped")
+```
+
+```{r, fig.height=3}
+library(patchwork)
+
+common_layers <- list(
+  theme(
+    legend.position = "top",
+    legend.title = element_blank(),
+    legend.key.width = unit(1.0, "cm"),
+    axis.text = element_blank()
+    ),
+  scale_fill_viridis_c()
+  )
+
+g1 <- map1 %>% 
+  ggplot(aes(x, y, fill = `D/G-ratio`)) + 
+  geom_raster() +
+  common_layers +
+  labs(title = "D/G-ratio")
+
+g2 <- map1 %>% 
+  ggplot(aes(x, y, fill = `2D/G-ratio`)) + 
+  geom_raster() +
+  common_layers +
+  labs(title = "2D/G-ratio")
+
+g3 <- map1 %>% 
+  ggplot(aes(x, y, fill = `G pos`)) + 
+  geom_raster() +
+  common_layers +
+  labs(title = "G position", caption = "Units are in μm")
+
+g1 + g2 + g3
+```
+
+```{r}
+g4 <- map2 %>% 
+  mutate(id = paste(x,y)) %>% 
+  group_by(id) %>% 
+  mutate(G_int = max(intensity[wavenumber > 1580 & wavenumber < 1600])) %>% 
+  filter(G_int > 100) %>% 
+  mutate(int_norm = intensity / G_int) %>% 
+  group_by(wavenumber) %>% 
+  summarise(int_mean = mean(int_norm), int_sd = sd(int_norm)) %>% 
+  ggplot(aes(wavenumber, int_mean)) +
+  geom_ribbon(aes(x = wavenumber, ymin = int_mean - int_sd, ymax = int_mean + int_sd), alpha = 0.25) +
+  geom_line() +
+  coord_cartesian(ylim = c(0,1))
+
+library(plotly)
+
+ggplotly(g4) %>% 
+  style(hoverinfo = 'none', traces = 1) %>% 
+  style(hoverinfo = 'x', traces = 2)
+```
+```{r}
+g5 <- map3 %>% 
+  group_by(wavenumber) %>% 
+  summarise(int_mean = mean(intensity), int_sd = sd(intensity)) %>% 
+  ggplot(aes(wavenumber, int_mean)) +
+  geom_ribbon(aes(x = wavenumber, ymin = int_mean - int_sd, ymax = int_mean + int_sd), alpha = 0.25) +
+  geom_line() +
+  coord_cartesian(ylim = c(750, 5000))
+
+ggplotly(g5) %>% 
+  style(hoverinfo = 'none', traces = 1) %>% 
+  style(hoverinfo = 'x', traces = 2)
+```
+
+## IR spectroscopy
+
+ATR-IR was conducted on 20171207 on a sample deposited on a nylon filter. No peaks were observed.
 
 # Conclusion and outlook
