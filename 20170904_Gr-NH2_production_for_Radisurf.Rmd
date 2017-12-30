@@ -106,6 +106,8 @@ raman170920 <- tibble(
   mutate(data = map(folders, raman_curvefit_read)) %>% 
   unnest()
 
+saveRDS(raman170920, file = "data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/raman170920.RData")
+
 plot_map <- function(df, feature) {
   feature <- enquo(feature)
   name <- unique(df$names)[1]
