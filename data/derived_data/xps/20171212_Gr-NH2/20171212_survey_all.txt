@@ -1,0 +1,8 @@
+Report Copied on: Wednesday, January 03, 2018, 10:35:27	
+C:\Users\emilbp\PhD\Projects\graphene-production\data\raw_data\xps\20171212_Gr-NH2\20171130_Gr-NH2.vms	
+
+Sample Identifier	C 1s CPSeV	F 1s CPSeV	N 1s CPSeV	O 1s CPSeV	S 2p CPSeV	C 1s %	F 1s %	N 1s %	O 1s %	S 2p %	
+GrNH2 on nylon 2	34549.3	0	303.976	2907.84	0	91.4944	0	0.804997	7.70062	0	
+GrNH2 on nylon 1	31589.5	0	538.322	2777.34	0	90.5009	0	1.54224	7.95682	0	
+Exfoliated graphite 2	31480.2	73.0928	197.203	3901.65	166.431	87.8879	0.204064	0.550559	10.8928	0.464649	
+Exfoliated graphite 1	26162.9	36.8131	237.809	3231.35	206.092	87.5747	0.123224	0.796016	10.8163	0.689849	

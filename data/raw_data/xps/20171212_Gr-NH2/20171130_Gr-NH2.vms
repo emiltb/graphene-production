@@ -3,19 +3,24 @@ Not Specified
 Kratos Axis
 Not Specified
 /C=/data/KristianBB/20171211/Emil.dset
-12
-Casa Info Follows
+17
+Casa Info Follows CasaXPS Version 2.3.18PR1.0
 5
-C 1s
-C 1s
-F 1s
-F 1s
-N 1s
-N 1s
-O 1s
-O 1s
-S 2p
-S 2p
+C-C (sp3)
+C-C (sp3)
+C-O/C-N
+C-O/C-N
+C=C (sp2)
+C=C (sp2)
+C=O
+C=O
+p-p* (SUS)
+p-p* (SUS)
+SourceAnalyserAngle: Not Specified
+CasaRowLabel:GrNH2 on nylon 2
+CasaRowLabel:GrNH2 on nylon 1
+CasaRowLabel:Exfoliated graphite 2
+CasaRowLabel:Exfoliated graphite 1
 MAP
 REGULAR
 3
@@ -31,7 +36,7 @@ s
 0
 12
 Survey/2
-Not Specified
+GrNH2 on nylon 2
 2017
 12
 11
@@ -39,18 +44,17 @@ Not Specified
 50
 42
 0
-15
+14
 Casa Info Follows
 1
-Calib M = 280.836 A = 284.5 BE ADD
+Calib M = 280.888 A = 284.5 BE ADD
 1
-annot regions Display 0.05 0.05 RGB(0,0,0) Font(12,18,0,0,Times New Roman)
+annot regions v2315 Display 0.05 0.05 RGB(0,0,0) Font(32,34,700,0,Arial)
 
-4
-CASA region (*O 1s*) (*Shirley*) 946.22596 960.276 0.78 1 0 0 299 542 275 9.3 (*O 1s*) 15.9994
-CASA region (*C 1s*) (*Shirley*) 1189.5918 1207.276 0.278 1 0 0 299 542 275 9.3 (*C 1s*) 12.011
-CASA region (*N 1s*) (*Shirley*) 1083.9344 1089.6329 0.477 1 0 0 299 542 275 9.3 (*N 1s*) 14.0067
-CASA region (*S 2p*) (*Shirley*) 1314.9172 1320.8173 0.668 1 0 0 299 542 275 9.3 (*S 2p*) 32.0648
+3
+CASA region (*O 1s*) (*Shirley*) 944.44357 959.48518 2.93 2 0 0 299 542 275 9.3 (*O 1s*) 15.9994 0 2.93
+CASA region (*C 1s*) (*Shirley*) 1188.7813 1206.5495 1 2 0 0 299 542 275 9.3 (*C 1s*) 12.011 0 1
+CASA region (*N 1s*) (*Shirley*) 1083.55 1089.7681 1.8 2 0 0 299 542 275 9.3 (*N 1s*) 14.0067 0 1.8
 0
    XPS     Spectrum    Lens Mode:Hybrid   Resolution:Pass energy 160   Iris(Aper):slot(Slot)
    Acqn. Time(s): 540        Sweeps: 2        Anode:Mono(Al (Mono))(150 W)   Step(meV): 500.0 
@@ -5505,7 +5509,7 @@ pulse counting
 140
 29.504
 C 1s/3
-Not Specified
+GrNH2 on nylon 2
 2017
 12
 11
@@ -5513,13 +5517,19 @@ Not Specified
 2
 50
 0
-9
+15
 Casa Info Follows
 1
-Calib M = 280.836 A = 284.5 BE ADD
+Calib M = 280.888 A = 284.5 BE ADD
 0
-0
-0
+1
+CASA region (*C 1s*) (*Shirley*) 1192.6737 1203.39 1 2 0 0 299 542 275 9.3 (*C 1s*) 12.011 0 1
+5
+CASA comp (*C=C (sp2)*) (*A(0.4,0.38,20)GL(20)*) Area 23493.867 1e-020 10000000 -1 1 MFWHM 0.63839064 0.19923372 4.9808429 -1 1 Position 1202.2308 1201.69 1202.69 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C-O/C-N*) (*GL(30)*) Area 4225.6233 1e-020 10000000 -1 1 MFWHM 2 0.1486 2 -1 1 Position 1200.135 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C=O*) (*GL(30)*) Area 990.69832 1e-020 10000000 -1 1 MFWHM 1.7448459 0.1486 2 -1 1 Position 1198.1263 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*p-p* (SUS)*) (*GL(30)*) Area 849.13386 1e-020 10000000 -1 1 MFWHM 2 0.1486 2 -1 1 Position 1195.8037 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C-C (sp3)*) (*GL(30)*) Area 476.92153 1e-020 10000000 -1 1 MFWHM 0.55172665 0.3323 2 -1 1 Position 1201.4883 1200.69 1202.69 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
    XPS     Spectrum    Lens Mode:Hybrid   Resolution:Pass energy 20    Iris(Aper):slot(Slot)
    Acqn. Time(s): 261        Sweeps: 4        Anode:Mono(Al (Mono))(150 W)   Step(meV): 100.0 
    Dwell Time(ms): 250        Charge Neutraliser :On   Acquired On :17/12/11 13:02:50
@@ -5564,7 +5574,10 @@ pulse counting
 1e+037
 1e+037
 1e+037
-0
+1
+PROPAGATION_CONVERGED
+d
+1
 522
 140
 35402
@@ -6093,7 +6106,7 @@ pulse counting
 155
 1.1574
 N 1s/4
-Not Specified
+GrNH2 on nylon 2
 2017
 12
 11
@@ -6104,7 +6117,7 @@ Not Specified
 9
 Casa Info Follows
 1
-Calib M = 280.836 A = 284.5 BE ADD
+Calib M = 280.888 A = 284.5 BE ADD
 0
 0
 0
@@ -6563,7 +6576,7 @@ pulse counting
 2634
 1.20216
 Survey/7
-Not Specified
+GrNH2 on nylon 1
 2017
 12
 11
@@ -6571,18 +6584,17 @@ Not Specified
 13
 15
 0
-15
+14
 Casa Info Follows
 1
-Calib M = 280.699 A = 284.5 BE ADD
+Calib M = 280.676 A = 284.5 BE ADD
 1
-annot regions Display 0.05 0.05 RGB(0,0,0) Font(12,18,0,0,Times New Roman)
+annot regions v2315 Display 0.05 0.05 RGB(0,0,0) Font(32,34,700,0,Arial)
 
-4
-CASA region (*O 1s*) (*Shirley*) 946.73224 959.639 0.78 1 0 0 299 542 275 9.3 (*O 1s*) 15.9994
-CASA region (*C 1s*) (*Shirley*) 1189.6953 1207.139 0.278 1 0 0 299 542 275 9.3 (*C 1s*) 12.011
-CASA region (*N 1s*) (*Shirley*) 1079.139 1089.6038 0.477 1 0 0 299 542 275 9.3 (*N 1s*) 14.0067
-CASA region (*S 2p*) (*Shirley*) 1315.3652 1320.0126 0.668 1 0 0 299 542 275 9.3 (*S 2p*) 32.0648
+3
+CASA region (*O 1s*) (*Shirley*) 945.616 959.616 2.93 2 0 0 299 542 275 9.3 (*O 1s*) 15.9994 0 2.93
+CASA region (*C 1s*) (*Shirley*) 1189.5748 1207.1045 1 2 0 0 299 542 275 9.3 (*C 1s*) 12.011 0 1
+CASA region (*N 1s*) (*Shirley*) 1080.188 1089.9222 1.8 2 0 0 299 542 275 9.3 (*N 1s*) 14.0067 0 1.8
 0
    XPS     Spectrum    Lens Mode:Hybrid   Resolution:Pass energy 160   Iris(Aper):slot(Slot)
    Acqn. Time(s): 540        Sweeps: 2        Anode:Mono(Al (Mono))(150 W)   Step(meV): 500.0 
@@ -12037,7 +12049,7 @@ pulse counting
 129
 29.504
 C 1s/8
-Not Specified
+GrNH2 on nylon 1
 2017
 12
 11
@@ -12045,13 +12057,19 @@ Not Specified
 25
 16
 0
-9
+15
 Casa Info Follows
 1
-Calib M = 280.699 A = 284.5 BE ADD
+Calib M = 280.676 A = 284.5 BE ADD
 0
-0
-0
+1
+CASA region (*C 1s*) (*Shirley*) 1192.69 1203.39 1 2 0 0 299 542 275 9.3 (*C 1s*) 12.011 0 1
+5
+CASA comp (*C=C (sp2)*) (*A(0.4,0.38,20)GL(20)*) Area 20603.389 1e-020 10000000 -1 1 MFWHM 0.65393972 0.19923372 4.9808429 -1 1 Position 1202.1301 1201.69 1202.69 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C-O/C-N*) (*GL(30)*) Area 4415.0625 1e-020 10000000 -1 1 MFWHM 2 0.1486 2 -1 1 Position 1200.0016 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C=O*) (*GL(30)*) Area 1876.8727 1e-020 10000000 -1 1 MFWHM 2 0.1486 2 -1 1 Position 1197.8031 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*p-p* (SUS)*) (*GL(30)*) Area 1205.2181 1e-020 10000000 -1 1 MFWHM 2 0.1486 2 -1 1 Position 1195.9434 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C-C (sp3)*) (*GL(30)*) Area 430.2596 1e-020 10000000 -1 1 MFWHM 0.56335288 0.3323 2 -1 1 Position 1201.3023 1200.69 1202.69 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
    XPS     Spectrum    Lens Mode:Hybrid   Resolution:Pass energy 20    Iris(Aper):slot(Slot)
    Acqn. Time(s): 261        Sweeps: 4        Anode:Mono(Al (Mono))(150 W)   Step(meV): 100.0 
    Dwell Time(ms): 250        Charge Neutraliser :On   Acquired On :17/12/11 13:25:16
@@ -12096,7 +12114,10 @@ pulse counting
 1e+037
 1e+037
 1e+037
-0
+1
+PROPAGATION_CONVERGED
+d
+1
 522
 137
 30519
@@ -12625,7 +12646,7 @@ pulse counting
 155
 1.1574
 N 1s/9
-Not Specified
+GrNH2 on nylon 1
 2017
 12
 11
@@ -12636,7 +12657,7 @@ Not Specified
 9
 Casa Info Follows
 1
-Calib M = 280.699 A = 284.5 BE ADD
+Calib M = 280.676 A = 284.5 BE ADD
 0
 0
 0
@@ -13095,7 +13116,7 @@ pulse counting
 2462
 1.20216
 Survey/12
-Not Specified
+Exfoliated graphite 2
 2017
 12
 11
@@ -13106,16 +13127,16 @@ Not Specified
 16
 Casa Info Follows
 1
-Calib M = 284.103 A = 284.5 BE ADD
+Calib M = 284.166 A = 284.5 BE ADD
 1
-annot regions Display 0.05 0.05 RGB(0,0,0) Font(12,18,0,0,Times New Roman)
+annot regions v2315 Display 0.05 0.05 RGB(0,0,0) Font(32,34,700,0,Arial)
 
 5
-CASA region (*C 1s*) (*Shirley*) 1188.6016 1207.043 0.278 1 0 0 299 542 275 9.3 (*C 1s*) 12.011
-CASA region (*F 1s*) (*Shirley*) 798.043 803.88178 1 1 0 0 299 542 275 9.3 (*F 1s*) 18.9984
-CASA region (*O 1s*) (*Shirley*) 945.543 958.71196 0.78 1 0 0 299 542 275 9.3 (*O 1s*) 15.9994
-CASA region (*S 2p*) (*Shirley*) 1314.043 1322.543 0.668 1 0 0 299 542 275 9.3 (*S 2p*) 32.0648
-CASA region (*N 1s*) (*Shirley*) 1082.4711 1088.8203 0.477 1 0 0 299 542 275 9.3 (*N 1s*) 14.0067
+CASA region (*O 1s*) (*Shirley*) 946.53844 958.92963 2.93 2 0 0 299 542 275 9.3 (*O 1s*) 15.9994 0 2.93
+CASA region (*C 1s*) (*Shirley*) 1188.809 1207.0926 1 2 0 0 299 542 275 9.3 (*C 1s*) 12.011 0 1
+CASA region (*N 1s*) (*Shirley*) 1082.606 1089.606 1.8 2 0 0 299 542 275 9.3 (*N 1s*) 14.0067 0 1.8
+CASA region (*F 1s*) (*Shirley*) 798.36157 804.07487 4.43 2 0 0 299 542 275 9.3 (*F 1s*) 18.9984 0 4.43
+CASA region (*S 2p*) (*Shirley*) 1313.4868 1322.021 1.677 2 0 0 299 542 275 9.3 (*S 2p*) 32.0648 0 1.677
 0
    XPS     Spectrum    Lens Mode:Hybrid   Resolution:Pass energy 160   Iris(Aper):slot(Slot)
    Acqn. Time(s): 540        Sweeps: 2        Anode:Mono(Al (Mono))(150 W)   Step(meV): 500.0 
@@ -18570,7 +18591,7 @@ pulse counting
 22
 29.504
 C 1s/13
-Not Specified
+Exfoliated graphite 2
 2017
 12
 11
@@ -18578,13 +18599,19 @@ Not Specified
 47
 44
 0
-9
+15
 Casa Info Follows
 1
-Calib M = 284.103 A = 284.5 BE ADD
+Calib M = 284.166 A = 284.5 BE ADD
 0
-0
-0
+1
+CASA region (*C 1s*) (*Shirley*) 1192.69 1203.39 1 2 0 0 299 542 275 9.3 (*C 1s*) 12.011 0 1
+5
+CASA comp (*C=C (sp2)*) (*A(0.4,0.38,20)GL(20)*) Area 18585.475 1e-020 10000000 -1 1 MFWHM 0.731419 0.19923372 4.9808429 -1 1 Position 1202.2157 1201.69 1202.69 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C-O/C-N*) (*GL(30)*) Area 4170.8381 1e-020 10000000 -1 1 MFWHM 1.6385713 0.1486 2 -1 1 Position 1200.0385 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C=O*) (*GL(30)*) Area 1287.9923 1e-020 10000000 -1 1 MFWHM 2 0.1486 2 -1 1 Position 1197.7395 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*p-p* (SUS)*) (*GL(30)*) Area 412.28126 1e-020 10000000 -1 1 MFWHM 1.496028 0.1486 2 -1 1 Position 1195.5468 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C-C (sp3)*) (*GL(30)*) Area 907.72732 1e-020 10000000 -1 1 MFWHM 0.72828367 0.3323 2 -1 1 Position 1201.315 1200.69 1202.69 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
    XPS     Spectrum    Lens Mode:Hybrid   Resolution:Pass energy 20    Iris(Aper):slot(Slot)
    Acqn. Time(s): 261        Sweeps: 4        Anode:Mono(Al (Mono))(150 W)   Step(meV): 100.0 
    Dwell Time(ms): 250        Charge Neutraliser :On   Acquired On :17/12/11 13:47:44
@@ -18629,7 +18656,10 @@ pulse counting
 1e+037
 1e+037
 1e+037
-0
+1
+PROPAGATION_CONVERGED
+d
+1
 522
 141
 24713
@@ -19158,7 +19188,7 @@ pulse counting
 154
 1.1574
 N 1s/14
-Not Specified
+Exfoliated graphite 2
 2017
 12
 11
@@ -19169,7 +19199,7 @@ Not Specified
 9
 Casa Info Follows
 1
-Calib M = 284.103 A = 284.5 BE ADD
+Calib M = 284.166 A = 284.5 BE ADD
 0
 0
 0
@@ -19628,7 +19658,7 @@ pulse counting
 2201
 1.20216
 Survey/17
-Not Specified
+Exfoliated graphite 1
 2017
 12
 11
@@ -19639,16 +19669,16 @@ Not Specified
 16
 Casa Info Follows
 1
-Calib M = 284.186 A = 284.5 BE ADD
+Calib M = 284.166 A = 284.5 BE ADD
 1
-annot regions Display 0.05 0.05 RGB(0,0,0) Font(12,18,0,0,Times New Roman)
+annot regions v2315 Display 0.05 0.05 RGB(0,0,0) Font(32,34,700,0,Arial)
 
 5
-CASA region (*O 1s*) (*Shirley*) 947.28312 959.18278 0.78 1 0 0 299 542 275 9.3 (*O 1s*) 15.9994
-CASA region (*C 1s*) (*Shirley*) 1189.2363 1207.626 0.278 1 0 0 299 542 275 9.3 (*C 1s*) 12.011
-CASA region (*N 1s*) (*Shirley*) 1082.126 1089.9494 0.477 1 0 0 299 542 275 9.3 (*N 1s*) 14.0067
-CASA region (*S 2p*) (*Shirley*) 1314.3284 1321.4486 0.668 1 0 0 299 542 275 9.3 (*S 2p*) 32.0648
-CASA region (*F 1s*) (*Shirley*) 798.57398 803.06077 1 1 0 0 299 542 275 9.3 (*F 1s*) 18.9984
+CASA region (*O 1s*) (*Shirley*) 946.5226 959.3837 2.93 2 0 0 299 542 275 9.3 (*O 1s*) 15.9994 0 2.93
+CASA region (*C 1s*) (*Shirley*) 1189.2478 1207.6161 1 2 0 0 299 542 275 9.3 (*C 1s*) 12.011 0 1
+CASA region (*N 1s*) (*Shirley*) 1082.106 1090.606 1.8 2 0 0 299 542 275 9.3 (*N 1s*) 14.0067 0 1.8
+CASA region (*F 1s*) (*Shirley*) 798.28559 804.09794 4.43 2 0 0 299 542 275 9.3 (*F 1s*) 18.9984 0 4.43
+CASA region (*S 2p*) (*Shirley*) 1313.0911 1322.4711 1.677 2 0 0 299 542 275 9.3 (*S 2p*) 32.0648 0 1.677
 0
    XPS     Spectrum    Lens Mode:Hybrid   Resolution:Pass energy 160   Iris(Aper):slot(Slot)
    Acqn. Time(s): 540        Sweeps: 2        Anode:Mono(Al (Mono))(150 W)   Step(meV): 500.0 
@@ -25103,7 +25133,7 @@ pulse counting
 14
 29.504
 C 1s/18
-Not Specified
+Exfoliated graphite 1
 2017
 12
 11
@@ -25111,13 +25141,19 @@ Not Specified
 10
 8
 0
-9
+15
 Casa Info Follows
 1
-Calib M = 284.186 A = 284.5 BE ADD
+Calib M = 284.166 A = 284.5 BE ADD
 0
-0
-0
+1
+CASA region (*C 1s*) (*Shirley*) 1192.6735 1203.39 1 2 0 0 299 542 275 9.3 (*C 1s*) 12.011 0 1
+5
+CASA comp (*C=C (sp2)*) (*A(0.4,0.38,20)GL(20)*) Area 18443.552 1e-020 10000000 -1 1 MFWHM 0.72065162 0.19923372 4.9808429 -1 1 Position 1202.1955 1201.69 1202.69 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C-O/C-N*) (*GL(30)*) Area 2478.2248 1e-020 10000000 -1 1 MFWHM 1.3892987 0.1486 2 -1 1 Position 1199.9935 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C=O*) (*GL(30)*) Area 1067.8269 1e-020 10000000 -1 1 MFWHM 2 0.1486 2 -1 1 Position 1197.9927 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*p-p* (SUS)*) (*GL(30)*) Area 518.40924 1e-020 10000000 -1 1 MFWHM 1.7875824 0.1486 2 -1 1 Position 1195.6981 1183.078 1209.078 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
+CASA comp (*C-C (sp3)*) (*GL(30)*) Area 305.53454 1e-020 10000000 -1 1 MFWHM 0.61206531 0.3323 2 -1 1 Position 1201.0284 1200.69 1202.69 -1 1 RSF 1 MASS 12.011 INDEX -1 (*C 1s*) CONST (**) UNCORRECTEDRSF 1
    XPS     Spectrum    Lens Mode:Hybrid   Resolution:Pass energy 20    Iris(Aper):slot(Slot)
    Acqn. Time(s): 261        Sweeps: 4        Anode:Mono(Al (Mono))(150 W)   Step(meV): 100.0 
    Dwell Time(ms): 250        Charge Neutraliser :On   Acquired On :17/12/11 14:10:08
@@ -25162,7 +25198,10 @@ pulse counting
 1e+037
 1e+037
 1e+037
-0
+1
+PROPAGATION_CONVERGED
+d
+1
 522
 139
 25341
@@ -25691,7 +25730,7 @@ pulse counting
 158
 1.1574
 N 1s/19
-Not Specified
+Exfoliated graphite 1
 2017
 12
 11
@@ -25702,7 +25741,7 @@ Not Specified
 9
 Casa Info Follows
 1
-Calib M = 284.186 A = 284.5 BE ADD
+Calib M = 284.166 A = 284.5 BE ADD
 0
 0
 0

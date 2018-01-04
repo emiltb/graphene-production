@@ -1,36 +1,35 @@
-name: "SPOMAN"
-output_dir: "." 
+name: SPOMAN
+output_dir: '.'
 navbar:
-  title: "Graphene Production"
+  title: Graphene Production
   left:
-    - text: "Project description"
-      icon: fa-desktop
-      href: index.html
-    - text: "Lab journal"
-      icon: fa-flask
-      href: lab_journal.html
-    - text: "Data"
-      icon: fa-table
-      href: data.html
+  - text: Project description
+    icon: fa-desktop
+    href: index.html
+  - text: Lab journal
+    icon: fa-flask
+    href: lab_journal.html
+  - text: Data
+    icon: fa-table
+    href: data.html
   right:
-    - text: "OSF"
-      icon: fa-external-link
-      href: https://osf.io/gmprw/
-    - text: "Contact"
-      icon: fa-envelope-o
-      href: mailto:emilbp@inano.au.dk
-    - text: "GitHub"
-      icon: fa-github
-      href: https://github.com/emiltb/graphene-production
+  - text: OSF
+    icon: fa-external-link
+    href: https://osf.io/gmprw/
+  - text: Contact
+    icon: fa-envelope-o
+    href: mailto:emilbp@inano.au.dk
+  - text: GitHub
+    icon: fa-github
+    href: https://github.com/emiltb/graphene-production
 output:
   html_document:
     theme: flatly
     highlight: pygments
-    self_contained: false
-    toc: true
+    toc: yes
     toc_depth: 3
     toc_float:
-      collapsed: false
+      collapsed: no
     includes:
       after_body: include_footer.html
       in_header: include_header.html
@@ -39,3 +38,6 @@ output:
     fig_height: 3
     md_extensions: +header_attributes
     css: styles.css
+    lib_dir: site_libs
+    self_contained: no
+

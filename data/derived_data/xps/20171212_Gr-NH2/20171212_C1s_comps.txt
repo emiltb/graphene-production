@@ -1,0 +1,8 @@
+Report Copied on: Wednesday, January 03, 2018, 10:37:41	
+C:\Users\emilbp\PhD\Projects\graphene-production\data\raw_data\xps\20171212_Gr-NH2\20171130_Gr-NH2.vms	
+
+Sample Identifier	C-C (sp3) CPSeV	C-O/C-N CPSeV	C=C (sp2) CPSeV	C=O CPSeV	p-p* (SUS) CPSeV	C-C (sp3) %	C-O/C-N %	C=C (sp2) %	C=O %	p-p* (SUS) %	
+GrNH2 on nylon 2	411.405	3644.07	20269.4	853.999	731.615	1.58779	14.0641	78.2286	3.29596	2.82362	
+GrNH2 on nylon 1	371.153	3807.53	17776.1	1617.85	1038.48	1.50807	15.4708	72.2279	6.57367	4.21955	
+Exfoliated graphite 2	782.456	3594.25	16023.6	1109.41	354.953	3.57863	16.4386	73.2854	5.07398	1.62341	
+Exfoliated graphite 1	263.353	2135.63	15901.3	919.827	446.343	1.3391	10.8593	80.8549	4.67715	2.26957	

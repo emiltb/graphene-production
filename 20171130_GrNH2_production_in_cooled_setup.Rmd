@@ -252,4 +252,115 @@ ggplotly(g5) %>%
 
 ATR-IR was conducted on 20171207 on a sample deposited on a nylon filter. No peaks were observed.
 
+## XPS analysis
+
+The exfoliated powder (ExGr) and Gr-NH~2~ deposited on nylon filter was analysed with XPS.
+
+```{r 20171130xpssurvey}
+xps20171130 <- read_tsv(file = "data/derived_data/xps/20171212_Gr-NH2/20171212_survey_all.txt", skip = 3) %>% select(-X12) %>% 
+  mutate(sample = stringr::str_extract(`Sample Identifier`, ".+(?=\\d)")) %>% 
+  select(sample, ends_with("%")) %>%
+  gather(key = element, value = content, -sample) %>% 
+  mutate(element = stringr::str_extract(element, "[[:alpha:]]+")) 
+
+xps20171130 %>% 
+  group_by(sample, element) %>% 
+  summarise(m = mean(content), sd = sd(content)) %>% 
+  mutate(content = paste0(sprintf("%.2f", m), " ± ", sprintf("%.2f", sd))) %>% 
+  select(sample, element, content) %>% 
+  spread(key = element, value = content) %>% 
+  knitr::kable(format = "html", align = "lrrrrr") %>% 
+  kableExtra::kable_styling(bootstrap_options = "striped")
+
+```
+
+N indicates that amine-functionalisation has taken place, and a rather low oxygen content suggests a low degree of oxidation (compared to GO, and considering that this is an oxidative process). Increased N content in the GrNH~2~ on nylon could be from residual NMP, which is also indicated by a double N 1s peak observed in that graphene. 
+
+```{r 20171130xpshr, fig.width=3}
+path <- "data/derived_data/xps/20171212_Gr-NH2/"
+
+hrcomps_data <- read_tsv(file = "data/derived_data/xps/20171212_Gr-NH2/20171212_C1s_comps.txt", skip = 3) %>% 
+  select(-X12) %>% 
+  rename(sample = `Sample Identifier`) %>% 
+  select(sample, ends_with("%")) 
+
+rename_all <- function(x) {
+  x %>% 
+    mutate(id = seq(n())) %>% 
+    gather(key, value, -id) %>% 
+    mutate(key = stringr::str_split(key, "_") %>% map_chr(1)) %>% 
+    spread(key, value) %>% 
+    select(-id)
+}
+
+xps_hr <- tibble(files = list.files(path = path, pattern = ".*(1s).*")) %>% 
+  filter(!str_detect(files, "comps")) %>% 
+  mutate(data = map(paste0(path,files), read_tsv, skip = 3)) %>% 
+  mutate(
+    element = stringr::str_extract(files, "(.1s){1}"),
+    sample = stringr::str_split(files, "_") %>% map_chr(2),
+    measurement = stringr::str_extract(files, "\\d{1}(?=\\.txt)")
+    ) %>% 
+  select(-files) %>% 
+  mutate(data = map(data, rename_all)) %>% 
+  unnest()
+
+xps_hr %>% 
+  filter(element == "N1s") %>% 
+  ggplot(aes(BE, CPS, color = measurement)) + 
+  geom_line() +
+  facet_wrap(~sample, ncol = 1, scales = "free") +
+  scale_x_reverse() +
+  theme(legend.position = "none")
+
+```
+
+```{r xps_c1s_hr, fig.height=8}
+
+plot_xps <- function(x) {
+  x %>% 
+    select(-Envelope, -CPS) %>%
+  	gather(key = component, value = intensity, -BE, -KE, -Background)  %>%
+  	mutate(component = as.factor(component)) %>%
+  	ggplot() +
+  	geom_ribbon(aes(x = BE, ymin = Background, ymax = intensity, fill = fct_reorder2(component, BE, intensity)), alpha = 0.25) +
+  	geom_line(aes(x = BE, y = intensity, color = fct_reorder2(component, BE, intensity))) +
+  	geom_line(data = x, aes(BE, CPS)) +
+  	#geom_line(data = df, aes(BE, `Envelope`), color = "light grey") +
+  	scale_x_reverse() +
+  	coord_cartesian(xlim = c(283, 295)) +
+  	ggthemes::scale_fill_few(palette = "medium") +
+  	ggthemes::scale_color_few("medium") +
+  	theme(legend.title = element_blank(),
+  				legend.position = c(0,1),
+  				legend.justification = c(0,1),
+  				legend.background = element_rect(fill = NA),
+  				axis.text.y = element_blank(),
+  				axis.ticks.y = element_blank()) +
+  	labs(x = "Binding energy (eV)", y = "Intensity (a.u.)")
+}
+
+add_title <- function(plot, title) {plot + ggtitle(title)}
+
+C1s_plot <- xps_hr %>% filter(element == "C1s") %>% 
+  select(-element) %>% 
+  group_by(sample, measurement) %>% 
+  nest() %>% 
+  mutate(plot = map(data, plot_xps)) %>% 
+  mutate(plot = map2(plot, paste0(sample, " #", measurement), add_title))
+
+gridExtra::grid.arrange(grobs = C1s_plot$plot, ncol = 2)
+
+```
+
+```{r hrcomps_table}
+hrcomps_data %>% 
+  select(1,4,2,3,5,6) %>% 
+  arrange(sample) %>% 
+  mutate_at(vars(ends_with("%")), sprintf, fmt = "%.1f") %>% 
+  knitr::kable(format = "html", align = "lrrrrr") %>% 
+  kableExtra::kable_styling(bootstrap_options = "striped")
+```
+
+
 # Conclusion and outlook
