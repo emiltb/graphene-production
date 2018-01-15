@@ -1,0 +1,73 @@
+---
+title: "20180110 GrNH2 production"
+---
+
+```{r, child="_setup.Rmd"}
+```
+
+In the [GrNH~2~ production on 20171130](20171130_GrNH2_production_in_cooled_setup.html) the diazonium concentration was succesfully kept high be cooling the solution actively. Unfortunately it seems, that the ultrasonication of the exfoliated graphite was unsuccesful because the exfoliated product was dried. A new production was made under the same conditions to remedy this and enable further testing of the production parameters.
+
+# Protocol
+```{r stochiometry180110}
+library(tidyverse)
+library(units)
+V = set_units(1500, mL) # Volume of 0.1 M H2SO4 to be used
+C_diazo = set_units(5, mmol/L)
+M_diazo = set_units(322.8, mg/mmol)
+m_diazo = V * C_diazo * M_diazo
+
+C_naphtol = set_units(1.67, mmol/L)
+V_naphtol = set_units(50, mL)
+M_naphtol = set_units(144.17, mg/mmol) # 2-Naphtol
+
+m_naphtol = C_naphtol * V_naphtol * M_naphtol
+
+C_dye = set_units(set_units(1, mL) * C_diazo / set_units(1+9, mL), mmol/L)# (max)
+```
+
+## Preparing solutions
+`r format(V*0.1 / 1.0)` 1.0 M H~2~SO~4~ is diluted to `r format(V)` to produce 0.1 M H~2~SO~4~. 
+
+A `r format(C_naphtol)` solution of 2-Naphtol is made by dissolving `r format(m_naphtol, digits = 4)` 2-Naphtol in `r format((1/5)*V_naphtol)` 10 % NaOH and `r format((4/5)*V_naphtol)` H~2~O. The solution is purged with argon for 10 minutes and kept under an argon balloon. 
+
+The `r format(C_diazo)` 4-(2-ammonioethyl)benzenediazonium solution is made by adding `r format(m_diazo)` to the `r format(V)` (initially mixed with ~100 mL and then added to the rest to ensure proper dissolution) sulphuric acid solution.
+
+Samples for UV-Vis can then be made easily by mixing 9 mL 2-Naphtol solution with 1 mL diazonium-solution to obtain a solution of the azo-dye (max conc. obtained is `r format(C_dye)`).
+
+## Gr-NH~2~ exfoliation
+The electrochemical exfoliation of functionalised graphene will be done by positioning and 8x15 cm^2^ graphite foil between two large stainless steel electrodes and applying 10 V for 1 hour or more. Weigh the foil before electrolysis. The solution was kept cool by flowing cold ethanol through a stainless steel pipe in the solution.
+
+1 mL samples will be extracted with a syringe and put into the 2-Naphtol solution through a filter (to remove any graphite) every 30 minutes. At these points the temperature should also be noted.
+
+The exfoliated graphene and remaining graphite foil is collected and washed several times with water and acetonitrile.
+
+The graphene is ultrasonicated in NMP (perhaps ca. 1 g / 100 mL) and left overnight for graphite to sediment. 
+
+# Journal
+The exfoliation of `r (m_graphite = set_units(6.9721, g))` g graphite was conducted as described above and stopped after 1 hour. The highest temperature recorded was 10 °C. The exfoliated graphite was washed with 2x500 mL H~2~O, 1x500 mL acetonitrile and 1x500 mL H~2~O and then filtered.
+
+```{r}
+echem_20180110 <- tribble(
+  ~time, ~voltage, ~current, ~temp,
+  0, 10, 15.0, 7,
+  30, 10, 14.4, 10,
+  60, 10, 7.0, 9
+)
+
+knitr::kable(echem_20180110, format = "html", col.names = c('Time (min)', 'Voltage (V)', 'Current (A)', 'Temp (°C)')) %>% 
+  kableExtra::kable_styling(bootstrap_options = "striped")
+```
+
+The remaining graphite was dried at 100 °C overnight after which it weighed `r (m_resid = set_units(2.3729, g))` g. The total mass of exfoliated graphite is then `r format(m_graphite - m_resid)`. The exfoliated graphite was not dried, at this hinders later exfoliation into graphene sheets. The wet mass of the exfoliated graphite was 111.16 g, meaning that 1 g dry mass would weigh 24.2 g.
+
+Initially, 1 g of the exfoliate (wet) graphite was ultrasonicated in 50 mL water or NMP for 2 minutes using a probe-type ultrasonicator (Bandelin Sonopuls). Both solutions were left overnight, and graphene was observed in solution in both cases. However, the concentration of the NMP solution was much higher (indicated by shining light through the solution). 
+
+To try and push the concentrations higher, 24.2 g (i.e. 1 g corresponding graphene) was ultrasonicated in 100 mL NMP and 100 mL H~2~O for 5 and 10 mins respectively at 50 % intensity. Again, this shows that the graphene is significantly more stable in NMP. Both solutions were centrifuged for 10 min at 1000 rpm to remove graphite residues, and the supernatant used for further processing. 
+
+The NMP based graphene was centrifuged at 4000 rpm for 2 hours and to bring down the graphene. To wash out remaining NMP 2 cycles were repeated where the graphene shaken into water and again centrifuged to bring out the graphene. The graphene was in the end put into ca. 160 mL water (the amount that it took to get everything out of the centrifuge tubes) and ultrasonicated for 5 minutes before spin-freezing in LiN. It was then put on the freeze dryer. Mass of empty flask was 161.0903 g. 
+
+<!-- The aqueous graphene solution was washed out of centrifuge tubes, bringing to total volume up to ca. 120 mL. This ultrasonicated to disperse the graphene as good as possible and then spin-frozen in in liquid nitrogen on a rotary evaporator. -->
+
+# Results and discussion
+
+# Conclusion and outlook
