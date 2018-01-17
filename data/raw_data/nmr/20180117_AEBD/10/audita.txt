@@ -1,0 +1,28 @@
+##TITLE= Audit trail, TOPSPIN		Version 3.2
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= nmr
+$$ /opt/topspin/users/Gruppe105/20180117_AEBD/10/audita.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2018-01-17 16:33:58.068 +0100>,<nmr>,<kajbruker>,<go>,<TOPSPIN 3.2>,
+      <created by zg
+	started at 2018-01-17 16:32:24.564 +0100,
+	POWCHK enabled, PULCHK disabled,
+       configuration hash MD5:
+       AB C4 4F AB 76 40 64 F5 D0 E5 70 96 60 B8 9E 85
+       data hash MD5: 64K
+       68 C7 91 3A 44 E6 50 F1 87 C4 19 26 30 0C C5 E1>)
+(   2,<2018-01-17 16:33:58.530 +0100>,<nmr>,<kajbruker>,<audit>,<TOPSPIN 3.2>,
+      <user comment:
+       ICON-NMR User ID: Gruppe105
+       data hash MD5: 64K
+       68 C7 91 3A 44 E6 50 F1 87 C4 19 26 30 0C C5 E1>)
+(   3,<2018-01-17 16:33:58.537 +0100>,<nmr>,<kajbruker>,<audit>,<TOPSPIN 3.2>,
+      <user comment:
+       ICON-NMR User ID: Gruppe105
+       data hash MD5: 64K
+       68 C7 91 3A 44 E6 50 F1 87 C4 19 26 30 0C C5 E1>)
+##END=
+
+$$ hash MD5
+$$ BE D5 4C 50 08 25 2D DD 19 A9 67 42 80 2A 73 1D

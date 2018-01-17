@@ -11,7 +11,7 @@
 
 
 
-<title>20171023 Synthesis of 4-(2-aminoethyl)benzenediazonium salt</title>
+<title>20180117 AEBD synthesis</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -383,66 +383,62 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">20171023 Synthesis of 4-(2-aminoethyl)benzenediazonium salt</h1>
+<h1 class="title toc-ignore">20180117 AEBD synthesis</h1>
 
 </div>
 
 
-<p>I have realised, that it is necessary to perfom the synthesis of 4-(2-aminoethyl)benzenediazonium salt to be able to properly control the concentration during exfoliation.</p>
-<p><img src="figs/AEBD.png" width="15%" /></p>
-<p>The group (and the literature in general) have many reported strategies for synthesising this compound, however the succes in the group has been varied. Several methods were found in old labbooks and in literature, and a summarised briefly <a href="misc/AEBD_procedure/AEBD_procedure.html">here</a>.</p>
+<p>I ran out of AEBD so I have to synthesize a new batch. The protocol from <a href="20171106_Raman_spectroscopy_of_AEBD.html">20171106</a> will be followed (2.0 g scale).</p>
+<p><img src="figs/AEBD_2.png" width="20%" /></p>
 <div id="protocol-synthesis-of-4-aminoethylbenzenediazonium-salt-aebd" class="section level1">
 <h1>Protocol: Synthesis of 4-aminoethylbenzenediazonium salt (AEBD)</h1>
-<p>The synthesis will be conducted according to the procedure from reference.<span class="citation"><sup>1</sup></span> To test the reaction, it will initially be conducted on 100 mg scale.</p>
+<p>The synthesis will be conducted according to the procedure from reference.<span class="citation"><sup>1</sup></span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(units)
+
+sc &lt;-<span class="st"> </span><span class="dv">20</span> <span class="co"># Scaling factor for this experiment</span>
+dig &lt;-<span class="st"> </span><span class="dv">3</span>
+
 M_aniline =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">136.19</span>, mg<span class="op">/</span>mmol)
 M_nitrite =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">69.00</span>, mg<span class="op">/</span>mmol)
-M_diazo =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">234.99</span>, mg<span class="op">/</span>mmol) <span class="co"># With BF4-ion</span>
+M_diazo =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">322.80</span>, mg<span class="op">/</span>mmol) <span class="co"># With BF4-ion</span>
 rho_aniline =<span class="st"> </span><span class="kw">set_units</span>(<span class="dv">1034</span>, mg<span class="op">/</span>mL)
 
-m_aniline =<span class="st"> </span><span class="kw">set_units</span>(<span class="dv">100</span>, mg)
+m_aniline =<span class="st"> </span><span class="kw">set_units</span>(<span class="dv">100</span> <span class="op">*</span><span class="st"> </span>sc, mg)
 n_aniline =<span class="st"> </span>m_aniline <span class="op">/</span><span class="st"> </span>M_aniline
 n_nitrite =<span class="st"> </span>n_aniline <span class="op">*</span><span class="st"> </span><span class="fl">1.5</span>
 m_nitrite =<span class="st"> </span>n_nitrite <span class="op">*</span><span class="st"> </span>M_nitrite
 
-m_diazo =<span class="st"> </span>M_diazo <span class="op">*</span><span class="st"> </span>n_aniline</code></pre></div>
-<p>Chemicals: 4-(2-Aminoethyl)aniline (<a href="http://www.sigmaaldrich.com/catalog/product/aldrich/123056?lang=en&amp;region=DK">Sigma</a>, 97 %, 136.19), Sodium nitrite (Manufacturer? 69), HBF<sub>4</sub> (Sigma, 48 % in water), diethyl ether (Sigma, &gt;99.8%)</p>
+m_diazo =<span class="st"> </span>M_diazo <span class="op">*</span><span class="st"> </span>n_aniline
+
+V_HBF4 =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">0.75</span> <span class="op">*</span><span class="st"> </span>sc, mL)  <span class="co"># 48 % HBF4 solution</span>
+V_H2O_first =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">1.25</span> <span class="op">*</span><span class="st"> </span>sc, mL) 
+V_H2O_second =<span class="st"> </span><span class="kw">set_units</span>(<span class="fl">0.6</span> <span class="op">*</span><span class="st"> </span>sc, mL) </code></pre></div>
+<p>Chemicals: 4-(2-Aminoethyl)aniline (<a href="http://www.sigmaaldrich.com/catalog/product/aldrich/123056?lang=en&amp;region=DK">Sigma</a>, 97 %, 136.19 mg/mmol), Sodium nitrite (Manufacturer? 69 mg/mmol), HBF<sub>4</sub> (Sigma, 48 % in water), diethyl ether (Sigma, &gt;99.8%)</p>
 <ol style="list-style-type: decimal">
-<li>0.75 mL HBF<sub>4</sub> is added to 1.25 mL water and the mixture allowed to cool to 0 <span class="math inline">\(^{\circ}\)</span>C.</li>
-<li>Then 4-(2-aminoethyl)aniline (100, 0.097, 0.73) is dissolved in the HBF4 solution and allowed to cool to 0 <span class="math inline">\(^{\circ}\)</span>C.</li>
-<li>Sodium nitrite (76, 1.1) is dissolved in 0.6 mL water and added drop by drop to the acidic amine while stirring.</li>
+<li>15 mL HBF<sub>4</sub> is added to 25 mL water and the mixture allowed to cool to 0 <span class="math inline">\(^{\circ}\)</span>C.</li>
+<li>Then 4-(2-aminoethyl)aniline (2000 mg, 1.93 mL, 14.7 mmol) is dissolved in the HBF4 solution and allowed to cool to 0 <span class="math inline">\(^{\circ}\)</span>C.</li>
+<li>Sodium nitrite (1520 mg, 22 mmol) is dissolved in 12 mL water and added drop by drop to the acidic amine while stirring.</li>
 <li>The compounds are reacted for 40 min while keeping the mixture at 0 <span class="math inline">\(^{\circ}\)</span>C.</li>
 <li>A precipitate will appear in the solution and is suction filtrated and rinsed with freezer-cold diethyl ether. The salt is then dried under vacuum (without heating) and stored at -20 <span class="math inline">\(^{\circ}\)</span>C.</li>
 </ol>
-<p>The product can be characterised by <sup>1</sup>H NMR in deuterated water.</p>
-<p>The expected amount of 4-aminoethylbenzenediazonium tetrafluoroborate is 173</p>
+<p>The expected amount of 4-aminoethylbenzenediazonium tetrafluoroborate is 4740 mg</p>
 </div>
 <div id="journal" class="section level1">
 <h1>Journal</h1>
-<p>The synthesis was conducted on 20171025. After addition of 4-(2-aminoethyl)aniline (a yellow oil) to HBF<sub>4</sub> the solution was light yellow. Upon addition of sodium nitrite the solution initially turned orange, and then as the reaction proceeded became milky white, as the precipitate formed.</p>
-<p>After washing with 75 mL cold Et<sub>2</sub>O a white-orange powder was collected and dried on the vacuum line.</p>
-<p>The empty flask used for drying weighed 13.1772 g. The weight was 13.3899 g after drying. A total of 0.2127 g was formed, corresponding to a yield of 123.3 % (a small amount of product was lost while taking the sample of the vacuum line). This could indicate that the product is not completely pure or dry.</p>
+<p>The synthesis was conducted in as described. Both the aniline and sodium nitrite was added drop by drop to limit early precipitation. The solution turned red/orange upon addition of sodium nitrite, and a white/pink precipitate quickly formed.</p>
+<p>After drying 4.5538 g product was obtained. This corresponds to a yield of 95.97 %.</p>
 </div>
 <div id="results-and-discussion" class="section level1">
 <h1>Results and discussion</h1>
-<p><sup>1</sup>H-NMR was obtained of the product. It exhibits peaks which are in agreement with literature values, as well as a small quantity of the starting material (roughly 3.7 %) and a rather large amount of water. The water probably comes from both redisual water in the product and water present in the D<sub>2</sub>O used for NMR.</p>
-<div class="figure">
-<img src="data/raw_data/nmr/20171025_DNH2_synthesis/20171025_DNH2.png" alt="H-NMR of AEBD in D2O" />
-<p class="caption">H-NMR of AEBD in D<sub>2</sub>O</p>
-</div>
-<p>However, repeating NMR in CD<sub>3</sub>CN shows that almost no water is present, so the water observed in the first NMR must be from D<sub>2</sub>O. A new impurity is observed at ca. 6.3 ppm, which was not observed previously. I do not expect that this is from my product.</p>
-<div class="figure">
-<img src="data/raw_data/nmr/20171025_DNH2_synthesis/20171025_DNH2_CD3CN.png" alt="H-NMR of AEBD in CD3CN" />
-<p class="caption">H-NMR of AEBD in CD<sub>3</sub>CN</p>
+<div id="h-nmr" class="section level2">
+<h2><sup>1</sup>H-NMR</h2>
+<p>A sample for <sup>1</sup>H-NMR was made in CD<sub>3</sub>CN. It looks as expected and shows a similar small residue of starting materials as the previous synthesis.</p>
+<p><img src="data/raw_data/nmr/20180117_AEBD/20180117_AEBD.png" width="432" /></p>
 </div>
 </div>
-<div id="conclusion-and-outlook" class="section level1">
+<div id="conclusion-and-outlook" class="section level1 unnumbered">
 <h1>Conclusion and outlook</h1>
-<p>The synthesis of 4-aminoethylbenzenediazonium salt was easy and a high-purity product in decent yield was obtained. This procedure should be easy to scale up, in order to synthesise several grams for graphene functionalisation.</p>
-</div>
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
 <div id="refs" class="references">
 <div id="ref-Kowalczyk2011">
 <p>(1) Kowalczyk, A.; Nowicka, A.; Jurczakowski, R.; Fau, M.; Krolikowska, A.; Stojek, Z. Construction of Dna Biosensor at Glassy Carbon Surface Modified with 4-Aminoethylbenzenediazonium Salt. <em>Biosensors and Bioelectronics</em> <strong>2011</strong>, <em>26</em> (5), 2506–2512 DOI: <a href="https://doi.org/https://doi.org/10.1016/j.bios.2010.10.046">https://doi.org/10.1016/j.bios.2010.10.046</a>.</p>
