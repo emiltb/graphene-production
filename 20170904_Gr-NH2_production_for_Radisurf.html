@@ -527,6 +527,8 @@ g_specs &lt;-<span class="st"> </span>gridExtra<span class="op">::</span><span c
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">data =</span> <span class="kw">map</span>(folders, raman_curvefit_read)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">unnest</span>()
 
+<span class="kw">saveRDS</span>(raman170920, <span class="dt">file =</span> <span class="st">&quot;data/derived_data/raman/20170920_Gr-NH2_for_Radisurf/raman170920.RData&quot;</span>)
+
 plot_map &lt;-<span class="st"> </span><span class="cf">function</span>(df, feature) {
   feature &lt;-<span class="st"> </span><span class="kw">enquo</span>(feature)
   name &lt;-<span class="st"> </span><span class="kw">unique</span>(df<span class="op">$</span>names)[<span class="dv">1</span>]
