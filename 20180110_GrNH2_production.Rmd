@@ -44,7 +44,7 @@ The exfoliated graphene and remaining graphite foil is collected and washed seve
 The graphene is ultrasonicated in NMP (perhaps ca. 1 g / 100 mL) and left overnight for graphite to sediment. 
 
 # Journal
-The exfoliation of `r (m_graphite = set_units(6.9721, g))` g graphite was conducted as described above and stopped after 1 hour. The highest temperature recorded was 10 °C. The exfoliated graphite was washed with 2x500 mL H~2~O, 1x500 mL acetonitrile and 1x500 mL H~2~O and then filtered.
+The exfoliation of `r (m_graphite = units::set_units(6.9721, g))` g graphite was conducted as described above and stopped after 1 hour. The highest temperature recorded was 10 °C. The exfoliated graphite was washed with 2x500 mL H~2~O, 1x500 mL acetonitrile and 1x500 mL H~2~O and then filtered.
 
 ```{r}
 echem_20180110 <- tribble(
@@ -58,15 +58,18 @@ knitr::kable(echem_20180110, format = "html", col.names = c('Time (min)', 'Volta
   kableExtra::kable_styling(bootstrap_options = "striped")
 ```
 
-The remaining graphite was dried at 100 °C overnight after which it weighed `r (m_resid = set_units(2.3729, g))` g. The total mass of exfoliated graphite is then `r format(m_graphite - m_resid)`. The exfoliated graphite was not dried, at this hinders later exfoliation into graphene sheets. The wet mass of the exfoliated graphite was 111.16 g, meaning that 1 g dry mass would weigh 24.2 g.
+The remaining graphite was dried at 100 °C overnight after which it weighed `r (m_resid = units::set_units(2.3729, g))` g. The total mass of exfoliated graphite is then `r format(m_graphite - m_resid)`. The exfoliated graphite was not dried, at this hinders later exfoliation into graphene sheets. The wet mass of the exfoliated graphite was 111.16 g, meaning that 1 g dry mass would weigh 24.2 g.
 
 Initially, 1 g of the exfoliate (wet) graphite was ultrasonicated in 50 mL water or NMP for 2 minutes using a probe-type ultrasonicator (Bandelin Sonopuls). Both solutions were left overnight, and graphene was observed in solution in both cases. However, the concentration of the NMP solution was much higher (indicated by shining light through the solution). 
 
 To try and push the concentrations higher, 24.2 g (i.e. 1 g corresponding graphene) was ultrasonicated in 100 mL NMP and 100 mL H~2~O for 5 and 10 mins respectively at 50 % intensity. Again, this shows that the graphene is significantly more stable in NMP. Both solutions were centrifuged for 10 min at 1000 rpm to remove graphite residues, and the supernatant used for further processing. 
 
 The NMP based graphene was centrifuged at 4000 rpm for 2 hours and to bring down the graphene. To wash out remaining NMP 2 cycles were repeated where the graphene shaken into water and again centrifuged to bring out the graphene. The graphene was in the end put into ca. 160 mL water (the amount that it took to get everything out of the centrifuge tubes) and ultrasonicated for 5 minutes before spin-freezing in LiN. It was then put on the freeze dryer. Mass of empty flask was 161.0903 g. After freeze-drying over a weekend the mass of the flask was 162.1510 g, meaning that a total of `r 162.1510 - 161.0903` g was collected - 1.00 g was expected. The graphene is adhering to the sides of the flask and seems to have collapsed instead of forming a foam (perhaps due to thawing), so it will need to be tested how easy it is to redisperse.
+Upon further examination the product seems to easily redisperse in NMP, but not in water.
 
-<!-- The aqueous graphene solution was washed out of centrifuge tubes, bringing to total volume up to ca. 120 mL. This ultrasonicated to disperse the graphene as good as possible and then spin-frozen in in liquid nitrogen on a rotary evaporator. -->
+The aqueous graphene solution was washed out of centrifuge tubes, bringing to total volume up to ca. 120 mL. This ultrasonicated to disperse the graphene as good as possible and then spin-frozen in in liquid nitrogen on a rotary evaporator. It was then put on the freeze-dryer while wrapped in tissue-paper and alu-foil for insulation. The next morning the sample was completely dry and had formed a nice foam.
+
+A new NMP-sample was made by again ultrasonicating 24 g graphene in 100 mL NMP for 5 min, two cycles of centrifugation and washing with water and then ultrasonication in water, spin-freezing and again putting it on the freeze-dryer (wrapped in paper and alu-foil). 
 
 # Results and discussion
 

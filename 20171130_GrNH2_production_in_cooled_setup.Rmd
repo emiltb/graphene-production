@@ -58,13 +58,13 @@ knitr::kable(x, format = "html") %>%
 
 
 # Journal
-The experiment was set up as described and near complete exfoliation achieved in 80 minutes. The graphite foil weighed `r m_graphite = set_units(6.8515, g); format(m_graphite)` prior to exfoliation and the remaining graphite weighed `r m_after = set_units(1.2979, g); format(m_after)`, meaning at total of `r m_graphite - m_after` was exfoliated in 80 minutes.
+The experiment was set up as described and near complete exfoliation achieved in 80 minutes. The graphite foil weighed `r m_graphite = units::set_units(6.8515, g); format(m_graphite)` prior to exfoliation and the remaining graphite weighed `r m_after = units::set_units(1.2979, g); format(m_after)`, meaning at total of `r m_graphite - m_after` was exfoliated in 80 minutes.
 
 The effect of keeping the 2-Naphtol under argon was very positive, and no color change was observed during the experiment. 
 
 The exfoliated graphite was filtered and washed with 2x500 mL water, 1x500 mL acetonitrile and 1x500 mL water to remove residues of acid and diazonium salt. In each washing the exfoliated graphite was stirred with the solvent to ensure a good mixing, before filtering again.
 
-The washed product was dried in an oven at 100 °C overnight, resulting in a product mass of `r m_product <- set_units(209.4735 - 204.0793, g); format(m_product)` (`r signif(m_product / (m_graphite - m_after) * 100, digits = 3)` % yield, not accounting for mass increase do to attached diazonium salt and intercalated ions).
+The washed product was dried in an oven at 100 °C overnight, resulting in a product mass of `r m_product <- units::set_units(209.4735 - 204.0793, g); format(m_product)` (`r signif(m_product / (m_graphite - m_after) * 100, digits = 3)` % yield, not accounting for mass increase do to attached diazonium salt and intercalated ions).
 
 
 ## Initial ultrasonication test
