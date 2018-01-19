@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>20180119 GrNH2 mass production</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode {
+  overflow-x: visible;
+}
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Graphene Production</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-desktop"></span>
+     
+    Project description
+  </a>
+</li>
+<li>
+  <a href="lab_journal.html">
+    <span class="fa fa-flask"></span>
+     
+    Lab journal
+  </a>
+</li>
+<li>
+  <a href="data.html">
+    <span class="fa fa-table"></span>
+     
+    Data
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://osf.io/gmprw/">
+    <span class="fa fa-external-link"></span>
+     
+    OSF
+  </a>
+</li>
+<li>
+  <a href="mailto:emilbp@inano.au.dk">
+    <span class="fa fa-envelope-o"></span>
+     
+    Contact
+  </a>
+</li>
+<li>
+  <a href="https://github.com/emiltb/graphene-production">
+    <span class="fa fa-github"></span>
+     
+    GitHub
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">20180119 GrNH2 mass production</h1>
+
+</div>
+
+
+<p>As more graphene is needed, the production procedure from <a href="20180110_GrNH2_production.html">20180110</a> will be repeated.</p>
+<div id="journal" class="section level1">
+<h1>Journal</h1>
+<p>1500 mL 0.1 M H<sub>2</sub>SO<sub>4</sub> was made by diluting 150 mL 1.0 M H<sub>2</sub>SO<sub>4</sub> to 1500 mL and then dissolving 2420 mg 4-(2-ammonioethyl)benzenediazonium salt first in 100 mL solution and then adding it to the rest. This was added to the electrochemical cell and cooling starting by flowing cold ethanol through a stainless steel pipe in the solution.</p>
+<p>A stock solution of 2-Naphthol was made by dissolving 12.0 mg in 10 mL 10 % NaOH and 40 mL H2O. An Ar ballon was attached to this to keep oxygen out. 1 mL samples from the exfoliation solution were extracted at regular intervals and mixed with 9 mL 2-naphthol solution. A syring filter was used to remove graphene.</p>
+<p>A graphene foil (Alfa Aesar, 0.5 mm x 8 cm x 15 cm) was attached to the power supply and mounted in the solution between two stainless steel electrodes.</p>
+<p>Several batches were made:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+
+experiments &lt;-<span class="st"> </span><span class="kw">tribble</span>(
+  <span class="op">~</span>name, <span class="op">~</span>m_graphite, <span class="op">~</span>diazo_inital, <span class="op">~</span>diazo_final, <span class="op">~</span>m_wet,
+  <span class="st">&quot;20180119_1_A&quot;</span>, <span class="fl">6.9565</span>, <span class="dv">5</span>, <span class="ot">NA</span>, <span class="fl">350.79</span> <span class="op">-</span><span class="st"> </span><span class="fl">243.68</span>,
+  <span class="st">&quot;20180119_1_B&quot;</span>, <span class="fl">6.9747</span>, <span class="ot">NA</span>, <span class="ot">NA</span>, <span class="fl">381.17</span> <span class="op">-</span><span class="st"> </span><span class="fl">242.83</span>,
+  <span class="st">&quot;20180119_2_A&quot;</span>, <span class="fl">6.9486</span>, <span class="dv">5</span>, <span class="ot">NA</span>, <span class="fl">365.53</span> <span class="op">-</span><span class="st"> </span><span class="fl">243.28</span>,
+  <span class="st">&quot;20180119_2_B&quot;</span>, <span class="fl">6.9869</span>, <span class="ot">NA</span>, <span class="ot">NA</span>, <span class="fl">372.91</span> <span class="op">-</span><span class="st"> </span><span class="fl">243.54</span>
+)
+
+knitr<span class="op">::</span><span class="kw">kable</span>(experiments, <span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Sample name&quot;</span>, <span class="st">&quot;Graphite mass (g)&quot;</span>, <span class="st">&quot;Initial diazo (mM)&quot;</span>, <span class="st">&quot;Final diazo (mM)&quot;</span>, <span class="st">&quot;Wet mass of exfoliate (g)&quot;</span>), <span class="dt">caption =</span> <span class="st">&quot;In reality concentrations needs to be calibrated with later UV-Vis measurements&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>)</code></pre></div>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+In reality concentrations needs to be calibrated with later UV-Vis measurements
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Sample name
+</th>
+<th style="text-align:right;">
+Graphite mass (g)
+</th>
+<th style="text-align:right;">
+Initial diazo (mM)
+</th>
+<th style="text-align:left;">
+Final diazo (mM)
+</th>
+<th style="text-align:right;">
+Wet mass of exfoliate (g)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+20180119_1_A
+</td>
+<td style="text-align:right;">
+6.9565
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+107.11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+20180119_1_B
+</td>
+<td style="text-align:right;">
+6.9747
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+138.34
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+20180119_2_A
+</td>
+<td style="text-align:right;">
+6.9486
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+122.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+20180119_2_B
+</td>
+<td style="text-align:right;">
+6.9869
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:right;">
+129.37
+</td>
+</tr>
+</tbody>
+</table>
+<p><em>20180119_1_A</em> graphite was lowered into solution at ca. 40 minutes to utilise a larger amount of the graphite. <em>20180119_1_B</em> is made by reusing the solution from the previous exfoliation but with new graphite. The solution was filtered to remove graphite and a new exfoliation started as soon as possible. Approx. 150 mL 0.1 M H<sub>2</sub>SO<sub>4</sub> was added to make up for lost solvent. <em>20180119_2_A</em> I ran out of diazonium salt so only 2.0958 g was added, making the concentration approx 4.33 mM. <em>20180119_2_B</em> was made in in the same way as <em>1B</em>.</p>
+<div id="washing-procedure" class="section level3">
+<h3>Washing procedure</h3>
+<p>All collected graphite was washed with 2 x 500 mL H2O, 1 x 500 mL acetonitrile and 1 x 500 mL H2O. In all cases the graphite was stirred with the solvent and filtered again to ensure proper washing.</p>
+</div>
+</div>
+<div id="results-and-discussion" class="section level1">
+<h1>Results and discussion</h1>
+</div>
+<div id="conclusion-and-outlook" class="section level1">
+<h1>Conclusion and outlook</h1>
+</div>
+
+<!-- disqus -->
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://spoman-graphene-production.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<script id="dsq-count-scr" src="//spoman-graphene-production.disqus.com/count.js" async></script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
