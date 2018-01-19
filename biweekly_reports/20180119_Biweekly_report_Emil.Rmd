@@ -1,0 +1,40 @@
+---
+title: 'Biweekly report: Functionalised graphene for polymer composites'
+author: "Emil Tveden Bjerglund"
+date: "19 jan 2018"
+output:
+  pdf_document: default
+  html_document:
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r child = 'biweekly_header.Rmd'}
+```
+
+# Planned experiments from last biweekly report
+
+* Isolate the current batch of graphene and analyse it.
+* Given that this production is succesful, I just need to run several more of the same as quickly as possible to deliver to Radisurf, SP Group and the Chemical Engineers.
+
+# Large scale graphene production
+
+* I now have a pretty solid procedure for large scale exfoliation of functionalised graphene. I can exfoliate approx. 5 g/hr, and then it takes another day to do ultrasonication, centrifugation and freeze-drying. 
+* Current I am focusing on making amine-functionalised graphene for SP Group and Radisurf. 
+* For all experiments I monitor the diazonium concentration by extracting samples and reacting with 2-Naphtol to form an azo-dye. This seems to work well, and allows us to know the exact concentration during exfoliation and how it develops during the experiment. 
+
+I current have approx. 20 g that will be processed over the weekend to form the final graphene.
+
+## Challenges
+Currently the two main challenges in processing the graphene is ultrasonication and freeze-drying. 
+
+Ultrasonication has been mostly solved by using a probe-type ultrasonicator at the inorganic department. It seems to work well, but I have not done extensive testing to optimise parameters (concentrations, time, volume).
+
+Freeze-drying is still posing problems for me. Lately I have had succes with freeze-drying approx. 1 g of material in 100 mL water by spin-freezing in a 500 mL flask and wrapping the flask in paper an alu-foil to insulate it, before putting on the freeze-dryer. This seems to help with the samples drying, but I still sometimes have samples failing due to thawing, and that renders the produced graphene unusable, since it cannot easily be dispersed in solvents again. I still wish to scale this process up a couple of factors to make handling large samples easier. 
+
+# Plan for the next two weeks
+* Characterisation of the amine-functionalised graphene.
+* Meetings with SP Group and Radisurf to discuss which experiments they will make with the graphene. 
