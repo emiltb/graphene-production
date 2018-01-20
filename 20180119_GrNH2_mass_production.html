@@ -393,6 +393,7 @@ div.tocify {
 <p>A graphene foil (Alfa Aesar, 0.5 mm x 8 cm x 15 cm) was attached to the power supply and mounted in the solution between two stainless steel electrodes.</p>
 <p>Several batches were made:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(patchwork)
 
 experiments &lt;-<span class="st"> </span><span class="kw">tribble</span>(
   <span class="op">~</span>name, <span class="op">~</span>m_graphite, <span class="op">~</span>diazo_inital, <span class="op">~</span>diazo_final, <span class="op">~</span>m_wet, <span class="op">~</span>m_residual,
@@ -631,9 +632,53 @@ V_NMP
 </tr>
 </tbody>
 </table>
+<p>The approx. 4 g of dry mass graphene in wet condition was ultrasonicated for 20 min at 10 % intensity (the max the sonicator would do). This was then centrifuged at 1000 rpm for 10 min, the pellet removed and centrifuged at 4000 rpm for 1 hour, after which a transparent, grey supernatant remained. This was removed and the remaining graphene shaken into water and centrifuged at 4000 rpm for 20 minutes (the water washing repeated once more). The graphene was then washed into a new batch of 350 mL water, ultrasonicated for 20 minutes and spin-frozen in a 1 L roundbottomed flask. This was then put on the freeze dryer.</p>
+</div>
+<div id="uv-vis" class="section level3">
+<h3>UV-Vis</h3>
+<p>Concentrations of diazonium salt in the different solutions was determined through UV-Vis spectroscopy of the azo-dye that is formed when the diazonium compound is reacted with a basic solution of 2-Naphtol. The absorption spectrum was recorded between 400 and 700 nm.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">path &lt;-<span class="st"> &quot;data/raw_data/uvvis/20180119_GrNH2_azodye/&quot;</span>
+uvvis20180119 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">files =</span> <span class="kw">list.files</span>(<span class="dt">path =</span> path, <span class="dt">pattern =</span> <span class="st">&quot;*.csv&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">name =</span> stringr<span class="op">::</span><span class="kw">str_sub</span>(files, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">end =</span> <span class="dv">12</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(files, <span class="dt">pattern =</span> <span class="st">&quot;</span><span class="ch">\\</span><span class="st">d+(?=min)&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.numeric</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">data =</span> <span class="kw">map</span>(<span class="kw">paste0</span>(path, files), read_delim, <span class="dt">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>files) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">unnest</span>()
+
+uvvis20180119 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(nm, A, <span class="dt">color =</span> <span class="kw">as.factor</span>(time))) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">499</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>name)</code></pre></div>
+<p><img src="20180119_GrNH2_mass_production_files/figure-html/unnamed-chunk-4-1.png" width="768" /></p>
 </div>
 <div id="results-and-discussion" class="section level1">
 <h1>Results and discussion</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">echem20180119 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/raw_data/electrochemistry/20180119_Gr-NH2_exfoliation.csv&quot;</span>, <span class="dt">na =</span> <span class="st">&quot;NA&quot;</span>)
+
+eps499 =<span class="st"> </span><span class="fl">5.022</span> <span class="co"># L/cm*mmol, extincion coefficient for the azo-dye</span>
+
+full_data &lt;-<span class="st"> </span>uvvis20180119 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(nm <span class="op">==</span><span class="st"> </span><span class="dv">499</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conc =</span> A<span class="op">/</span>eps499 <span class="op">*</span><span class="st"> </span><span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Multiplied by 10 to get the diazonium-concentration</span>
+<span class="st">  </span><span class="kw">select</span>(name, time, conc) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">left_join</span>(echem20180119)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">g1 &lt;-<span class="st"> </span>full_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, conc, <span class="dt">color =</span> name)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)
+
+g2 &lt;-<span class="st"> </span>full_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, temp, <span class="dt">color =</span> name)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>()
+
+g3 &lt;-<span class="st"> </span>full_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(time, i, <span class="dt">color =</span> name)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)
+
+g1 <span class="op">+</span><span class="st"> </span>g2 <span class="op">+</span><span class="st"> </span>g3 <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>)</code></pre></div>
+<p><img src="20180119_GrNH2_mass_production_files/figure-html/unnamed-chunk-6-1.png" width="768" /></p>
 </div>
 <div id="conclusion-and-outlook" class="section level1">
 <h1>Conclusion and outlook</h1>

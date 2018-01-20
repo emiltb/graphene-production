@@ -3,8 +3,8 @@ name, time, temp, i, u, sample
 20180119_1_A, 30, 14, 14.7, 10.0, Yes
 20180119_1_A, 60, 13, 9.6, 10.0, Yes
 20180119_1_B, 0, 9, 17.4, 10.0, Yes
-20180119_1_B, 30, 12, 11.3, 10.0, Yes (only half volume, so will deviate) 
-20180119_1_B, 60, 10, 5.8, 10.0, Yes (only half volume, so will deviate)
+20180119_1_B, 30, 12, 11.3, 10.0, Yes (only half volume so will deviate) 
+20180119_1_B, 60, 10, 5.8, 10.0, Yes (only half volume so will deviate)
 20180119_2_A, 0, 5, 17.0, 10.0, Yes
 20180119_2_A, 30, 14, 13.0, 10.0, Yes
 20180119_2_A, 60, 11, 7.3, 10.0, Yes

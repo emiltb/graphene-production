@@ -18,6 +18,7 @@ Several batches were made:
 
 ```{r}
 library(tidyverse)
+library(patchwork)
 
 experiments <- tribble(
   ~name, ~m_graphite, ~diazo_inital, ~diazo_final, ~m_wet, ~m_residual,
@@ -51,7 +52,59 @@ experiments %>%
   kableExtra::kable_styling(bootstrap_options = "striped")
 ```
 
+The approx. 4 g of dry mass graphene in wet condition was ultrasonicated for 20 min at 10 % intensity (the max the sonicator would do). This was then centrifuged at 1000 rpm for 10 min, the pellet removed and centrifuged at 4000 rpm for 1 hour, after which a transparent, grey supernatant remained. This was removed and the remaining graphene shaken into water and centrifuged at 4000 rpm for 20 minutes (the water washing repeated once more). The graphene was then washed into a new batch of 350 mL water, ultrasonicated for 20 minutes and spin-frozen in a 1 L roundbottomed flask. This was then put on the freeze dryer. 
+
+### UV-Vis
+Concentrations of diazonium salt in the different solutions was determined through UV-Vis spectroscopy of the azo-dye that is formed when the diazonium compound is reacted with a basic solution of 2-Naphtol. The absorption spectrum was recorded between 400 and 700 nm. 
+
+```{r}
+path <- "data/raw_data/uvvis/20180119_GrNH2_azodye/"
+uvvis20180119 <- tibble(files = list.files(path = path, pattern = "*.csv")) %>% 
+  mutate(name = stringr::str_sub(files, start = 1, end = 12)) %>% 
+  mutate(time = stringr::str_extract(files, pattern = "\\d+(?=min)") %>% as.numeric()) %>% 
+  mutate(data = map(paste0(path, files), read_delim, delim = ";", skip = 1)) %>% 
+  select(-files) %>% 
+  unnest()
+
+uvvis20180119 %>% 
+  ggplot(aes(nm, A, color = as.factor(time))) + 
+  geom_vline(xintercept = 499) +
+  geom_line() +
+  facet_wrap(~name)
+```
 
 # Results and discussion
+
+```{r}
+echem20180119 <- read_csv(file = "data/raw_data/electrochemistry/20180119_Gr-NH2_exfoliation.csv", na = "NA")
+
+eps499 = 5.022 # L/cm*mmol, extincion coefficient for the azo-dye
+
+full_data <- uvvis20180119 %>% 
+  filter(nm == 499) %>% 
+  mutate(conc = A/eps499 * 10) %>% # Multiplied by 10 to get the diazonium-concentration
+  select(name, time, conc) %>% 
+  left_join(echem20180119)
+```
+
+
+```{r}
+g1 <- full_data %>% 
+  ggplot(aes(time, conc, color = name)) + 
+  geom_line() +
+  theme(legend.position = "none")
+
+g2 <- full_data %>% 
+  ggplot(aes(time, temp, color = name)) + 
+  geom_line()
+
+g3 <- full_data %>% 
+  ggplot(aes(time, i, color = name)) + 
+  geom_line() +
+  theme(legend.position = "none")
+
+g1 + g2 + g3 + plot_layout(ncol = 1)
+```
+
 
 # Conclusion and outlook
