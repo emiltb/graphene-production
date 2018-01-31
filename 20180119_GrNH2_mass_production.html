@@ -548,15 +548,27 @@ NA
 </tr>
 </tbody>
 </table>
-<p><em>20180119_1_A</em> graphite was lowered into solution at ca. 40 minutes to utilise a larger amount of the graphite. <em>20180119_1_B</em> is made by reusing the solution from the previous exfoliation but with new graphite. The solution was filtered to remove graphite and a new exfoliation started as soon as possible. Approx. 150 mL 0.1 M H<sub>2</sub>SO<sub>4</sub> was added to make up for lost solvent. <em>20180119_2_A</em> I ran out of diazonium salt so only 2.0958 g was added, making the concentration approx 4.33 mM. <em>20180119_2_B</em> was made in in the same way as <em>1B</em>.</p>
+<ul>
+<li><em>20180119_1_A</em> graphite was lowered into solution at ca. 40 minutes to utilise a larger amount of the graphite.</li>
+<li><em>20180119_1_B</em> is made by reusing the solution from the previous exfoliation but with new graphite. The solution was filtered to remove graphite and a new exfoliation started as soon as possible. Approx. 150 mL 0.1 M H<sub>2</sub>SO<sub>4</sub> was added to make up for lost solvent.</li>
+<li><em>20180119_2_A</em> I ran out of diazonium salt so only 2.0958 g was added, making the concentration approx 4.33 mM.</li>
+<li><em>20180119_2_B</em> was made in in the same way as <em>1B</em>.</li>
+</ul>
 <div id="washing-procedure" class="section level3">
 <h3>Washing procedure</h3>
 <p>All collected graphite was washed with 2 x 500 mL H2O, 1 x 500 mL acetonitrile and 1 x 500 mL H2O. In all cases the graphite was stirred with the solvent and filtered again to ensure proper washing.</p>
 </div>
-<div id="ultrasonication" class="section level3">
-<h3>Ultrasonication</h3>
+<div id="ultrasonication-and-freeze-drying" class="section level3">
+<h3>Ultrasonication and freeze-drying</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">experiments <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">transmute</span>(<span class="dt">name =</span> name, <span class="dt">m_graphene =</span> <span class="dv">4</span>, <span class="dt">m_ultrasonic_wet =</span> m_1g_wet <span class="op">*</span><span class="st"> </span>m_graphene, <span class="dt">V_NMP =</span> <span class="kw">c</span>(<span class="dv">400</span>, <span class="dv">320</span>, <span class="dv">300</span>, <span class="ot">NA</span>), <span class="dt">m_flask =</span> <span class="kw">c</span>(<span class="fl">336.60</span>, <span class="fl">277.28</span>, <span class="fl">299.51</span>, <span class="ot">NA</span>), <span class="dt">comments =</span> <span class="kw">c</span>(<span class="st">&quot;Flask + connector&quot;</span>, <span class="st">&quot;Flask + connector&quot;</span>, <span class="st">&quot;Flask only&quot;</span>, <span class="ot">NA</span>), <span class="dt">m_graphene =</span> <span class="kw">c</span>(<span class="ot">NA</span>, <span class="ot">NA</span>, <span class="ot">NA</span>, <span class="ot">NA</span>), <span class="dt">yield =</span> <span class="kw">c</span>(<span class="ot">NA</span>, <span class="ot">NA</span>, <span class="ot">NA</span>, <span class="ot">NA</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">transmute</span>(<span class="dt">name =</span> name, <span class="dt">m_graphene =</span> <span class="dv">4</span>, <span class="dt">m_ultrasonic_wet =</span> m_1g_wet <span class="op">*</span><span class="st"> </span>m_graphene) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(
+    <span class="dt">V_NMP =</span> <span class="kw">c</span>(<span class="dv">400</span>, <span class="dv">320</span>, <span class="dv">300</span>, <span class="ot">NA</span>), 
+    <span class="dt">m_flask =</span> <span class="kw">c</span>(<span class="fl">336.60</span>, <span class="fl">277.28</span>, <span class="fl">299.51</span>, <span class="fl">335.69</span>), 
+    <span class="dt">comments =</span> <span class="kw">c</span>(<span class="st">&quot;Flask + connector&quot;</span>, <span class="st">&quot;Flask + connector&quot;</span>, <span class="st">&quot;Flask only&quot;</span>, <span class="st">&quot;Flask + connector&quot;</span>), 
+    <span class="dt">m_graphene_out =</span> <span class="kw">c</span>(<span class="fl">338.99</span>, <span class="fl">282.22</span>, <span class="fl">303.47</span>, <span class="fl">338.83</span>) <span class="op">-</span><span class="st"> </span>m_flask, 
+    <span class="dt">yield =</span> <span class="kw">round</span>(m_graphene_out <span class="op">/</span><span class="st"> </span>m_graphene <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dt">digits =</span> <span class="dv">1</span>)
+    ) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>)</code></pre></div>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
@@ -565,7 +577,7 @@ NA
 <th style="text-align:left;">
 name
 </th>
-<th style="text-align:left;">
+<th style="text-align:right;">
 m_graphene
 </th>
 <th style="text-align:right;">
@@ -580,7 +592,10 @@ m_flask
 <th style="text-align:left;">
 comments
 </th>
-<th style="text-align:left;">
+<th style="text-align:right;">
+m_graphene_out
+</th>
+<th style="text-align:right;">
 yield
 </th>
 </tr>
@@ -590,8 +605,8 @@ yield
 <td style="text-align:left;">
 20180119_1_A
 </td>
-<td style="text-align:left;">
-NA
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:right;">
 86.70593
@@ -605,16 +620,19 @@ NA
 <td style="text-align:left;">
 Flask + connector
 </td>
-<td style="text-align:left;">
-NA
+<td style="text-align:right;">
+2.39
+</td>
+<td style="text-align:right;">
+59.7
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 20180119_1_B
 </td>
-<td style="text-align:left;">
-NA
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:right;">
 103.61577
@@ -628,16 +646,19 @@ NA
 <td style="text-align:left;">
 Flask + connector
 </td>
-<td style="text-align:left;">
-NA
+<td style="text-align:right;">
+4.94
+</td>
+<td style="text-align:right;">
+123.5
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 20180119_2_A
 </td>
-<td style="text-align:left;">
-NA
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:right;">
 113.22065
@@ -651,16 +672,19 @@ NA
 <td style="text-align:left;">
 Flask only
 </td>
-<td style="text-align:left;">
-NA
+<td style="text-align:right;">
+3.96
+</td>
+<td style="text-align:right;">
+99.0
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 20180119_2_B
 </td>
-<td style="text-align:left;">
-NA
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:right;">
 107.88025
@@ -669,18 +693,21 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-NA
+335.69
 </td>
 <td style="text-align:left;">
-NA
+Flask + connector
 </td>
-<td style="text-align:left;">
-NA
+<td style="text-align:right;">
+3.14
+</td>
+<td style="text-align:right;">
+78.5
 </td>
 </tr>
 </tbody>
 </table>
-<p>The approx. 4 g of dry mass graphene in wet condition was ultrasonicated for 20 min at 10 % intensity (the max the sonicator would do). This was then centrifuged at 1000 rpm for 10 min, the pellet removed and centrifuged at 4000 rpm for 1 hour, after which a transparent, grey supernatant remained. This was removed and the remaining graphene shaken into water and centrifuged at 4000 rpm for 20 minutes (the water washing repeated once more). The graphene was then washed into a new batch of 350 mL water, ultrasonicated for 20 minutes and spin-frozen in a 1 L roundbottomed flask. This was then put on the freeze dryer.</p>
+<p>The approx. 4 g of dry mass graphene in wet condition was ultrasonicated for 20 min at 10 % intensity (the max the sonicator would do). This was then centrifuged at 1000 rpm for 10 min, the pellet removed and centrifuged at 4000 rpm for 1-1.5 hr, after which a transparent, grey supernatant remained. This was removed and the remaining graphene shaken into water and centrifuged at 4000 rpm for 20 minutes (the water washing repeated once more). The graphene was then washed into a new batch of 350 mL water, ultrasonicated for 20 minutes and spin-frozen in a 1 L roundbottomed flask. This was then put on the freeze dryer.</p>
 </div>
 <div id="uv-vis" class="section level3">
 <h3>UV-Vis</h3>

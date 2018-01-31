@@ -35,24 +35,31 @@ knitr::kable(experiments, format = "html", col.names = c("Sample name", "Graphit
 ```
 
 
-*20180119_1_A* graphite was lowered into solution at ca. 40 minutes to utilise a larger amount of the graphite. 
-*20180119_1_B* is made by reusing the solution from the previous exfoliation but with new graphite. The solution was filtered to remove graphite and a new exfoliation started as soon as possible. Approx. 150 mL 0.1 M H~2~SO~4~ was added to make up for lost solvent. 
-*20180119_2_A* I ran out of diazonium salt so only 2.0958 g was added, making the concentration approx 4.33 mM. 
-*20180119_2_B* was made in in the same way as *1B*.
+* *20180119_1_A* graphite was lowered into solution at ca. 40 minutes to utilise a larger amount of the graphite. 
+* *20180119_1_B* is made by reusing the solution from the previous exfoliation but with new graphite. The solution was filtered to remove graphite and a new exfoliation started as soon as possible. Approx. 150 mL 0.1 M H~2~SO~4~ was added to make up for lost solvent. 
+* *20180119_2_A* I ran out of diazonium salt so only 2.0958 g was added, making the concentration approx 4.33 mM. 
+* *20180119_2_B* was made in in the same way as *1B*.
 
 ### Washing procedure
 All collected graphite was washed with 2 x 500 mL H2O, 1 x 500 mL acetonitrile and 1 x 500 mL H2O. In all cases the graphite was stirred with the solvent and filtered again to ensure proper washing. 
 
-### Ultrasonication
+### Ultrasonication and freeze-drying
 
 ```{r}
 experiments %>% 
-  transmute(name = name, m_graphene = 4, m_ultrasonic_wet = m_1g_wet * m_graphene, V_NMP = c(400, 320, 300, NA), m_flask = c(336.60, 277.28, 299.51, NA), comments = c("Flask + connector", "Flask + connector", "Flask only", NA), m_graphene = c(NA, NA, NA, NA), yield = c(NA, NA, NA, NA)) %>% 
+  transmute(name = name, m_graphene = 4, m_ultrasonic_wet = m_1g_wet * m_graphene) %>% 
+  mutate(
+    V_NMP = c(400, 320, 300, NA), 
+    m_flask = c(336.60, 277.28, 299.51, 335.69), 
+    comments = c("Flask + connector", "Flask + connector", "Flask only", "Flask + connector"), 
+    m_graphene_out = c(338.99, 282.22, 303.47, 338.83) - m_flask, 
+    yield = round(m_graphene_out / m_graphene * 100, digits = 1)
+    ) %>% 
   knitr::kable(format = "html") %>% 
   kableExtra::kable_styling(bootstrap_options = "striped")
 ```
 
-The approx. 4 g of dry mass graphene in wet condition was ultrasonicated for 20 min at 10 % intensity (the max the sonicator would do). This was then centrifuged at 1000 rpm for 10 min, the pellet removed and centrifuged at 4000 rpm for 1 hour, after which a transparent, grey supernatant remained. This was removed and the remaining graphene shaken into water and centrifuged at 4000 rpm for 20 minutes (the water washing repeated once more). The graphene was then washed into a new batch of 350 mL water, ultrasonicated for 20 minutes and spin-frozen in a 1 L roundbottomed flask. This was then put on the freeze dryer. 
+The approx. 4 g of dry mass graphene in wet condition was ultrasonicated for 20 min at 10 % intensity (the max the sonicator would do). This was then centrifuged at 1000 rpm for 10 min, the pellet removed and centrifuged at 4000 rpm for 1-1.5 hr, after which a transparent, grey supernatant remained. This was removed and the remaining graphene shaken into water and centrifuged at 4000 rpm for 20 minutes (the water washing repeated once more). The graphene was then washed into a new batch of 350 mL water, ultrasonicated for 20 minutes and spin-frozen in a 1 L roundbottomed flask. This was then put on the freeze dryer. 
 
 ### UV-Vis
 Concentrations of diazonium salt in the different solutions was determined through UV-Vis spectroscopy of the azo-dye that is formed when the diazonium compound is reacted with a basic solution of 2-Naphtol. The absorption spectrum was recorded between 400 and 700 nm. 

@@ -1,0 +1,26 @@
+---
+title: "20180131 Gr-NH2 stability in different solvents"
+---
+
+```{r, child="_setup.Rmd"}
+```
+
+We have spent a lot of time discussing the importance of the protonation state of the amine in Gr-NH~2~. To function in PUR-synthesis the amine should not be protonated. However, it was not something we were concerned about in Andreas' project, so it is uncertain how important this is. 
+
+It is believed that a protonated amine should help stabilise the graphene, due to repulsive charge interactions between layers.
+
+# Journal
+
+To test the influence of the protonation state a series of samples were made at a concentration of 1.0 mg/mL. The following solvents were used: 0.1 M H~2~SO~4~, demineralised water, 0.1 M NaOH, NMP and isopropanol. These were ultrasonicated for 1 hour.
+
+The pictures below show the samples before and after ultrasonication. 
+
+```{r}
+knitr::include_graphics(c('data/raw_data/MVIMG_20180131_144040.jpg', 'data/raw_data/MVIMG_20180131_154739.jpg'))
+```
+
+These will be left standing for a couple of days to see the long term stability of the suspensions. 
+
+# Results and discussion
+
+# Conclusion and outlook
