@@ -501,6 +501,20 @@ Temp (°C)
 <p>The aqueous graphene solution was washed out of centrifuge tubes, bringing to total volume up to ca. 120 mL. This ultrasonicated to disperse the graphene as good as possible and then spin-frozen in in liquid nitrogen on a rotary evaporator. It was then put on the freeze-dryer while wrapped in tissue-paper and alu-foil for insulation. The next morning the sample was completely dry and had formed a nice foam.</p>
 <p>A new NMP-sample was made by again ultrasonicating 24 g graphene in 100 mL NMP for 5 min, two cycles of centrifugation and washing with water and then ultrasonication in water, spin-freezing and again putting it on the freeze-dryer (wrapped in paper and alu-foil). This freeze-drying worked as intended and produced 0.78 g nice graphene powder.</p>
 <p>The remaning graphite (31.6 g) was ultrasonicated in 200 mL DMF for 10 minutes and processed as the previous productions. Finally it was ultrasonicated in approx 200 mL water, spin-frozen and put on the freeze-dryer. This resulted in 1.33 g graphene.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">path &lt;-<span class="st"> &quot;data/raw_data/uvvis/20180110_GrNH2_azodye/&quot;</span>
+uvvis20180110 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">files =</span> <span class="kw">list.files</span>(<span class="dt">path =</span> path, <span class="dt">pattern =</span> <span class="st">&quot;*.csv&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">name =</span> stringr<span class="op">::</span><span class="kw">str_sub</span>(files, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">end =</span> <span class="dv">12</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">time =</span> stringr<span class="op">::</span><span class="kw">str_extract</span>(files, <span class="dt">pattern =</span> <span class="st">&quot;</span><span class="ch">\\</span><span class="st">d+(?=min)&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.numeric</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">data =</span> <span class="kw">map</span>(<span class="kw">paste0</span>(path, files), read_delim, <span class="dt">delim =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>files) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">unnest</span>()
+
+eps499 =<span class="st"> </span><span class="fl">5.022</span> <span class="co"># L/cm*mmol, extincion coefficient for the azo-dye</span>
+
+full_data &lt;-<span class="st"> </span>uvvis20180110 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(nm <span class="op">==</span><span class="st"> </span><span class="dv">499</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conc =</span> A<span class="op">/</span>eps499 <span class="op">*</span><span class="st"> </span><span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Multiplied by 10 to get the diazonium-concentration</span>
+<span class="st">  </span><span class="kw">select</span>(name, time, conc)</code></pre></div>
 </div>
 <div id="results-and-discussion" class="section level1">
 <h1>Results and discussion</h1>
