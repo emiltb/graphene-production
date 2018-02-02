@@ -18,6 +18,7 @@ The method was devised by combining input from several references.[@Oneill2011; 
 3. The graphene was filtered 0.45 um nylon membrane filter and washed with THF and ethyl acetate. It was then dried overnight at room temperature.
 4. XPS analysis should be conducted. 
 
+(Update 20180202: The XPS is down, so I will have to wait or check with other spectroscopic methods for the C-F bond.)
 
 # Results and discussion
 

@@ -25,6 +25,7 @@ Electrochemistry provides the tools needed to produce and functionalise graphene
 * 20171103 ([PDF](biweekly_reports/20171103_Biweekly_report_Emil.pdf), [HTML](biweekly_reports/20171103_Biweekly_report_Emil.html))
 * 20171201 ([PDF](biweekly_reports/20171201_Biweekly_report_Emil.pdf), [HTML](biweekly_reports/20171201_Biweekly_report_Emil.html))
 * 20180119 ([PDF](biweekly_reports/20180119_Biweekly_report_Emil.pdf), [HTML](biweekly_reports/20180119_Biweekly_report_Emil.html))
+* 20180202 ([PDF](biweekly_reports/20180202_Biweekly_report_Emil.pdf), [HTML](biweekly_reports/20180202_Biweekly_report_Emil.html))
 
 ## Presentations
 * 20170928 Open Science meeting ([HTML](presentations/20170928_Producing_functionalised_graphene.html))

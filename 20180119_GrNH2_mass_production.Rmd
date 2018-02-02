@@ -54,7 +54,9 @@ experiments %>%
     comments = c("Flask + connector", "Flask + connector", "Flask only", "Flask + connector"), 
     m_graphene_out = c(338.99, 282.22, 303.47, 338.83) - m_flask, 
     yield = round(m_graphene_out / m_graphene * 100, digits = 1)
-    ) %>% 
+    ) -> exp_results
+
+exp_results %>% 
   knitr::kable(format = "html") %>% 
   kableExtra::kable_styling(bootstrap_options = "striped")
 ```
@@ -93,6 +95,8 @@ full_data <- uvvis20180119 %>%
   mutate(conc = A/eps499 * 10) %>% # Multiplied by 10 to get the diazonium-concentration
   select(name, time, conc) %>% 
   left_join(echem20180119)
+
+saveRDS(full_data %>% filter(time == 0) %>% select(name, conc) %>% right_join(exp_results), file = "data/derived_data/20180119_export.RData")
 ```
 
 

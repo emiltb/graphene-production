@@ -1,5 +1,7 @@
 ---
 title: "20180131 Gr-NH2 stability in different solvents"
+bibliography: misc/library.bib
+csl: misc/csl/american-chemical-society-with-titles-doi-no-et-al.csl
 ---
 
 ```{r, child="_setup.Rmd"}
@@ -21,6 +23,14 @@ knitr::include_graphics(c('data/raw_data/MVIMG_20180131_144040.jpg', 'data/raw_d
 
 These will be left standing for a couple of days to see the long term stability of the suspensions. 
 
+However, after standing for two days the picture is quite different. 
+
+```{r}
+knitr::include_graphics('data/raw_data/MVIMG_20180202_101027.jpg')
+```
+
 # Results and discussion
+It seems that a deprotonation of the amine is initially beneficial to the stability of the graphene in solution, as the sample in sulphuric acid did not dissolve at all. The long term stability is probably affected by the presence of ionic species in solution, an effect that has been described by Dryfe and co-workers.[@Rodgers2015]
 
 # Conclusion and outlook
+This crude test demonstrates that there is a significant effect of changing the pH of the solvent that the graphene is suspended in. This could influence the result of the reactivity test in [20180130](20180130_Analysing_reactive_amines_on_GrNH2.html).
