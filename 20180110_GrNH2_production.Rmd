@@ -74,7 +74,6 @@ This freeze-drying worked as intended and produced 0.78 g nice graphene powder.
 
 The remaning graphite (31.6 g) was ultrasonicated in 200 mL DMF for 10 minutes and processed as the previous productions. Finally it was ultrasonicated in approx 200 mL water, spin-frozen and put on the freeze-dryer. This resulted in 1.33 g graphene. 
 
-
 ```{r uvvis20180110}
 path <- "data/raw_data/uvvis/20180110_GrNH2_azodye/"
 uvvis20180110 <- tibble(files = list.files(path = path, pattern = "*.csv")) %>% 
@@ -92,7 +91,5 @@ full_data <- uvvis20180110 %>%
   select(name, time, conc)
 ```
 
-
-# Results and discussion
 
 # Conclusion and outlook
