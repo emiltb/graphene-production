@@ -1,1 +1,2 @@
 *.wdf filter=lfs diff=lfs merge=lfs -text
+*.dm3 filter=lfs diff=lfs merge=lfs -text
